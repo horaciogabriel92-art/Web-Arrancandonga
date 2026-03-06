@@ -422,6 +422,99 @@
             },
         ];
 
+        const projectsData = [
+            {
+                id: '1',
+                title: "Fika",
+                category: "identidad",
+                desc: "Branding completo para cafetería especializada",
+                clientReview: "Arrancandonga entendió exactamente mi visión.",
+                client: "Fika Coffee Shop",
+                year: "2024",
+                services: ["Estrategia de Marca", "Identidad Visual", "Diseño de Packaging"],
+                challenge: "Fika necesitaba destacar en un mercado saturado de cafeterías de especialidad, transmitiendo calidez pero manteniendo una estética muy limpia y profesional.",
+                solution: "Desarrollamos una identidad visual basada en el concepto sueco de 'Fika' (hacer una pausa). Utilizamos colores cálidos terrosos combinados con una tipografía moderna y minimalista.",
+                image1: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1497515114629-1c1a1bc8fa84?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&h=800&fit=crop"
+            },
+            {
+                id: '2',
+                title: "Luna Verde",
+                category: "web",
+                desc: "Sitio web e-commerce para marca de cosmética natural",
+                clientReview: "Profesionalismo y dedicación total.",
+                client: "Luna Verde Cosmética",
+                year: "2023",
+                services: ["Desarrollo Web", "E-commerce UI/UX"],
+                challenge: "Crear una tienda online fácil de usar que reflejara los valores orgánicos de la marca y aumentara las conversiones online.",
+                solution: "Diseñamos un e-commerce intuitivo, rápido y optimizado para móviles. Destacamos los ingredientes naturales a través de una paleta de colores tierra y verde.",
+                image1: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=800&fit=crop"
+            },
+            {
+                id: '3',
+                title: "María Paz",
+                category: "social",
+                desc: "Gestión de redes y contenido para emprendedora",
+                clientReview: "Contenido que conecta con mi audiencia.",
+                client: "María Paz Joyería",
+                year: "2024",
+                services: ["Estrategia Social Media", "Creación de Contenido"],
+                challenge: "María Paz tenía productos increíbles pero no lograba transmitir su valor a través de Instagram. Faltaba consistencia visual y estrategia.",
+                solution: "Creamos pilares de contenido claros, plantillas reutilizables y una estrategia de Reels para mostrar el proceso artesanal detrás de cada joya.",
+                image1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1515347619362-e6fd425d57b3?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1596950275817-de77685d038f?w=1200&h=800&fit=crop"
+            },
+            {
+                id: '4',
+                title: "Atelier",
+                category: "identidad",
+                desc: "Identidad visual para taller de costura",
+                clientReview: "Mi marca por fin se ve como yo soñaba.",
+                client: "Atelier Textil",
+                year: "2023",
+                services: ["Re-Branding", "Identidad Visual"],
+                challenge: "Modernizar una marca de costura clásica sin perder su esencia artesanal.",
+                solution: "Diseñamos un isotipo basado en una aguja e hilo con tipografía elegante.",
+                image1: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200&h=800&fit=crop"
+            },
+            {
+                id: '5',
+                title: "Consultora X",
+                category: "web",
+                desc: "Web institucional para consultora de negocios",
+                clientReview: "Claridad y efectividad en cada paso.",
+                client: "Consultora Strategic X",
+                year: "2024",
+                services: ["Diseño UX/UI", "Desarrollo Corporativo"],
+                challenge: "Crear una web corporativa que transmitiera confianza, profesionalismo y experiencia B2B.",
+                solution: "Estructura limpia, navegación clara y llamados a la acción estratégicamente ubicados.",
+                image1: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop"
+            },
+            {
+                id: '6',
+                title: "Tienda de Barrio",
+                category: "social",
+                desc: "Estrategia de contenido para tienda local",
+                clientReview: "Ahora tengo una comunidad fiel.",
+                client: "Almacén Local",
+                year: "2023",
+                services: ["Community Management", "Fotografía de Producto"],
+                challenge: "Digitalizar un negocio tradicional de barrio y atraer nuevo público local más joven.",
+                solution: "Contenido humano y cercano mostrando el día a día y ofertas locales con estética muy pulida.",
+                image1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&h=1080&fit=crop",
+                image2: "https://images.unsplash.com/photo-1596950275817-de77685d038f?w=1200&h=800&fit=crop",
+                image3: "https://images.unsplash.com/photo-1515347619362-e6fd425d57b3?w=1200&h=800&fit=crop"
+            }
+        ];
+
         const Hero = ({ setPage }) => (
             <section className="relative pt-16 md:pt-20 pb-20 md:pb-32 px-4 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center justify-center hero-grid bg-cream">
                 <div className="absolute top-20 left-4 md:left-20 w-10 h-10 md:w-16 md:h-16 bg-brandOrange rounded-full border-4 border-brandDark animate-float hidden sm:block"></div>
@@ -671,6 +764,7 @@
         };
 
         const PortfolioPreview = ({ setPage }) => {
+            const previewProjects = projectsData.slice(0, 3);
             return (
                 <section className="py-16 md:py-24 px-4 bg-brandPink/20 overflow-hidden">
                     <div className="max-w-7xl mx-auto">
@@ -686,19 +780,19 @@
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                            {[1, 2, 3].map((i) => (
-                                <div key={i}
+                            {previewProjects.map((project, i) => (
+                                <div key={project.id}
                                     className="group relative bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer aspect-[4/5]"
-                                    onClick={() => setPage('portfolio')}>
-                                    <img src={`https://images.unsplash.com/photo-${i === 1 ? '1558655146-d09347e92766' : i === 2 ? '1467232004584-a241de8bcf5d' : '1611162617474-5b21e879e113'}?w=800&h=600&fit=crop`}
-                                        alt="Proyecto" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                    onClick={() => setPage(`proyecto/${project.id}`)}>
+                                    <img src={project.image1}
+                                        alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
                                     <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                                        <span className={`${i === 1 ? 'bg-brandPink' : i === 2 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
-                                            {i === 1 ? 'Identidad Visual' : i === 2 ? 'Desarrollo Web' : 'Social Media'}
+                                        <span className={`${i === 0 ? 'bg-brandPink' : i === 1 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
+                                            {project.category === 'identidad' ? 'Identidad Visual' : project.category === 'web' ? 'Desarrollo Web' : 'Social Media'}
                                         </span>
                                     </div>
                                     <div className="absolute bottom-0 left-0 right-0 bg-white border-t-3 md:border-t-4 border-brandDark p-3 md:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                        <p className="font-display font-bold text-brandDark text-base md:text-lg">Proyecto Destacado {i}</p>
+                                        <p className="font-display font-bold text-brandDark text-base md:text-lg">{project.title}</p>
                                         <p className="text-xs md:text-sm text-brandDark/60">Ver caso completo →</p>
                                     </div>
                                 </div>
@@ -1295,18 +1389,9 @@ Se trata de enfocarse mejor.`,
                 { id: 'social', name: 'Social Media' }
             ];
 
-            const projects = [
-                { id: 1, title: "Fika", category: "identidad", desc: "Branding completo para cafetería especializada", clientReview: "Arrancandonga entendió exactamente mi visión." },
-                { id: 2, title: "Luna Verde", category: "web", desc: "Sitio web e-commerce para marca de cosmética natural", clientReview: "Profesionalismo y dedicación total." },
-                { id: 3, title: "María Paz", category: "social", desc: "Gestión de redes y contenido para emprendedora", clientReview: "Contenido que conecta con mi audiencia." },
-                { id: 4, title: "Atelier", category: "identidad", desc: "Identidad visual para taller de costura", clientReview: "Mi marca por fin se ve como yo soñaba." },
-                { id: 5, title: "Consultora X", category: "web", desc: "Web institucional para consultora de negocios", clientReview: "Claridad y efectividad en cada paso." },
-                { id: 6, title: "Tienda de Barrio", category: "social", desc: "Estrategia de contenido para tienda local", clientReview: "Ahora tengo una comunidad fiel." }
-            ];
-
             const filteredProjects = activeCategory === 'todos'
-                ? projects
-                : projects.filter(p => p.category === activeCategory);
+                ? projectsData
+                : projectsData.filter(p => p.category === activeCategory);
 
             return (
                 <div className="min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 px-4 bg-cream w-full overflow-hidden">
@@ -1338,10 +1423,11 @@ Se trata de enfocarse mejor.`,
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                             {filteredProjects.map((project) => (
-                                <div key={project.id} className="group bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div key={project.id} className="group bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer"
+                                    onClick={() => setPage(`proyecto/${project.id}`)}>
                                     <div className="aspect-[4/3] overflow-hidden bg-brandPink/20 relative">
                                         <img
-                                            src={`https://images.unsplash.com/photo-${project.id % 2 === 0 ? '1558655146-d09347e92766' : '1467232004584-a241de8bcf5d'}?w=800&h=600&fit=crop`}
+                                            src={project.image1}
                                             alt={project.title}
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                         />
@@ -1354,8 +1440,9 @@ Se trata de enfocarse mejor.`,
                                     <div className="p-4 md:p-6">
                                         <h3 className="font-display text-xl md:text-2xl font-bold text-brandDark mb-1 md:mb-2">{project.title}</h3>
                                         <p className="text-brandDark/70 mb-3 md:mb-4 text-xs md:text-sm">{project.desc}</p>
-                                        <div className="border-t-2 border-brandDark/10 pt-3 md:pt-4 mt-3 md:mt-4">
-                                            <p className="text-xs md:text-sm text-brandDark/60 italic">"{project.clientReview}"</p>
+                                        <div className="border-t-2 border-brandDark/10 pt-3 md:pt-4 mt-3 md:mt-4 flex justify-between items-center">
+                                            <p className="text-xs md:text-sm text-brandDark/60 italic max-w-[80%] truncate">"{project.clientReview}"</p>
+                                            <Icons.ArrowRight />
                                         </div>
                                     </div>
                                 </div>
@@ -1366,12 +1453,106 @@ Se trata de enfocarse mejor.`,
             );
         };
 
+        const ProjectDetail = ({ projectId, setPage }) => {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return (
+                <div className="min-h-screen pt-32 text-center">
+                    <h2 className="text-2xl font-bold">Proyecto no encontrado</h2>
+                    <button onClick={() => setPage('portfolio')} className="mt-4 text-brandOrange underline">Volver al portfolio</button>
+                </div>
+            );
+
+            return (
+                <div className="min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 px-4 bg-cream w-full overflow-hidden">
+                    <div className="max-w-7xl mx-auto">
+                        <button onClick={() => setPage('portfolio')} className="mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 text-sm md:text-base transition-colors">
+                            ← Volver al Portfolio
+                        </button>
+
+                        <div className="mb-8 md:mb-12">
+                            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brandDark mb-4">{project.title}</h1>
+                            <p className="text-xl md:text-2xl text-brandDark/70 max-w-3xl">{project.desc}</p>
+                        </div>
+
+                        <div className="aspect-[21/9] w-full rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-16 border-4 border-brandDark shadow-lg">
+                            <img src={project.image1} alt={project.title} className="w-full h-full object-cover" />
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
+                            {/* Lateral info */}
+                            <div className="lg:col-span-1 border-t-4 lg:border-t-0 lg:border-l-4 border-brandDark pt-8 lg:pt-0 lg:pl-8 lg:sticky lg:top-32 h-max">
+                                <div className="space-y-6">
+                                    <div>
+                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">Cliente</h4>
+                                        <p className="font-bold text-brandDark text-lg">{project.client}</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">Año</h4>
+                                        <p className="font-bold text-brandDark text-lg">{project.year}</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">Servicios</h4>
+                                        <ul className="space-y-1">
+                                            {project.services.map((s, i) => (
+                                                <li key={i} className="font-bold text-brandDark text-lg">{s}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Main content */}
+                            <div className="lg:col-span-2 space-y-12 md:space-y-16">
+                                <div>
+                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-brandDark mb-4">El desafío</h3>
+                                    <p className="text-brandDark/80 text-lg md:text-xl leading-relaxed whitespace-pre-line">{project.challenge}</p>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-brandDark mb-4">La solución</h3>
+                                    <p className="text-brandDark/80 text-lg md:text-xl leading-relaxed whitespace-pre-line">{project.solution}</p>
+                                </div>
+
+                                <div className="space-y-6 md:space-y-8">
+                                    <img src={project.image2} alt={`${project.title} detalle 1`} className="w-full rounded-2xl md:rounded-3xl border-4 border-brandDark shadow-md object-cover" />
+                                    <img src={project.image3} alt={`${project.title} detalle 2`} className="w-full rounded-2xl md:rounded-3xl border-4 border-brandDark shadow-md object-cover" />
+                                </div>
+
+                                <div className="bg-brandPink/30 rounded-3xl p-6 md:p-10 border-4 border-brandDark relative">
+                                    <div className="absolute -top-6 -left-4 text-6xl">✨</div>
+                                    <p className="text-xl md:text-2xl font-bold text-brandDark italic mb-4">"{project.clientReview}"</p>
+                                    <p className="font-display font-bold text-brandDark">{project.client}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
         const App = () => {
-            const [currentPage, setPage] = useState('home');
+            const [currentPage, setCurrentPage] = useState(() => {
+                const hash = window.location.hash.replace('#', '');
+                return hash || 'home';
+            });
             const [menuOpen, setMenuOpen] = useState(false);
 
             useEffect(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const handleHashChange = () => {
+                    const hash = window.location.hash.replace('#', '');
+                    setCurrentPage(hash || 'home');
+                };
+                window.addEventListener('hashchange', handleHashChange);
+                return () => window.removeEventListener('hashchange', handleHashChange);
+            }, []);
+
+            const setPage = (page) => {
+                window.location.hash = page;
+                setCurrentPage(page);
+            };
+
+            useEffect(() => {
+                window.scrollTo({ top: 0, behavior: 'instant' });
                 setMenuOpen(false);
             }, [currentPage]);
 
@@ -1460,6 +1641,7 @@ Se trata de enfocarse mejor.`,
                     <main className={`transition-opacity duration-300 ${menuOpen ? 'opacity-50' : 'opacity-100'} w-full`}>
                         {currentPage === 'home' && <Home setPage={setPage} />}
                         {currentPage === 'portfolio' && <PortfolioPage setPage={setPage} />}
+                        {currentPage.startsWith('proyecto/') && <ProjectDetail projectId={currentPage.replace('proyecto/', '')} setPage={setPage} />}
                         {servicesData.some(s => s.id === currentPage) && <ServicePage serviceId={currentPage} setPage={setPage} />}
                     </main>
 
