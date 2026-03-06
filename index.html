@@ -721,14 +721,14 @@
                 
                 <section className="py-16 md:py-24 px-4 bg-brandPurple relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <span className="font-display text-[25vw] md:text-[20vw] font-bold text-white whitespace-nowrap">VAMOS</span>
+                        <span className="font-display text-[25vw] md:text-[20vw] font-bold text-white whitespace-nowrap"></span>
                     </div>
                     <div className="max-w-4xl mx-auto text-center relative z-10 px-2">
                         <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 px-2">¿Lista para brillar?</h2>
                         <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 font-medium">Agendemos una evaluación gratuita</p>
-                        <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" 
-                           className="inline-flex items-center justify-center gap-2 md:gap-3 bg-white text-brandPurple px-6 py-3 md:px-10 md:py-5 rounded-full font-display font-bold text-base md:text-xl btn-lineal transform hover:scale-105 w-full sm:w-auto mx-auto">
-                            <Icons.Calendar /> <span className="whitespace-nowrap">Agenda tu reunión gratuita</span>
+                          <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" 
+                           className="inline-flex items-center justify-center gap-2 md:gap-3 bg-brandOrange text-white border-3 md:border-4 border-brandDark px-6 py-3 md:px-10 md:py-5 rounded-full font-display font-bold text-base md:text-xl transform hover:scale-105 transition-all w-full sm:w-auto mx-auto">
+                            <Icons.Calendar /> <span className="whitespace-nowrap">Agenda una evaluación gratuita</span>
                         </a>
                     </div>
                 </section>
@@ -1335,7 +1335,7 @@ Se trata de enfocarse mejor.`,
                     
                     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b-4 border-brandDark w-full">
                         <div className="max-w-7xl mx-auto px-3 md:px-4 h-16 md:h-20 flex justify-between items-center">
-                            <button onClick={() => setPage('home')} className="h-12 md:h-16 hover:opacity-80 transition-opacity">
+                            <button onClick={() => setPage('home')} className="h-16 md:h-20 hover:opacity-80 transition-opacity">
                                 <img 
                                     src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-09-scaled.png" 
                                     alt="ARRANCANDONGA" 
@@ -1351,9 +1351,10 @@ Se trata de enfocarse mejor.`,
                                     </button>
                                 ))}
                                 <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
-                                   className="ml-2 lg:ml-4 bg-brandPurple text-white px-4 lg:px-6 py-2 rounded-full font-display font-bold btn-lineal text-sm lg:text-base whitespace-nowrap">
+                                   className="ml-2 lg:ml-4 bg-brandOrange text-white border-2 border-brandDark px-4 lg:px-6 py-2 rounded-full font-display font-bold btn-lineal text-sm lg:text-base whitespace-nowrap">
                                     Agendar
                                 </a>
+
                             </div>
 
                             <button className="md:hidden w-10 h-10 sm:w-12 sm:h-12 bg-brandYellow border-2 border-brandDark rounded-xl flex items-center justify-center flex-shrink-0 ml-2" onClick={() => setMenuOpen(!menuOpen)}>
@@ -1410,22 +1411,22 @@ Se trata de enfocarse mejor.`,
                         {servicesData.some(s => s.id === currentPage) && <ServicePage serviceId={currentPage} setPage={setPage} />}
                     </main>
 
-                    <footer className="bg-brandPurple text-white py-12 md:py-16 px-4 border-t-4 border-brandDark w-full hero-grid relative">
+                    <footer className="bg-brandPurple text-[#303030] py-12 md:py-16 px-4 border-t-4 border-brandDark w-full hero-grid relative">
                         <div className="absolute inset-0 opacity-5" style={{
                             backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
                             backgroundSize: '40px 40px'
                         }}></div>
                         <div className="max-w-7xl mx-auto relative z-10">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left items-start">
-                                <div className="flex flex-col items-center md:items-start">
-                                    <div className="h-16 md:h-20 mb-4 md:mb-6">
+                                    <div className="h-24 md:h-32 mb-4 md:mb-6">
                                         <img 
-                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-36.png" 
+                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-08.png" 
                                             alt="ARRANCANDONGA" 
                                             className="h-full w-auto object-contain mx-auto md:mx-0"
                                         />
                                     </div>
-                                    <p className="text-white/70 mb-4 md:mb-6 max-w-sm text-sm md:text-base">Estratégico y con propósito para emprendedoras que quieren destacar.</p>
+                                    </div>
+                                    <p className="text-[#303030]/70 mb-4 md:mb-6 max-w-sm text-sm md:text-base">Estratégico y con propósito para emprendedoras que quieren destacar.</p>
                                     <div className="flex gap-3 justify-center md:justify-start">
                                         <a href="#" className="w-10 h-10 md:w-12 md:h-12 bg-brandPink rounded-full flex items-center justify-center border-2 border-white hover:scale-110 transition-transform text-brandDark">
                                             <Icons.Instagram />
@@ -1438,7 +1439,7 @@ Se trata de enfocarse mejor.`,
 
                                 <div className="flex flex-col items-center md:items-center">
                                     <h4 className="font-display font-bold text-brandYellow mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">Servicios</h4>
-                                    <ul className="space-y-2 md:space-y-3 text-white/70 text-sm md:text-base">
+                                    <ul className="space-y-2 md:space-y-3 text-[#303030]/70 text-sm md:text-base">
                                         {servicesData.slice(0,4).map(s => (
                                             <li key={s.id}><button onClick={() => setPage(s.id)} className="hover:text-white transition-colors hover:underline">{s.title}</button></li>
                                         ))}
@@ -1447,11 +1448,11 @@ Se trata de enfocarse mejor.`,
 
                                 <div className="flex flex-col items-center md:items-end text-center md:text-right">
                                     <h4 className="font-display font-bold text-brandYellow mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">Contacto</h4>
-                                    <ul className="space-y-2 md:space-y-3 text-white/70 text-sm md:text-base">
-                                        <li className="font-display text-base md:text-lg font-bold text-white">+598 99 928 009</li>
+                                    <ul className="space-y-2 md:space-y-3 text-[#303030]/70 text-sm md:text-base">
+                                        <li className="font-display text-base md:text-lg font-bold text-[#303030]">+598 99 928 009</li>
                                         <li>hola@arrancandonga.com</li>
                                         <li className="pt-2">
-                                            <a href="https://calendly.com" target="_blank" className="inline-flex items-center gap-2 text-brandYellow hover:text-white transition-colors font-medium">
+                                            <a href="https://calendly.com" target="_blank" className="inline-flex items-center gap-2 text-brandYellow hover:text-[#303030] transition-colors font-medium">
                                                 Agendar reunión →
                                             </a>
                                         </li>
@@ -1460,7 +1461,7 @@ Se trata de enfocarse mejor.`,
                             </div>
                             
                             <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-white/10 text-center">
-                                <p className="text-white/50 text-xs md:text-sm">© 2026 Arrancandonga. Con amor y estrategia</p>
+                                <p className="text-[#303030]/50 text-xs md:text-sm">© 2026 Arrancandonga. Con amor y estrategia</p>
                             </div>
                         </div>
                     </footer>
