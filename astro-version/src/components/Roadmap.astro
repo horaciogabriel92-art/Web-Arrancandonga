@@ -1,0 +1,197 @@
+---
+const steps = [
+    { num: "01", title: "Nos conocemos mejor", desc: "Primero agendamos una reunión. Quiero entender tu negocio, tu momento actual y hacia dónde querés crecer. Luego te envío un presupuesto.", color: "bg-brandPink" },
+    { num: "02", title: "Definimos el camino", desc: "Para comenzar, se realiza una seña del 50% del servicio. Eso asegura tu proyecto y agenda tu lugar en mi calendario de trabajo.", color: "bg-brandYellow" },
+    { num: "03", title: "Me contás tus ideas", desc: "Te voy a mandar un formulario con diferentes preguntas que van a ayudarme a entender por completo tu idea y que estas buscando transmitir con tu marca.", color: "bg-brandBlue" },
+    { num: "04", title: "Proceso creativo", desc: "En aproximadamente 10 a 15 días hábiles vas a recibir la propuesta diseñada especialmente para tu marca, basada en todo lo que definimos y conversamos.", color: "bg-brandOrange" },
+    { num: "05", title: "Ajustamos", desc: "Revisamos, afinamos detalles y dejamos todo listo hasta que te sientas 100% feliz con tu nueva marca <3", color: "bg-brandOlive" },
+    { num: "06", title: "Final del proyecto", desc: "Luego de realizar el pago final recibís tus archivos y herramientas listas para usar. Tu marca sale al mundo con coherencia y dirección.", color: "bg-brandLavender" },
+];
+---
+
+<section id="roadmap-section" class="py-16 md:py-32 px-4 bg-cream relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative">
+        <div class="text-center mb-12 md:mb-24 px-2">
+            <span class="inline-block bg-brandOrange text-white px-3 py-1 md:px-4 md:py-1 rounded-full text-xs md:text-sm font-display font-bold mb-3 md:mb-4 border-2 border-brandDark transform -rotate-2">
+                EL PROCESO
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brandDark mb-3 md:mb-4">
+                ¿Cómo trabajo?
+            </h2>
+            <p class="text-sm sm:text-base md:text-lg text-brandDark/70 max-w-2xl mx-auto">
+                Trabajo de forma clara, cercana y con propósito. Cada proyecto es distinto, pero siempre seguimos una estructura que nos permite avanzar con orden y coherencia.
+            </p>
+        </div>
+
+        <div class="relative">
+            <!-- SVG Path tipo "mapa del tesoro" - SOLO DESKTOP -->
+            <svg class="roadmap-svg absolute inset-0 w-full h-full pointer-events-none hidden lg:block" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <linearGradient id="roadmapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FE5007" />
+                        <stop offset="50%" stop-color="#FDB62A" />
+                        <stop offset="100%" stop-color="#FE5007" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Línea de fondo gris (guía) -->
+                <path
+                    id="bg-path"
+                    d="M 150 80 C 300 80, 400 80, 500 80 S 700 80, 850 80 S 950 200, 850 300 S 700 400, 500 400 S 300 400, 150 400 S 50 550, 150 620 S 400 620, 500 620 S 700 620, 850 620"
+                    fill="none"
+                    stroke="#1a1a1a"
+                    stroke-width="3"
+                    stroke-dasharray="10 8"
+                    opacity="0.15"
+                />
+                
+                <!-- Línea naranja animada -->
+                <path
+                    id="animated-path"
+                    d="M 150 80 C 300 80, 400 80, 500 80 S 700 80, 850 80 S 950 200, 850 300 S 700 400, 500 400 S 300 400, 150 400 S 50 550, 150 620 S 400 620, 500 620 S 700 620, 850 620"
+                    fill="none"
+                    stroke="url(#roadmapGradient)"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="filter: drop-shadow(0 3px 6px rgba(254, 80, 7, 0.4)); stroke-dasharray: 3000; stroke-dashoffset: 3000;"
+                />
+            </svg>
+
+            <!-- Línea vertical para mobile -->
+            <div class="lg:hidden absolute left-4 md:left-8 top-0 bottom-0 w-1.5 bg-brandDark/20 rounded-full">
+                <div id="mobile-progress-line" class="absolute top-0 left-0 w-full bg-gradient-to-b from-brandOrange to-brandYellow rounded-full transition-all duration-300 ease-out" style="height: 0%;"></div>
+            </div>
+
+            <!-- Grid de tarjetas -->
+            <div id="roadmap-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative z-10 pl-8 md:pl-16 lg:pl-0">
+                {steps.map((step, idx) => (
+                    <div 
+                        class={`roadmap-step relative transition-all duration-700 ease-out ${idx >= 3 ? 'lg:mt-12' : ''}`}
+                        data-index={idx}
+                    >
+                        <!-- Indicador para mobile -->
+                        <div class="lg:hidden absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 z-20">
+                            <div class="step-dot-mobile w-5 h-5 rounded-full border-2 border-brandDark bg-white transition-all duration-500 shadow-md">
+                                <div class="step-ping absolute inset-0 rounded-full bg-brandOrange opacity-0 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+
+                        <div class={`${step.color} rounded-2xl md:rounded-3xl p-6 md:p-8 border-3 md:border-4 border-brandDark shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden`}>
+                            <!-- Número grande de fondo -->
+                            <div class="absolute -right-2 md:-right-4 -top-2 md:-top-4 font-display text-6xl md:text-9xl font-bold text-brandDark/5 select-none pointer-events-none">
+                                {step.num}
+                            </div>
+
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="step-number w-10 h-10 rounded-full border-2 border-brandDark flex items-center justify-center font-display font-bold text-base bg-white text-brandDark transition-all duration-500 shadow-sm">
+                                        {step.num}
+                                    </div>
+                                </div>
+
+                                <h3 class="font-display text-xl md:text-2xl font-bold text-brandDark mb-3 leading-tight">{step.title}</h3>
+                                <p class="text-brandDark/80 font-medium leading-relaxed text-sm md:text-base">{step.desc}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Script del cliente
+    (function() {
+        const section = document.getElementById('roadmap-section');
+        const animatedPath = document.getElementById('animated-path');
+        const mobileProgress = document.getElementById('mobile-progress-line');
+        const steps = document.querySelectorAll('.roadmap-step');
+        
+        function updateAnimation() {
+            if (!section) return;
+            
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Calcular progreso del scroll
+            const startTrigger = rect.top - windowHeight * 0.2;
+            const endTrigger = rect.bottom - windowHeight * 0.3;
+            const totalDistance = endTrigger - startTrigger;
+            const currentProgress = -startTrigger;
+            let scrollProgress = currentProgress / totalDistance;
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+            
+            // Animar la línea naranja (desktop)
+            if (animatedPath && window.innerWidth >= 1024) {
+                const pathLength = animatedPath.getTotalLength();
+                const drawLength = pathLength * scrollProgress;
+                animatedPath.style.strokeDashoffset = pathLength - drawLength;
+            }
+            
+            // Animar barra mobile
+            if (mobileProgress) {
+                mobileProgress.style.height = `${scrollProgress * 100}%`;
+            }
+            
+            // Activar pasos progresivamente
+            steps.forEach((step, idx) => {
+                const stepThreshold = (idx + 0.5) / steps.length;
+                const isActive = scrollProgress >= stepThreshold;
+                
+                if (isActive) {
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateY(0)';
+                    
+                    const number = step.querySelector('.step-number');
+                    if (number) {
+                        number.classList.add('bg-brandOrange', 'text-white');
+                        number.classList.remove('bg-white', 'text-brandDark');
+                    }
+                    
+                    const ping = step.querySelector('.step-ping');
+                    if (ping) ping.classList.add('opacity-75', 'animate-ping');
+                } else {
+                    step.style.opacity = '0.4';
+                    step.style.transform = 'translateY(20px)';
+                    
+                    const number = step.querySelector('.step-number');
+                    if (number) {
+                        number.classList.remove('bg-brandOrange', 'text-white');
+                        number.classList.add('bg-white', 'text-brandDark');
+                    }
+                    
+                    const ping = step.querySelector('.step-ping');
+                    if (ping) ping.classList.remove('opacity-75', 'animate-ping');
+                }
+            });
+        }
+        
+        // Inicializar
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', updateAnimation, { passive: true });
+            window.addEventListener('load', () => setTimeout(updateAnimation, 100));
+            updateAnimation();
+        }
+    })();
+</script>
+
+<style>
+    .roadmap-svg {
+        z-index: 1;
+        overflow: visible;
+    }
+    
+    .roadmap-step {
+        opacity: 0.4;
+        transform: translateY(20px);
+        will-change: opacity, transform;
+    }
+    
+    @media (max-width: 1023px) {
+        .roadmap-svg {
+            display: none !important;
+        }
+    }
+</style>

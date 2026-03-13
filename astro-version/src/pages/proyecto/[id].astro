@@ -1,0 +1,731 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { projectsData } from '../../data/projectsData.js';
+
+export function getStaticPaths() {
+  return projectsData.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+    identidad: 'bg-brandPink',
+    web: 'bg-brandBlue',
+    social: 'bg-brandOrange'
+};
+
+const categoryNames: Record<string, string> = {
+    identidad: 'Identidad Visual',
+    web: 'Desarrollo Web',
+    social: 'Social Media'
+};
+
+const isEdesiaSocial = project.id === '2';
+
+const images = [project.image1, project.image2, project.image3];
+
+// Estilos para el carrusel 3D de reels y solución
+const reelCarouselStyles = `
+    #reelsContainer {
+        transform-style: preserve-3d;
+        perspective: 1200px;
+    }
+    .reel-card {
+        backface-visibility: hidden;
+        will-change: transform, opacity;
+    }
+    .reel-card.active {
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    }
+    @media (max-width: 768px) {
+        #reelsContainer {
+            perspective: 800px;
+        }
+    }
+    /* Estilos para el contenido de la solución */
+    .solution-content h4 {
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        margin-top: 1rem;
+    }
+    .solution-content h4:first-child {
+        margin-top: 0;
+    }
+    .solution-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .solution-content li {
+        margin-bottom: 0.5rem;
+    }
+    .solution-content strong {
+        font-weight: 700;
+    }
+    .solution-content p {
+        margin-bottom: 1rem;
+    }
+    .solution-content p:last-child {
+        margin-bottom: 0;
+    }
+`;
+---
+
+<Layout title={`${project.title} | Portfolio Arrancandonga`}>
+    <style set:html={reelCarouselStyles} />
+    <div class="min-h-screen bg-cream overflow-x-hidden w-full flex flex-col">
+        <div class="grain"></div>
+        <Header />
+
+        <main class="w-full flex-grow relative z-10 pt-4 md:pt-6 pb-16 md:pb-24 px-4 bg-cream">
+            <div class="max-w-7xl mx-auto">
+                <a href="/portfolio" class="inline-block mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 text-sm md:text-base transition-colors w-max">
+                    ← Volver al Portfolio
+                </a>
+
+                {/* Header del proyecto */}
+                <div class="mb-8 md:mb-12">
+                    <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-4">
+                        <span class={`${categoryColors[project.category] || 'bg-brandYellow'} px-3 py-1 rounded-full border-2 border-brandDark text-xs md:text-sm font-display font-bold uppercase`}>
+                            {categoryNames[project.category]}
+                        </span>
+                        {project.tags && project.tags.map((tag: string) => (
+                            <span class="bg-white px-3 py-1 rounded-full border-2 border-brandDark/30 text-xs md:text-sm font-medium text-brandDark">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                    
+                    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brandDark mb-4">{project.title}</h1>
+                    <p class="text-xl md:text-2xl text-brandDark/70 max-w-3xl">{project.desc}</p>
+                </div>
+
+                {/* Imagen principal */}
+                <div class="relative aspect-[21/9] w-full rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-16 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] cursor-pointer group modal-trigger" data-index="0">
+                    <img src={project.image1} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-4 border-4 border-brandDark">
+                            <span class="text-2xl">🔍</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Estadísticas */}
+                {project.stats && (
+                    <div class="bg-brandYellow rounded-3xl md:rounded-[3rem] p-6 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] mb-10 md:mb-16 transform hover:-translate-y-1 transition-transform">
+                        <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark text-center mb-6 md:mb-8">Resultados del proyecto</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+                            {project.stats.map((stat: any) => (
+                                <div class="bg-white rounded-2xl p-3 md:p-6 border-3 border-brandDark text-center">
+                                    <p class="font-display text-2xl md:text-4xl font-bold text-brandOrange mb-1">{stat.value}</p>
+                                    <p class="text-brandDark/70 text-xs md:text-base font-medium">{stat.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Bloque de métricas de Instagram para Edesia Social Media */}
+                {isEdesiaSocial && (
+                    <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-3xl md:rounded-[3rem] p-6 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] mb-10 md:mb-16 transform hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-10 right-10 w-60 h-60 bg-yellow-300 rounded-full blur-3xl"></div>
+                        </div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex flex-col md:flex-row items-center gap-3 mb-6 md:mb-8 text-center md:text-left">
+                                <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl border-4 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 md:w-8 md:h-8 text-pink-600" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-display text-xl md:text-3xl font-bold text-white">Crecimiento en Instagram</h3>
+                                    <p class="text-white/80 text-sm md:text-base">@edesiacafe.uy</p>
+                                </div>
+                            </div>
+
+                            {/* Métricas principales */}
+                            <div class="grid grid-cols-3 gap-2 md:gap-6 mb-6 md:mb-8">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-6 border-2 border-white/30 text-center">
+                                    <p class="font-display text-xl md:text-5xl font-bold text-white mb-0 md:mb-1">800</p>
+                                    <p class="text-white/80 text-xs md:text-sm font-medium">Inicio</p>
+                                </div>
+                                <div class="bg-white rounded-xl md:rounded-2xl p-2 md:p-6 border-4 border-brandDark text-center transform md:scale-110">
+                                    <p class="font-display text-xl md:text-5xl font-bold text-brandOrange mb-0 md:mb-1">6.1K</p>
+                                    <p class="text-brandDark/70 text-xs md:text-sm font-medium">Actual</p>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-6 border-2 border-white/30 text-center">
+                                    <p class="font-display text-lg md:text-5xl font-bold text-yellow-300 mb-0 md:mb-1">+662%</p>
+                                    <p class="text-white/80 text-xs md:text-sm font-medium">Crecimiento</p>
+                                </div>
+                            </div>
+
+                            {/* Gráfico de barras - 5 meses */}
+                            <div class="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-6 border-2 border-white/30 mb-4">
+                                <p class="text-white font-bold text-sm md:text-base mb-3 md:mb-4 text-center">Evolución de seguidores (5 meses de trabajo)</p>
+                                <div class="flex items-end justify-between gap-1 md:gap-4 h-48 md:h-80 px-1 md:px-2">
+                                    {[
+                                        { month: 'Mes 1', value: 25, followers: '1.1K' },
+                                        { month: 'Mes 2', value: 45, followers: '2.3K' },
+                                        { month: 'Mes 3', value: 65, followers: '3.8K' },
+                                        { month: 'Mes 4', value: 82, followers: '5.0K' },
+                                        { month: 'Mes 5', value: 100, followers: '6.1K' },
+                                    ].map((bar, i) => (
+                                        <div class="flex-1 flex flex-col items-center gap-1 md:gap-2 group">
+                                            <div class="relative w-full">
+                                                <div 
+                                                    class="w-full bg-gradient-to-t from-pink-500 to-yellow-400 rounded-t-md md:rounded-t-lg border-2 border-white transition-all duration-700 group-hover:from-pink-400 group-hover:to-yellow-300"
+                                                    style={`height: ${bar.value * 1.5}px;`}
+                                                ></div>
+                                                <div class="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 bg-brandDark text-white px-1.5 md:px-2 py-0.5 rounded text-[10px] md:text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                                    {bar.followers}
+                                                </div>
+                                            </div>
+                                            <p class="text-white/80 text-[10px] md:text-xs font-medium">{bar.month}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Stats adicionales */}
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 border border-white/20 text-center">
+                                    <p class="text-white font-display text-lg md:text-2xl font-bold">+5.3K</p>
+                                    <p class="text-white/70 text-[10px] md:text-xs">Nuevos seguidores</p>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 border border-white/20 text-center">
+                                    <p class="text-white font-display text-lg md:text-2xl font-bold">5</p>
+                                    <p class="text-white/70 text-[10px] md:text-xs">Meses de trabajo</p>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 border border-white/20 text-center">
+                                    <p class="text-white font-display text-lg md:text-2xl font-bold">25+</p>
+                                    <p class="text-white/70 text-[10px] md:text-xs">Reels publicados</p>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 border border-white/20 text-center">
+                                    <p class="text-white font-display text-lg md:text-2xl font-bold">150K+</p>
+                                    <p class="text-white/70 text-[10px] md:text-xs">Visualizaciones</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
+                    {/* Lateral info */}
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] lg:sticky lg:top-32">
+                            <h3 class="font-display text-xl font-bold text-brandDark mb-6 pb-4 border-b-2 border-brandDark/10">Información del proyecto</h3>
+                            
+                            <div class="space-y-5">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-brandPink rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                        <span class="text-lg">👤</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-0.5">Cliente</h4>
+                                        <p class="font-bold text-brandDark">{project.client}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-brandYellow rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                        <span class="text-lg">📅</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-0.5">Año</h4>
+                                        <p class="font-bold text-brandDark">{project.year}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-brandBlue rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                        <span class="text-lg">🛠️</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-0.5">Servicios</h4>
+                                        <div class="flex flex-wrap gap-1.5 mt-1">
+                                            {project.services.map((s: string) => (
+                                                <span class="bg-brandYellow/30 px-2 py-0.5 rounded text-xs font-bold text-brandDark">{s}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {project.tags && (
+                                    <div class="flex items-start gap-3 pt-4 border-t border-brandDark/10">
+                                        <div class="w-10 h-10 bg-brandLavender rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                            <span class="text-lg">🏷️</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-0.5">Etiquetas</h4>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                {project.tags.map((tag: string) => (
+                                                    <span class="bg-brandLavender/50 px-2 py-0.5 rounded text-xs font-medium text-brandDark">{tag}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Main content */}
+                    <div class="lg:col-span-2 space-y-10 md:space-y-14">
+                        {/* Proyecto relacionado */}
+                        {project.relatedProject && (
+                            <a href={`/proyecto/${project.relatedProject.id}`} class="block bg-brandPink rounded-2xl p-6 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[8px_8px_0px_#27272A] transform hover:-translate-y-1 transition-all group">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm font-bold text-brandDark/60 uppercase tracking-wider mb-1">Proyecto relacionado</p>
+                                        <p class="font-display text-lg md:text-xl font-bold text-brandDark group-hover:text-brandOrange transition-colors">{project.relatedProject.title}</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-white rounded-full border-3 border-brandDark flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <span class="text-xl">→</span>
+                                    </div>
+                                </div>
+                                <p class="text-brandDark/80 text-sm mt-3 font-medium">{project.relatedProject.label}</p>
+                            </a>
+                        )}
+
+                        {/* El desafío */}
+                        <div class="bg-white rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-[6px_6px_0px_#27272A]">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 bg-brandOrange rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                    <span class="text-2xl">🎯</span>
+                                </div>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">El desafío</h3>
+                            </div>
+                            <p class="text-brandDark/80 text-base md:text-lg leading-relaxed whitespace-pre-line">{project.challenge}</p>
+                        </div>
+
+                        {/* La solución */}
+                        <div class="bg-brandPink rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-[6px_6px_0px_#27272A]">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                    <span class="text-2xl">💡</span>
+                                </div>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">La solución</h3>
+                            </div>
+                            <div class="text-brandDark/90 text-base md:text-lg leading-relaxed whitespace-pre-line solution-content" set:html={project.solution} />
+                        </div>
+
+                        {/* Galería de imágenes */}
+                        <div class="space-y-6 md:space-y-8">
+                            <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
+                            <div class={`grid gap-4 md:gap-6 ${isEdesiaSocial ? 'md:grid-cols-1' : 'md:grid-cols-2'}`}>
+                                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="1">
+                                    <img src={project.image2} alt={`${project.title} detalle 1`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
+                                            <span class="text-xl">🔍</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="2">
+                                    <img src={project.image3} alt={`${project.title} detalle 2`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
+                                            <span class="text-xl">🔍</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Carrusel Circular 3D de Reels - Solo para Edesia Social Media */}
+                        {isEdesiaSocial && project.reels && (
+                            <div class="pt-4">
+                                <div class="flex items-center gap-3 mb-8">
+                                    <div class="w-12 h-12 bg-brandPink rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-brandDark" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Reels destacados</h3>
+                                </div>
+                                
+                                {/* Contenedor del Carrusel 3D */}
+                                <div class="relative h-[500px] md:h-[600px] flex items-center justify-center" id="reelsCarousel">
+                                    {/* Botones de navegación laterales */}
+                                    <button id="reelsPrev" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-brandYellow rounded-full border-4 border-brandDark flex items-center justify-center text-2xl shadow-[4px_4px_0px_#27272A] hover:shadow-[6px_6px_0px_#27272A] hover:-translate-y-1 transition-all">
+                                        ←
+                                    </button>
+                                    <button id="reelsNext" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-brandYellow rounded-full border-4 border-brandDark flex items-center justify-center text-2xl shadow-[4px_4px_0px_#27272A] hover:shadow-[6px_6px_0px_#27272A] hover:-translate-y-1 transition-all">
+                                        →
+                                    </button>
+                                    
+                                    {/* Contenedor circular */}
+                                    <div class="relative w-[280px] h-[400px] md:w-[320px] md:h-[480px]" id="reelsContainer">
+                                        {project.reels.map((reel: any, index: number) => {
+                                            const angle = (360 / project.reels.length) * index;
+                                            return (
+                                                <div 
+                                                    class="reel-card absolute w-[180px] h-[320px] md:w-[200px] md:h-[360px] left-1/2 top-1/2 -ml-[90px] -mt-[160px] md:-ml-[100px] md:-mt-[180px] transition-all duration-500 ease-out cursor-pointer"
+                                                    data-index={index}
+                                                    data-angle={angle}
+                                                    style={`transform: rotateY(${angle}deg) translateZ(200px) scale(0.7); opacity: 0.5;`}
+                                                >
+                                                    <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] bg-brandPink reel-content">
+                                                        {/* Thumbnail */}
+                                                        <img 
+                                                            src={reel.thumbnail} 
+                                                            alt={`Reel ${index + 1}`}
+                                                            class="w-full h-full object-cover"
+                                                        />
+                                                        {/* Overlay */}
+                                                        <div class="absolute inset-0 bg-black/30"></div>
+                                                        {/* Botón de Play */}
+                                                        <div class="absolute inset-0 flex items-center justify-center reel-play-btn">
+                                                            <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full border-4 border-brandDark flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                                                <svg class="w-7 h-7 md:w-8 md:h-8 text-brandDark ml-1" viewBox="0 0 24 24" fill="currentColor">
+                                                                    <path d="M8 5v14l11-7z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        {/* Número */}
+                                                        <div class="absolute top-3 left-3 bg-brandYellow px-3 py-1 rounded-full border-2 border-brandDark">
+                                                            <span class="text-sm font-bold text-brandDark">#{index + 1}</span>
+                                                        </div>
+                                                        {/* URL del reel */}
+                                                        <div class="reel-url hidden" data-url={reel.url}></div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    
+                                    {/* Indicador de swipe */}
+                                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-2 text-brandDark/50 md:hidden">
+                                        <span class="text-sm">← Desliza →</span>
+                                    </div>
+                                </div>
+                                
+                                {/* Indicadores de posición */}
+                                <div class="flex justify-center gap-2 mt-6" id="reelsIndicators">
+                                    {project.reels.map((_: any, index: number) => (
+                                        <button 
+                                            class={`reels-indicator w-3 h-3 rounded-full border-2 border-brandDark transition-all ${index === 0 ? 'bg-brandPink w-8' : 'bg-white'}`}
+                                            data-index={index}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Testimonio */}
+                        <div class="bg-brandYellow rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] relative transform hover:-translate-y-1 transition-transform">
+                            <div class="absolute -top-6 left-8 md:left-12 w-16 h-16 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-3xl transform -rotate-12">
+                                💬
+                            </div>
+                            <div class="absolute top-8 right-8 w-8 h-8 bg-brandOrange rounded-full border-2 border-brandDark"></div>
+                            <div class="absolute bottom-8 left-8 w-6 h-6 bg-brandPink rounded-full border-2 border-brandDark"></div>
+                            
+                            <p class="text-xl md:text-2xl font-bold text-brandDark italic mb-6 leading-relaxed pt-4">"{project.clientReview}"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-white rounded-full border-3 border-brandDark flex items-center justify-center">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <p class="font-display font-bold text-brandDark text-lg">{project.client}</p>
+                            </div>
+                        </div>
+
+                        {/* CTA */}
+                        <div class="text-center pt-8">
+                            <p class="text-xl md:text-2xl font-bold text-brandDark mb-6">¿Te gustaría trabajar en un proyecto similar?</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="https://calendly.com/arrancandonga-estudiocreativo/conocernos-mejor" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-8 py-4 rounded-full font-display font-bold btn-lineal text-base md:text-lg shadow-lg hover:shadow-xl border-2 border-brandDark">
+                                    <Icon name="Calendar" /> <span>Agendar reunión</span>
+                                </a>
+                                <a href="https://wa.me/59899928009" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-display font-bold text-base md:text-lg shadow-lg hover:shadow-xl border-2 border-transparent hover:border-white transition-colors">
+                                    <Icon name="WhatsApp" /> <span>Escribir por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <Footer />
+    </div>
+
+    {/* Modal para Reels de Instagram */}
+    <div id="reelModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
+        <button id="closeReelModalBtn" class="absolute top-4 right-4 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandPink transition-colors z-20">
+            ✕
+        </button>
+        <div class="relative w-full max-w-[400px] h-[80vh] rounded-3xl overflow-hidden border-4 border-brandDark shadow-[8px_8px_0px_#27272A] bg-brandDark">
+            <iframe 
+                id="reelIframe"
+                src="" 
+                class="w-full h-full"
+                frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+
+    {/* Modal */}
+    <div id="imageModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+        <button id="closeModalBtn" class="absolute top-4 right-4 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandPink transition-colors z-10">
+            ✕
+        </button>
+        <button id="prevImageBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandYellow transition-colors z-10">
+            ←
+        </button>
+        <button id="nextImageBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandYellow transition-colors z-10">
+            →
+        </button>
+        <img id="modalImage" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl border-4 border-white" />
+        <p id="modalCaption" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full border-2 border-brandDark font-bold text-brandDark"></p>
+    </div>
+
+    <script define:vars={{ images, title: project.title }}>
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const prevBtn = document.getElementById('prevImageBtn');
+        const nextBtn = document.getElementById('nextImageBtn');
+        const triggers = document.querySelectorAll('.modal-trigger');
+        
+        let currentIndex = 0;
+
+        function openModal(index) {
+            currentIndex = index;
+            modalImage.src = images[index];
+            modalCaption.textContent = title + ' - Imagen ' + (index + 1);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            modalImage.src = images[currentIndex];
+            modalCaption.textContent = title + ' - Imagen ' + (currentIndex + 1);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            modalImage.src = images[currentIndex];
+            modalCaption.textContent = title + ' - Imagen ' + (currentIndex + 1);
+        }
+
+        // Event listeners
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const index = parseInt(trigger.getAttribute('data-index'));
+                openModal(index);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Carrusel Circular 3D de Reels
+        const reelsContainer = document.getElementById('reelsContainer');
+        const reelsPrev = document.getElementById('reelsPrev');
+        const reelsNext = document.getElementById('reelsNext');
+        const reelCards = document.querySelectorAll('.reel-card');
+        const reelIndicators = document.querySelectorAll('.reels-indicator');
+        
+        if (reelsContainer && reelsPrev && reelsNext && reelCards.length > 0) {
+            let currentReelIndex = 0;
+            const totalReels = reelCards.length;
+            const angleStep = 360 / totalReels;
+            
+            function updateCarousel() {
+                reelCards.forEach((card, i) => {
+                    const offset = i - currentReelIndex;
+                    let angle = offset * angleStep;
+                    
+                    // Normalizar ángulo para que esté entre -180 y 180
+                    if (angle > 180) angle -= 360;
+                    if (angle < -180) angle += 360;
+                    
+                    // Calcular posición y escala
+                    const isActive = i === currentReelIndex;
+                    const absAngle = Math.abs(angle);
+                    
+                    let translateZ = 200;
+                    let scale = 0.7;
+                    let opacity = 0.5;
+                    let zIndex = 10 - absAngle;
+                    
+                    if (isActive) {
+                        translateZ = 280;
+                        scale = 1;
+                        opacity = 1;
+                        zIndex = 20;
+                    } else if (absAngle <= angleStep * 1.5) {
+                        // Tarjetas cercanas
+                        translateZ = 200 - (absAngle * 0.5);
+                        scale = 0.75;
+                        opacity = 0.7;
+                        zIndex = 15 - Math.floor(absAngle / angleStep);
+                    }
+                    
+                    card.style.transform = `rotateY(${angle}deg) translateZ(${translateZ}px) scale(${scale})`;
+                    card.style.opacity = opacity;
+                    card.style.zIndex = zIndex;
+                    
+                    // Añadir/quitar clase activa
+                    if (isActive) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar indicadores
+                reelIndicators.forEach((ind, i) => {
+                    if (i === currentReelIndex) {
+                        ind.classList.add('bg-brandPink', 'w-8');
+                        ind.classList.remove('bg-white');
+                    } else {
+                        ind.classList.remove('bg-brandPink', 'w-8');
+                        ind.classList.add('bg-white');
+                    }
+                });
+            }
+            
+            // Inicializar
+            reelsContainer.style.transformStyle = 'preserve-3d';
+            reelsContainer.style.perspective = '1000px';
+            updateCarousel();
+            
+            // Navegación con botones
+            reelsPrev.addEventListener('click', () => {
+                currentReelIndex = (currentReelIndex - 1 + totalReels) % totalReels;
+                updateCarousel();
+            });
+            
+            reelsNext.addEventListener('click', () => {
+                currentReelIndex = (currentReelIndex + 1) % totalReels;
+                updateCarousel();
+            });
+            
+            // Click en tarjeta para activarla
+            reelCards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (i !== currentReelIndex) {
+                        currentReelIndex = i;
+                        updateCarousel();
+                    }
+                });
+            });
+            
+            // Touch/Swipe support
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            reelsContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            reelsContainer.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const diffX = touchStartX - touchEndX;
+                const diffY = touchStartY - touchEndY;
+                
+                // Solo si el swipe es más horizontal que vertical
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe left - next
+                        currentReelIndex = (currentReelIndex + 1) % totalReels;
+                    } else {
+                        // Swipe right - prev
+                        currentReelIndex = (currentReelIndex - 1 + totalReels) % totalReels;
+                    }
+                    updateCarousel();
+                }
+            }, { passive: true });
+            
+            // Navegación con indicadores
+            reelIndicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => {
+                    currentReelIndex = i;
+                    updateCarousel();
+                });
+            });
+            
+            // Modal para reproducir reels
+            const reelModal = document.getElementById('reelModal');
+            const reelIframe = document.getElementById('reelIframe');
+            const closeReelModalBtn = document.getElementById('closeReelModalBtn');
+            
+            function openReelModal(url) {
+                // Convertir URL de Instagram a URL de embed
+                const embedUrl = url.replace('/p/', '/p/') + 'embed/';
+                reelIframe.src = embedUrl;
+                reelModal.classList.remove('hidden');
+                reelModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeReelModal() {
+                reelModal.classList.add('hidden');
+                reelModal.classList.remove('flex');
+                reelIframe.src = '';
+                document.body.style.overflow = '';
+            }
+            
+            // Click en el botón de play del reel activo
+            reelCards.forEach((card) => {
+                const playBtn = card.querySelector('.reel-play-btn');
+                const urlDiv = card.querySelector('.reel-url');
+                
+                if (playBtn && urlDiv) {
+                    playBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const url = urlDiv.getAttribute('data-url');
+                        if (url) {
+                            openReelModal(url);
+                        }
+                    });
+                }
+            });
+            
+            closeReelModalBtn.addEventListener('click', closeReelModal);
+            reelModal.addEventListener('click', (e) => {
+                if (e.target === reelModal) closeReelModal();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !reelModal.classList.contains('hidden')) {
+                    closeReelModal();
+                }
+            });
+        }
+    </script>
+</Layout>

@@ -1,0 +1,119 @@
+---
+import Icon from './Icon.astro';
+import { servicesData } from '../data/servicesData.js';
+
+const pathname = new URL(Astro.request.url).pathname;
+const isHome = pathname === '/' || pathname === '';
+
+const menuItems = [
+    { id: '/', label: 'Inicio', color: 'bg-brandPink' },
+    { id: '/portfolio', label: 'Portfolio', color: 'bg-brandYellow' },
+    ...servicesData.map(s => ({ id: `/servicios/${s.id}`, label: s.title, color: s.color }))
+];
+---
+
+<nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b-4 border-brandDark w-full">
+    <div class="max-w-7xl mx-auto px-3 md:px-4 h-16 md:h-20 flex justify-between items-center">
+        <a href="/" class="h-14 sm:h-16 md:h-20 hover:opacity-80 transition-opacity">
+            <img
+                src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-09-scaled.png"
+                alt="ARRANCANDONGA"
+                class="h-full w-auto object-contain"
+            />
+        </a>
+
+        <div class="hidden md:flex items-center gap-1 lg:gap-2">
+            <a href="/"
+                class={`px-3 lg:px-5 py-1.5 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm lg:text-base ${(pathname === '/' || pathname === '') ? 'bg-brandDark text-white' : 'bg-transparent hover:bg-brandPink/20'}`}>
+                Inicio
+            </a>
+            <a href="/portfolio"
+                class={`px-3 lg:px-5 py-1.5 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm lg:text-base ${(pathname.startsWith('/portfolio')) ? 'bg-brandDark text-white' : 'bg-transparent hover:bg-brandPink/20'}`}>
+                Portfolio
+            </a>
+            
+            <a href="https://calendly.com/arrancandonga-estudiocreativo/conocernos-mejor" target="_blank" rel="noopener noreferrer"
+                class="ml-1 lg:ml-3 bg-brandOrange text-white border-2 border-brandDark px-3 lg:px-5 py-1.5 rounded-full font-display font-bold btn-lineal text-sm lg:text-base whitespace-nowrap">
+                Agendar
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="md:hidden w-10 h-10 sm:w-12 sm:h-12 bg-brandYellow border-2 border-brandDark rounded-xl flex items-center justify-center flex-shrink-0 ml-2">
+            <span class="menu-open-icon"><Icon name="Menu" /></span>
+            <span class="menu-close-icon hidden"><Icon name="Close" /></span>
+        </button>
+    </div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-cream transform transition-transform duration-300 ease-in-out translate-x-full md:hidden">
+    <div class="h-full overflow-y-auto p-4 sm:p-6 pt-20 md:pt-24">
+        <div class="max-w-sm mx-auto space-y-2 sm:space-y-3">
+            <p class="font-display text-xs font-bold text-brandDark/40 uppercase tracking-wider mb-4 sm:mb-6 text-center">Menú</p>
+
+            {menuItems.map((item, idx) => (
+                <a
+                    href={item.id}
+                    class={`w-full ${item.color} rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 border-brandDark transition-all flex items-center justify-between group`}
+                    style={`transition-delay: ${idx * 25}ms`}
+                >
+                    <span class="font-display font-bold text-base sm:text-lg md:text-xl text-brandDark text-left leading-tight pr-2">{item.label}</span>
+                    <span class="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full border-2 border-brandDark flex items-center justify-center group-hover:translate-x-1 transition-transform flex-shrink-0">
+                        <Icon name="ArrowRight" />
+                    </span>
+                </a>
+            ))}
+
+            <div class="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t-2 border-brandDark/20">
+                <a href="https://calendly.com/arrancandonga-estudiocreativo/conocernos-mejor" target="_blank" rel="noopener noreferrer"
+                    class="w-full bg-brandPurple text-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 border-brandDark btn-lineal flex items-center justify-center gap-2 font-display font-bold text-base sm:text-lg">
+                    <Icon name="Calendar" /> <span class="whitespace-nowrap">Agenda una reunión</span>
+                </a>
+
+                <div class="flex gap-3 sm:gap-4 justify-center mt-4 sm:mt-6">
+                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-brandPink rounded-full flex items-center justify-center border-2 border-brandDark text-brandDark">
+                        <Icon name="Instagram" />
+                    </a>
+                    <a href="https://wa.me/59899928009" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 bg-brandGreen rounded-full flex items-center justify-center border-2 border-brandDark text-white">
+                        <Icon name="WhatsApp" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mobile-overlay" class="fixed inset-0 bg-brandDark/50 z-30 md:hidden hidden"></div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mainContent = document.querySelector('main');
+    const openIcon = document.querySelector('.menu-open-icon');
+    const closeIcon = document.querySelector('.menu-close-icon');
+
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            mobileMenu?.classList.remove('translate-x-full');
+            mobileMenu?.classList.add('translate-x-0');
+            mobileOverlay?.classList.remove('hidden');
+            if(mainContent) mainContent.style.opacity = '0.5';
+            openIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+        } else {
+            mobileMenu?.classList.add('translate-x-full');
+            mobileMenu?.classList.remove('translate-x-0');
+            mobileOverlay?.classList.add('hidden');
+            if(mainContent) mainContent.style.opacity = '1';
+            openIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+        }
+    }
+
+    menuToggle?.addEventListener('click', toggleMenu);
+    mobileOverlay?.addEventListener('click', toggleMenu);
+</script>

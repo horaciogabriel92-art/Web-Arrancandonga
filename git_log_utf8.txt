@@ -1,0 +1,1545 @@
+﻿commit 8e5403ba06f91314d9b15f7682128c35ad7f7cef
+Author: Antigravity Agent <antigravity@example.com>
+Date:   Fri Mar 6 16:45:03 2026 -0300
+
+    style: Increase responsive logo sizes in header and footer
+
+diff --git a/index.html b/index.html
+index 074db02..dcff7ba 100644
+--- a/index.html
++++ b/index.html
+@@ -1568,7 +1568,7 @@ Se trata de enfocarse mejor.`,
+ 
+                     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b-4 border-brandDark w-full">
+                         <div className="max-w-7xl mx-auto px-3 md:px-4 h-16 md:h-20 flex justify-between items-center">
+-                            <button onClick={() => setPage('home')} className="h-16 md:h-20 hover:opacity-80 transition-opacity">
++                            <button onClick={() => setPage('home')} className="h-14 sm:h-16 md:h-20 hover:opacity-80 transition-opacity">
+                                 <img
+                                     src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-09-scaled.png"
+                                     alt="ARRANCANDONGA"
+@@ -1653,11 +1653,11 @@ Se trata de enfocarse mejor.`,
+                         <div className="max-w-7xl mx-auto relative z-10">
+                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left items-start">
+                                 <div className="flex flex-col items-center md:items-start">
+-                                    <div className="h-24 md:h-32 mb-4 md:mb-6">
++                                    <div className="h-28 sm:h-32 md:h-40 mb-4 md:mb-6 w-full flex justify-center md:justify-start">
+                                         <img
+                                             src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-36.png"
+                                             alt="ARRANCANDONGA"
+-                                            className="h-full w-auto object-contain mx-auto md:mx-0"
++                                            className="h-full w-auto object-contain"
+                                         />
+                                     </div>
+                                     <p className="text-[#303030]/70 mb-4 md:mb-6 max-w-sm text-sm md:text-base">Estrat├®gico y con prop├│sito para emprendedoras que quieren destacar.</p>
+@@ -1713,4 +1713,4 @@ Se trata de enfocarse mejor.`,
+     </script>
+ </body>
+ 
+-</html>
++</html>
+\ No newline at end of file
+
+commit 4e4ef141c938ab1e66a5a5af2762849e380bc34a
+Author: Antigravity Agent <antigravity@example.com>
+Date:   Fri Mar 6 16:37:37 2026 -0300
+
+    feat: Add interactive portfolio using hash routing
+
+diff --git a/index.html b/index.html
+index 945a7fd..074db02 100644
+--- a/index.html
++++ b/index.html
+@@ -422,6 +422,99 @@
+             },
+         ];
+ 
++        const projectsData = [
++            {
++                id: '1',
++                title: "Fika",
++                category: "identidad",
++                desc: "Branding completo para cafeter├¡a especializada",
++                clientReview: "Arrancandonga entendi├│ exactamente mi visi├│n.",
++                client: "Fika Coffee Shop",
++                year: "2024",
++                services: ["Estrategia de Marca", "Identidad Visual", "Dise├▒o de Packaging"],
++                challenge: "Fika necesitaba destacar en un mercado saturado de cafeter├¡as de especialidad, transmitiendo calidez pero manteniendo una est├®tica muy limpia y profesional.",
++                solution: "Desarrollamos una identidad visual basada en el concepto sueco de 'Fika' (hacer una pausa). Utilizamos colores c├ílidos terrosos combinados con una tipograf├¡a moderna y minimalista.",
++                image1: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1497515114629-1c1a1bc8fa84?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&h=800&fit=crop"
++            },
++            {
++                id: '2',
++                title: "Luna Verde",
++                category: "web",
++                desc: "Sitio web e-commerce para marca de cosm├®tica natural",
++                clientReview: "Profesionalismo y dedicaci├│n total.",
++                client: "Luna Verde Cosm├®tica",
++                year: "2023",
++                services: ["Desarrollo Web", "E-commerce UI/UX"],
++                challenge: "Crear una tienda online f├ícil de usar que reflejara los valores org├ínicos de la marca y aumentara las conversiones online.",
++                solution: "Dise├▒amos un e-commerce intuitivo, r├ípido y optimizado para m├│viles. Destacamos los ingredientes naturales a trav├®s de una paleta de colores tierra y verde.",
++                image1: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=800&fit=crop"
++            },
++            {
++                id: '3',
++                title: "Mar├¡a Paz",
++                category: "social",
++                desc: "Gesti├│n de redes y contenido para emprendedora",
++                clientReview: "Contenido que conecta con mi audiencia.",
++                client: "Mar├¡a Paz Joyer├¡a",
++                year: "2024",
++                services: ["Estrategia Social Media", "Creaci├│n de Contenido"],
++                challenge: "Mar├¡a Paz ten├¡a productos incre├¡bles pero no lograba transmitir su valor a trav├®s de Instagram. Faltaba consistencia visual y estrategia.",
++                solution: "Creamos pilares de contenido claros, plantillas reutilizables y una estrategia de Reels para mostrar el proceso artesanal detr├ís de cada joya.",
++                image1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1515347619362-e6fd425d57b3?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1596950275817-de77685d038f?w=1200&h=800&fit=crop"
++            },
++            {
++                id: '4',
++                title: "Atelier",
++                category: "identidad",
++                desc: "Identidad visual para taller de costura",
++                clientReview: "Mi marca por fin se ve como yo so├▒aba.",
++                client: "Atelier Textil",
++                year: "2023",
++                services: ["Re-Branding", "Identidad Visual"],
++                challenge: "Modernizar una marca de costura cl├ísica sin perder su esencia artesanal.",
++                solution: "Dise├▒amos un isotipo basado en una aguja e hilo con tipograf├¡a elegante.",
++                image1: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200&h=800&fit=crop"
++            },
++            {
++                id: '5',
++                title: "Consultora X",
++                category: "web",
++                desc: "Web institucional para consultora de negocios",
++                clientReview: "Claridad y efectividad en cada paso.",
++                client: "Consultora Strategic X",
++                year: "2024",
++                services: ["Dise├▒o UX/UI", "Desarrollo Corporativo"],
++                challenge: "Crear una web corporativa que transmitiera confianza, profesionalismo y experiencia B2B.",
++                solution: "Estructura limpia, navegaci├│n clara y llamados a la acci├│n estrat├®gicamente ubicados.",
++                image1: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop"
++            },
++            {
++                id: '6',
++                title: "Tienda de Barrio",
++                category: "social",
++                desc: "Estrategia de contenido para tienda local",
++                clientReview: "Ahora tengo una comunidad fiel.",
++                client: "Almac├®n Local",
++                year: "2023",
++                services: ["Community Management", "Fotograf├¡a de Producto"],
++                challenge: "Digitalizar un negocio tradicional de barrio y atraer nuevo p├║blico local m├ís joven.",
++                solution: "Contenido humano y cercano mostrando el d├¡a a d├¡a y ofertas locales con est├®tica muy pulida.",
++                image1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&h=1080&fit=crop",
++                image2: "https://images.unsplash.com/photo-1596950275817-de77685d038f?w=1200&h=800&fit=crop",
++                image3: "https://images.unsplash.com/photo-1515347619362-e6fd425d57b3?w=1200&h=800&fit=crop"
++            }
++        ];
++
+         const Hero = ({ setPage }) => (
+             <section className="relative pt-16 md:pt-20 pb-20 md:pb-32 px-4 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center justify-center hero-grid bg-cream">
+                 <div className="absolute top-20 left-4 md:left-20 w-10 h-10 md:w-16 md:h-16 bg-brandOrange rounded-full border-4 border-brandDark animate-float hidden sm:block"></div>
+@@ -671,6 +764,7 @@
+         };
+ 
+         const PortfolioPreview = ({ setPage }) => {
++            const previewProjects = projectsData.slice(0, 3);
+             return (
+                 <section className="py-16 md:py-24 px-4 bg-brandPink/20 overflow-hidden">
+                     <div className="max-w-7xl mx-auto">
+@@ -686,19 +780,19 @@
+                         </div>
+ 
+                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+-                            {[1, 2, 3].map((i) => (
+-                                <div key={i}
++                            {previewProjects.map((project, i) => (
++                                <div key={project.id}
+                                     className="group relative bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer aspect-[4/5]"
+-                                    onClick={() => setPage('portfolio')}>
+-                                    <img src={`https://images.unsplash.com/photo-${i === 1 ? '1558655146-d09347e92766' : i === 2 ? '1467232004584-a241de8bcf5d' : '1611162617474-5b21e879e113'}?w=800&h=600&fit=crop`}
+-                                        alt="Proyecto" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
++                                    onClick={() => setPage(`proyecto/${project.id}`)}>
++                                    <img src={project.image1}
++                                        alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                     <div className="absolute top-3 left-3 md:top-4 md:left-4">
+-                                        <span className={`${i === 1 ? 'bg-brandPink' : i === 2 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
+-                                            {i === 1 ? 'Identidad Visual' : i === 2 ? 'Desarrollo Web' : 'Social Media'}
++                                        <span className={`${i === 0 ? 'bg-brandPink' : i === 1 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
++                                            {project.category === 'identidad' ? 'Identidad Visual' : project.category === 'web' ? 'Desarrollo Web' : 'Social Media'}
+                                         </span>
+                                     </div>
+                                     <div className="absolute bottom-0 left-0 right-0 bg-white border-t-3 md:border-t-4 border-brandDark p-3 md:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+-                                        <p className="font-display font-bold text-brandDark text-base md:text-lg">Proyecto Destacado {i}</p>
++                                        <p className="font-display font-bold text-brandDark text-base md:text-lg">{project.title}</p>
+                                         <p className="text-xs md:text-sm text-brandDark/60">Ver caso completo ÔåÆ</p>
+                                     </div>
+                                 </div>
+@@ -1295,18 +1389,9 @@ Se trata de enfocarse mejor.`,
+                 { id: 'social', name: 'Social Media' }
+             ];
+ 
+-            const projects = [
+-                { id: 1, title: "Fika", category: "identidad", desc: "Branding completo para cafeter├¡a especializada", clientReview: "Arrancandonga entendi├│ exactamente mi visi├│n." },
+-                { id: 2, title: "Luna Verde", category: "web", desc: "Sitio web e-commerce para marca de cosm├®tica natural", clientReview: "Profesionalismo y dedicaci├│n total." },
+-                { id: 3, title: "Mar├¡a Paz", category: "social", desc: "Gesti├│n de redes y contenido para emprendedora", clientReview: "Contenido que conecta con mi audiencia." },
+-                { id: 4, title: "Atelier", category: "identidad", desc: "Identidad visual para taller de costura", clientReview: "Mi marca por fin se ve como yo so├▒aba." },
+-                { id: 5, title: "Consultora X", category: "web", desc: "Web institucional para consultora de negocios", clientReview: "Claridad y efectividad en cada paso." },
+-                { id: 6, title: "Tienda de Barrio", category: "social", desc: "Estrategia de contenido para tienda local", clientReview: "Ahora tengo una comunidad fiel." }
+-            ];
+-
+             const filteredProjects = activeCategory === 'todos'
+-                ? projects
+-                : projects.filter(p => p.category === activeCategory);
++                ? projectsData
++                : projectsData.filter(p => p.category === activeCategory);
+ 
+             return (
+                 <div className="min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 px-4 bg-cream w-full overflow-hidden">
+@@ -1338,10 +1423,11 @@ Se trata de enfocarse mejor.`,
+ 
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                             {filteredProjects.map((project) => (
+-                                <div key={project.id} className="group bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1">
++                                <div key={project.id} className="group bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer"
++                                    onClick={() => setPage(`proyecto/${project.id}`)}>
+                                     <div className="aspect-[4/3] overflow-hidden bg-brandPink/20 relative">
+                                         <img
+-                                            src={`https://images.unsplash.com/photo-${project.id % 2 === 0 ? '1558655146-d09347e92766' : '1467232004584-a241de8bcf5d'}?w=800&h=600&fit=crop`}
++                                            src={project.image1}
+                                             alt={project.title}
+                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                         />
+@@ -1354,8 +1440,9 @@ Se trata de enfocarse mejor.`,
+                                     <div className="p-4 md:p-6">
+                                         <h3 className="font-display text-xl md:text-2xl font-bold text-brandDark mb-1 md:mb-2">{project.title}</h3>
+                                         <p className="text-brandDark/70 mb-3 md:mb-4 text-xs md:text-sm">{project.desc}</p>
+-                                        <div className="border-t-2 border-brandDark/10 pt-3 md:pt-4 mt-3 md:mt-4">
+-                                            <p className="text-xs md:text-sm text-brandDark/60 italic">"{project.clientReview}"</p>
++                                        <div className="border-t-2 border-brandDark/10 pt-3 md:pt-4 mt-3 md:mt-4 flex justify-between items-center">
++                                            <p className="text-xs md:text-sm text-brandDark/60 italic max-w-[80%] truncate">"{project.clientReview}"</p>
++                                            <Icons.ArrowRight />
+                                         </div>
+                                     </div>
+                                 </div>
+@@ -1366,12 +1453,106 @@ Se trata de enfocarse mejor.`,
+             );
+         };
+ 
++        const ProjectDetail = ({ projectId, setPage }) => {
++            const project = projectsData.find(p => p.id === projectId);
++            if (!project) return (
++                <div className="min-h-screen pt-32 text-center">
++                    <h2 className="text-2xl font-bold">Proyecto no encontrado</h2>
++                    <button onClick={() => setPage('portfolio')} className="mt-4 text-brandOrange underline">Volver al portfolio</button>
++                </div>
++            );
++
++            return (
++                <div className="min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 px-4 bg-cream w-full overflow-hidden">
++                    <div className="max-w-7xl mx-auto">
++                        <button onClick={() => setPage('portfolio')} className="mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 text-sm md:text-base transition-colors">
++                            ÔåÉ Volver al Portfolio
++                        </button>
++
++                        <div className="mb-8 md:mb-12">
++                            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brandDark mb-4">{project.title}</h1>
++                            <p className="text-xl md:text-2xl text-brandDark/70 max-w-3xl">{project.desc}</p>
++                        </div>
++
++                        <div className="aspect-[21/9] w-full rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-16 border-4 border-brandDark shadow-lg">
++                            <img src={project.image1} alt={project.title} className="w-full h-full object-cover" />
++                        </div>
++
++                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
++                            {/* Lateral info */}
++                            <div className="lg:col-span-1 border-t-4 lg:border-t-0 lg:border-l-4 border-brandDark pt-8 lg:pt-0 lg:pl-8 lg:sticky lg:top-32 h-max">
++                                <div className="space-y-6">
++                                    <div>
++                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">Cliente</h4>
++                                        <p className="font-bold text-brandDark text-lg">{project.client}</p>
++                                    </div>
++                                    <div>
++                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">A├▒o</h4>
++                                        <p className="font-bold text-brandDark text-lg">{project.year}</p>
++                                    </div>
++                                    <div>
++                                        <h4 className="font-display font-bold text-sm text-brandDark/50 uppercase tracking-wider mb-1">Servicios</h4>
++                                        <ul className="space-y-1">
++                                            {project.services.map((s, i) => (
++                                                <li key={i} className="font-bold text-brandDark text-lg">{s}</li>
++                                            ))}
++                                        </ul>
++                                    </div>
++                                </div>
++                            </div>
++
++                            {/* Main content */}
++                            <div className="lg:col-span-2 space-y-12 md:space-y-16">
++                                <div>
++                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-brandDark mb-4">El desaf├¡o</h3>
++                                    <p className="text-brandDark/80 text-lg md:text-xl leading-relaxed whitespace-pre-line">{project.challenge}</p>
++                                </div>
++
++                                <div>
++                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-brandDark mb-4">La soluci├│n</h3>
++                                    <p className="text-brandDark/80 text-lg md:text-xl leading-relaxed whitespace-pre-line">{project.solution}</p>
++                                </div>
++
++                                <div className="space-y-6 md:space-y-8">
++                                    <img src={project.image2} alt={`${project.title} detalle 1`} className="w-full rounded-2xl md:rounded-3xl border-4 border-brandDark shadow-md object-cover" />
++                                    <img src={project.image3} alt={`${project.title} detalle 2`} className="w-full rounded-2xl md:rounded-3xl border-4 border-brandDark shadow-md object-cover" />
++                                </div>
++
++                                <div className="bg-brandPink/30 rounded-3xl p-6 md:p-10 border-4 border-brandDark relative">
++                                    <div className="absolute -top-6 -left-4 text-6xl">Ô£¿</div>
++                                    <p className="text-xl md:text-2xl font-bold text-brandDark italic mb-4">"{project.clientReview}"</p>
++                                    <p className="font-display font-bold text-brandDark">{project.client}</p>
++                                </div>
++                            </div>
++                        </div>
++                    </div>
++                </div>
++            );
++        };
++
+         const App = () => {
+-            const [currentPage, setPage] = useState('home');
++            const [currentPage, setCurrentPage] = useState(() => {
++                const hash = window.location.hash.replace('#', '');
++                return hash || 'home';
++            });
+             const [menuOpen, setMenuOpen] = useState(false);
+ 
+             useEffect(() => {
+-                window.scrollTo({ top: 0, behavior: 'smooth' });
++                const handleHashChange = () => {
++                    const hash = window.location.hash.replace('#', '');
++                    setCurrentPage(hash || 'home');
++                };
++                window.addEventListener('hashchange', handleHashChange);
++                return () => window.removeEventListener('hashchange', handleHashChange);
++            }, []);
++
++            const setPage = (page) => {
++                window.location.hash = page;
++                setCurrentPage(page);
++            };
++
++            useEffect(() => {
++                window.scrollTo({ top: 0, behavior: 'instant' });
+                 setMenuOpen(false);
+             }, [currentPage]);
+ 
+@@ -1460,6 +1641,7 @@ Se trata de enfocarse mejor.`,
+                     <main className={`transition-opacity duration-300 ${menuOpen ? 'opacity-50' : 'opacity-100'} w-full`}>
+                         {currentPage === 'home' && <Home setPage={setPage} />}
+                         {currentPage === 'portfolio' && <PortfolioPage setPage={setPage} />}
++                        {currentPage.startsWith('proyecto/') && <ProjectDetail projectId={currentPage.replace('proyecto/', '')} setPage={setPage} />}
+                         {servicesData.some(s => s.id === currentPage) && <ServicePage serviceId={currentPage} setPage={setPage} />}
+                     </main>
+ 
+
+commit bc4704c8445409b40cc9fcecd4d80db7389e4158
+Author: Horace-Universe <horaciogabriel92@gmail.com>
+Date:   Fri Mar 6 16:01:43 2026 -0300
+
+    Update index.html
+
+diff --git a/index.html b/index.html
+index 8dcc141..945a7fd 100644
+--- a/index.html
++++ b/index.html
+@@ -1473,7 +1473,7 @@ Se trata de enfocarse mejor.`,
+                                 <div className="flex flex-col items-center md:items-start">
+                                     <div className="h-24 md:h-32 mb-4 md:mb-6">
+                                         <img
+-                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-08.png"
++                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-36.png"
+                                             alt="ARRANCANDONGA"
+                                             className="h-full w-auto object-contain mx-auto md:mx-0"
+                                         />
+
+commit 711988107606b22016e48a080621e67bd0eb1c4d
+Author: Horace-Universe <horaciogabriel92@gmail.com>
+Date:   Fri Mar 6 15:58:11 2026 -0300
+
+    Update index.html
+
+diff --git a/index.html b/index.html
+index 602deb9..8dcc141 100644
+--- a/index.html
++++ b/index.html
+@@ -729,7 +729,7 @@
+                                 <Icons.Star />
+                             </div>
+                             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center">
+-                                Esto dicen mis clientas &lt;3
++                                Esto dicen mis clientas ­ƒÆø
+                             </h2>
+                             <div className="w-8 h-8 md:w-10 animate-spin-slow flex-shrink-0" style={{ animationDirection: 'reverse' }}>
+                                 <Icons.Star />
+@@ -1531,4 +1531,4 @@ Se trata de enfocarse mejor.`,
+     </script>
+ </body>
+ 
+-</html>
+\ No newline at end of file
++</html>
+
+commit b686c8a1a6ca39921ed14be4a60172323da1a5ed
+Author: Antigravity Agent <antigravity@example.com>
+Date:   Fri Mar 6 15:51:49 2026 -0300
+
+    Update footer structure, remove VAMOS, and finalize button/logo styling
+
+diff --git a/index.html b/index.html
+index d8bb5d7..602deb9 100644
+--- a/index.html
++++ b/index.html
+@@ -1,28 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="es">
++
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
+     <title>ARRANCANDONGA | Branding & Dise├▒o</title>
+-    
++
+     <!-- Metaetiquetas SEO para Google -->
+-    <meta name="description" content="Arrancandonga - Estudio de Branding & Dise├▒o Estrat├®gico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer. Branding con estrategia, dise├▒o con intenci├│n.">
+-    <meta name="keywords" content="Branding, Dise├▒o Gr├ífico, Identidad Visual, Desarrollo Web, Social Media, Publicidad Digital, Marketing, Arrancandonga">
++    <meta name="description"
++        content="Arrancandonga - Estudio de Branding & Dise├▒o Estrat├®gico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer. Branding con estrategia, dise├▒o con intenci├│n.">
++    <meta name="keywords"
++        content="Branding, Dise├▒o Gr├ífico, Identidad Visual, Desarrollo Web, Social Media, Publicidad Digital, Marketing, Arrancandonga">
+     <meta name="author" content="Arrancandonga">
+     <meta name="robots" content="index, follow">
+     <meta name="language" content="Spanish">
+-    
++
+     <!-- Open Graph / Redes Sociales -->
+     <meta property="og:type" content="website">
+     <meta property="og:title" content="ARRANCANDONGA | Branding & Dise├▒o">
+-    <meta property="og:description" content="Estudio de Branding & Dise├▒o Estrat├®gico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer.">
++    <meta property="og:description"
++        content="Estudio de Branding & Dise├▒o Estrat├®gico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer.">
+     <meta property="og:url" content="https://arrancandonga.vercel.app/">
+     <meta property="og:site_name" content="Arrancandonga">
+-    
++
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+-    
++    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
++        rel="stylesheet">
++
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script>
+         tailwind.config = {
+@@ -58,9 +63,10 @@
+             box-sizing: border-box;
+             -webkit-tap-highlight-color: transparent;
+         }
+-        
+-        html, body { 
+-            background-color: #F8F3E0; 
++
++        html,
++        body {
++            background-color: #F8F3E0;
+             font-family: 'Poppins', sans-serif;
+             overflow-x: hidden !important;
+             width: 100%;
+@@ -70,15 +76,17 @@
+             scrollbar-width: thin;
+             scrollbar-color: #FE5007 #F8F3E0;
+         }
+-        
++
+         #root {
+             overflow-x: hidden !important;
+             width: 100%;
+             position: relative;
+         }
+-        
+-        .font-display { font-family: 'Poppins', sans-serif; }
+-        
++
++        .font-display {
++            font-family: 'Poppins', sans-serif;
++        }
++
+         .grain {
+             position: fixed;
+             top: 0;
+@@ -92,31 +100,69 @@
+         }
+ 
+         @keyframes float {
+-            0%, 100% { transform: translateY(0px) rotate(0deg); }
+-            50% { transform: translateY(-20px) rotate(3deg); }
++
++            0%,
++            100% {
++                transform: translateY(0px) rotate(0deg);
++            }
++
++            50% {
++                transform: translateY(-20px) rotate(3deg);
++            }
+         }
++
+         @keyframes float-reverse {
+-            0%, 100% { transform: translateY(0px) rotate(0deg); }
+-            50% { transform: translateY(-15px) rotate(-3deg); }
++
++            0%,
++            100% {
++                transform: translateY(0px) rotate(0deg);
++            }
++
++            50% {
++                transform: translateY(-15px) rotate(-3deg);
++            }
+         }
++
+         @keyframes spin-slow {
+-            from { transform: rotate(0deg); }
+-            to { transform: rotate(360deg); }
++            from {
++                transform: rotate(0deg);
++            }
++
++            to {
++                transform: rotate(360deg);
++            }
+         }
++
+         @keyframes marquee {
+-            0% { transform: translateX(0%); }
+-            100% { transform: translateX(-50%); }
++            0% {
++                transform: translateX(0%);
++            }
++
++            100% {
++                transform: translateX(-50%);
++            }
++        }
++
++        .animate-float {
++            animation: float 6s ease-in-out infinite;
++        }
++
++        .animate-float-reverse {
++            animation: float-reverse 7s ease-in-out infinite;
++        }
++
++        .animate-spin-slow {
++            animation: spin-slow 25s linear infinite;
++        }
++
++        .animate-marquee {
++            animation: marquee 20s linear infinite;
+         }
+-        
+-        .animate-float { animation: float 6s ease-in-out infinite; }
+-        .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+-        .animate-spin-slow { animation: spin-slow 25s linear infinite; }
+-        .animate-marquee { animation: marquee 20s linear infinite; }
+ 
+         .hero-grid {
+-            background-image: 
+-                linear-gradient(rgba(26,26,26,0.08) 1px, transparent 1px),
+-                linear-gradient(90deg, rgba(26,26,26,0.08) 1px, transparent 1px);
++            background-image:
++                linear-gradient(rgba(26, 26, 26, 0.08) 1px, transparent 1px),
++                linear-gradient(90deg, rgba(26, 26, 26, 0.08) 1px, transparent 1px);
+             background-size: 60px 60px;
+         }
+ 
+@@ -124,22 +170,27 @@
+             width: 12px;
+             height: 12px;
+         }
++
+         ::-webkit-scrollbar-track {
+             background: #F8F3E0 !important;
+             border-left: 3px solid #1a1a1a;
+         }
++
+         ::-webkit-scrollbar-thumb {
+             background: #FE5007 !important;
+             border: 3px solid #1a1a1a;
+             border-radius: 6px;
+         }
++
+         ::-webkit-scrollbar-thumb:hover {
+             background: #e64a06 !important;
+         }
++
+         @media (prefers-color-scheme: dark) {
+             ::-webkit-scrollbar-track {
+                 background: #F8F3E0 !important;
+             }
++
+             ::-webkit-scrollbar-thumb {
+                 background: #FE5007 !important;
+             }
+@@ -150,12 +201,13 @@
+             color: #1a1a1a;
+         }
+ 
+-        img, svg {
++        img,
++        svg {
+             max-width: 100%;
+             height: auto;
+             display: block;
+         }
+-        
++
+         @media (max-width: 768px) {
+             .hero-grid {
+                 background-size: 30px 30px;
+@@ -167,13 +219,15 @@
+             box-shadow: none !important;
+             transform: none !important;
+         }
++
+         .btn-lineal:hover {
+             transform: scale(1.05) !important;
+-            box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
++            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+         }
+     </style>
+-<base target="_blank">
++    <base target="_blank">
+ </head>
++
+ <body>
+     <div id="root"></div>
+ 
+@@ -197,17 +251,17 @@
+             ),
+             ArrowRight: () => (
+                 <svg className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+-                    <path d="M5 12h14M12 5l7 7-7 7"/>
++                    <path d="M5 12h14M12 5l7 7-7 7" />
+                 </svg>
+             ),
+             Instagram: () => (
+                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
+-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
++                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                 </svg>
+             ),
+             WhatsApp: () => (
+                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
+-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
++                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                 </svg>
+             ),
+             Menu: () => (
+@@ -225,7 +279,7 @@
+             ),
+             Star: () => (
+                 <svg className="w-full h-full" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <path d="M20 0L24.4903 15.5097L40 20L24.4903 24.4903L20 40L15.5097 24.4903L0 20L15.5097 15.5097L20 0Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2"/>
++                    <path d="M20 0L24.4903 15.5097L40 20L24.4903 24.4903L20 40L15.5097 24.4903L0 20L15.5097 15.5097L20 0Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2" />
+                 </svg>
+             ),
+             Check: () => (
+@@ -235,134 +289,134 @@
+             ),
+             Branding: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <path d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <circle cx="50" cy="50" r="15" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
++                    <path d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3" />
++                    <circle cx="50" cy="50" r="15" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
+                 </svg>
+             ),
+             Identity: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <rect x="15" y="15" width="25" height="25" rx="5" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <rect x="60" y="15" width="25" height="25" rx="5" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <rect x="15" y="60" width="25" height="25" rx="5" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <rect x="60" y="60" width="25" height="25" rx="5" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <circle cx="50" cy="50" r="8" fill="#AEA433" stroke="#1a1a1a" strokeWidth="3"/>
++                    <rect x="15" y="15" width="25" height="25" rx="5" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3" />
++                    <rect x="60" y="15" width="25" height="25" rx="5" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3" />
++                    <rect x="15" y="60" width="25" height="25" rx="5" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3" />
++                    <rect x="60" y="60" width="25" height="25" rx="5" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
++                    <circle cx="50" cy="50" r="8" fill="#AEA433" stroke="#1a1a1a" strokeWidth="3" />
+                 </svg>
+             ),
+             Web: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <rect x="10" y="20" width="80" height="60" rx="8" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <line x1="10" y1="35" x2="90" y2="35" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <circle cx="22" cy="27" r="4" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="2"/>
+-                    <circle cx="35" cy="27" r="4" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2"/>
+-                    <circle cx="48" cy="27" r="4" fill="#FE5007" stroke="#1a1a1a" strokeWidth="2"/>
+-                    <path d="M30 55L45 70L70 45" stroke="#1a1a1a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
++                    <rect x="10" y="20" width="80" height="60" rx="8" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3" />
++                    <line x1="10" y1="35" x2="90" y2="35" stroke="#1a1a1a" strokeWidth="3" />
++                    <circle cx="22" cy="27" r="4" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="2" />
++                    <circle cx="35" cy="27" r="4" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2" />
++                    <circle cx="48" cy="27" r="4" fill="#FE5007" stroke="#1a1a1a" strokeWidth="2" />
++                    <path d="M30 55L45 70L70 45" stroke="#1a1a1a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                 </svg>
+             ),
+             Social: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <path d="M75 35H85L75 55H65L75 35Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M65 40C55 40 45 45 35 55V75C45 65 55 60 65 60V40Z" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <circle cx="30" cy="65" r="12" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M25 60L35 70M35 60L25 70" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
++                    <path d="M75 35H85L75 55H65L75 35Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M65 40C55 40 45 45 35 55V75C45 65 55 60 65 60V40Z" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3" />
++                    <circle cx="30" cy="65" r="12" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M25 60L35 70M35 60L25 70" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" />
+                 </svg>
+             ),
+             Design: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <path d="M65 15L85 35L45 75L25 55L65 15Z" fill="#AEA433" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M25 55L15 85L45 75" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <line x1="60" y1="20" x2="35" y2="45" stroke="#1a1a1a" strokeWidth="2" strokeDasharray="4 4"/>
+-                    <circle cx="75" cy="25" r="8" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3"/>
++                    <path d="M65 15L85 35L45 75L25 55L65 15Z" fill="#AEA433" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M25 55L15 85L45 75" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3" />
++                    <line x1="60" y1="20" x2="35" y2="45" stroke="#1a1a1a" strokeWidth="2" strokeDasharray="4 4" />
++                    <circle cx="75" cy="25" r="8" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3" />
+                 </svg>
+             ),
+             Pack: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+-                    <rect x="20" y="30" width="60" height="50" rx="5" fill="#E6D5F5" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <rect x="20" y="30" width="60" height="15" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <line x1="50" y1="30" x2="50" y2="80" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M50 30C50 20 35 15 35 25C35 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M50 30C50 20 65 15 65 25C65 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
++                    <rect x="20" y="30" width="60" height="50" rx="5" fill="#E6D5F5" stroke="#1a1a1a" strokeWidth="3" />
++                    <rect x="20" y="30" width="60" height="15" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3" />
++                    <line x1="50" y1="30" x2="50" y2="80" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M50 30C50 20 35 15 35 25C35 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M50 30C50 20 65 15 65 25C65 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
+                 </svg>
+             ),
+             Ads: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+-                    <circle cx="35" cy="35" r="20" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M55 35H85V65H55V35Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M25 65L45 85L65 65" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <circle cx="70" cy="50" r="8" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="2"/>
++                    <circle cx="35" cy="35" r="20" fill="#FFBEC6" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M55 35H85V65H55V35Z" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M25 65L45 85L65 65" fill="#FE5007" stroke="#1a1a1a" strokeWidth="3" />
++                    <circle cx="70" cy="50" r="8" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="2" />
+                 </svg>
+             ),
+             Marketing: () => (
+                 <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+-                    <rect x="15" y="55" width="70" height="30" rx="5" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3"/>
+-                    <path d="M20 55V35C20 25 35 20 50 20C65 20 80 25 80 35V55" stroke="#1a1a1a" strokeWidth="3" fill="none"/>
+-                    <circle cx="50" cy="70" r="8" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2"/>
+-                    <path d="M35 40L45 50L65 30" stroke="#FE5007" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
++                    <rect x="15" y="55" width="70" height="30" rx="5" fill="#6B87C8" stroke="#1a1a1a" strokeWidth="3" />
++                    <path d="M20 55V35C20 25 35 20 50 20C65 20 80 25 80 35V55" stroke="#1a1a1a" strokeWidth="3" fill="none" />
++                    <circle cx="50" cy="70" r="8" fill="#FDB62A" stroke="#1a1a1a" strokeWidth="2" />
++                    <path d="M35 40L45 50L65 30" stroke="#FE5007" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                 </svg>
+             )
+         };
+ 
+         const servicesData = [
+-            { 
+-                id: 'branding', 
+-                title: "Branding Estrat├®gico", 
++            {
++                id: 'branding',
++                title: "Branding Estrat├®gico",
+                 desc: "Primero definimos la direcci├│n de tu marca: posicionamiento, p├║blico ideal, propuesta de valor y mensaje. Ordenamos la base para que todo tenga sentido.",
+-                color: "bg-brandYellow", 
++                color: "bg-brandYellow",
+                 Icon: Icons.Branding,
+                 priority: "high"
+             },
+-            { 
+-                id: 'identidad', 
+-                title: "Identidad Visual", 
++            {
++                id: 'identidad',
++                title: "Identidad Visual",
+                 desc: "Una imagen alineada a quien sos hoy. Creamos un sistema visual profesional que represente tu momento actual: logo, colores, tipograf├¡as y recursos que hagan que tu marca se vea s├│lida en todos lados.",
+-                color: "bg-brandPink", 
++                color: "bg-brandPink",
+                 Icon: Icons.Identity,
+                 priority: "high"
+             },
+-            { 
+-                id: 'web', 
+-                title: "Desarrollo Web", 
++            {
++                id: 'web',
++                title: "Desarrollo Web",
+                 desc: "Creamos tu sitio para que quien llegue entienda r├ípido qu├® hac├®s, c├│mo trabaj├ís y c├│mo contactarte. Simple, funcional y alineado a tu identidad.",
+-                color: "bg-brandBlue", 
++                color: "bg-brandBlue",
+                 Icon: Icons.Web,
+                 priority: "high"
+             },
+-            { 
+-                id: 'pack', 
+-                title: "Pack Marca + Web", 
++            {
++                id: 'pack',
++                title: "Pack Marca + Web",
+                 desc: "Identidad visual base + sitio web listo para lanzar. Una soluci├│n clara y directa para dejar de improvisar y tener presencia profesional en poco tiempo.",
+-                color: "bg-brandLavender", 
++                color: "bg-brandLavender",
+                 Icon: Icons.Pack,
+                 priority: "high"
+             },
+-            { 
+-                id: 'social', 
+-                title: "Social Media", 
++            {
++                id: 'social',
++                title: "Social Media",
+                 desc: "Contenido con coherencia y estrategia. Planificamos y dise├▒amos tu contenido para que dejes de improvisar. Publicaciones alineadas a tu marca, con intenci├│n y claridad, para conectar y posicionarte.",
+-                color: "bg-brandOrange", 
++                color: "bg-brandOrange",
+                 Icon: Icons.Social,
+                 priority: "low"
+             },
+-            { 
+-                id: 'ads', 
+-                title: "Publicidad Digital", 
++            {
++                id: 'ads',
++                title: "Publicidad Digital",
+                 desc: "Publicidad estrat├®gica para atraer m├ís clientas. Creamos y gestionamos campa├▒as publicitarias para que tu marca llegue a las personas correctas y genere consultas reales. No es gastar en anuncios, es invertir con intenci├│n.",
+-                color: "bg-brandPink", 
++                color: "bg-brandPink",
+                 Icon: Icons.Ads,
+                 priority: "low"
+             },
+-            { 
+-                id: 'diseno', 
+-                title: "Dise├▒o Gr├ífico", 
++            {
++                id: 'diseno',
++                title: "Dise├▒o Gr├ífico",
+                 desc: "Piezas que elevan tu marca. Tarjetas, etiquetas, cat├ílogos, presentaciones o lo que tu negocio necesite para verse profesional y cuidado en cada detalle.",
+-                color: "bg-brandOlive", 
++                color: "bg-brandOlive",
+                 Icon: Icons.Design,
+                 priority: "low"
+             },
+-            { 
+-                id: 'marketing', 
+-                title: "Asesor├¡a en Marketing Digital", 
++            {
++                id: 'marketing',
++                title: "Asesor├¡a en Marketing Digital",
+                 desc: "Analizamos tu marca y tu presencia digital para detectar oportunidades de mejora. Definimos prioridades y armamos un plan de acci├│n concreto para que dejes de improvisar.",
+-                color: "bg-brandYellow", 
++                color: "bg-brandYellow",
+                 Icon: Icons.Marketing,
+                 priority: "low"
+             },
+@@ -373,7 +427,7 @@
+                 <div className="absolute top-20 left-4 md:left-20 w-10 h-10 md:w-16 md:h-16 bg-brandOrange rounded-full border-4 border-brandDark animate-float hidden sm:block"></div>
+                 <div className="absolute top-32 right-4 md:right-32 w-8 h-8 md:w-12 md:h-12 bg-brandYellow rotate-12 border-4 border-brandDark animate-float-reverse hidden sm:block"></div>
+                 <div className="absolute bottom-32 left-4 md:left-32 w-12 h-12 md:w-20 md:h-20 bg-brandPink rounded-full border-4 border-brandDark animate-float hidden sm:block z-0"></div>
+-                
++
+                 <div className="absolute top-24 right-1/4 w-8 h-8 md:w-10 md:h-10 animate-spin-slow hidden sm:block z-20">
+                     <Icons.Star />
+                 </div>
+@@ -405,27 +459,27 @@
+                     </div>
+ 
+                     <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-brandDark leading-[0.9] mb-6 md:mb-8 tracking-tight">
+-                        ┬┐Tu marca ya no<br/>
++                        ┬┐Tu marca ya no<br />
+                         <span className="relative inline-block">
+                             refleja
+                             <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-4 bg-brandPink/60 -z-10 transform -rotate-1"></span>
+-                        </span> todo lo que<br/>
++                        </span> todo lo que<br />
+                         <span className="text-brandOrange italic">creciste?</span>
+                     </h1>
+-                    
++
+                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-brandDark/80 mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto font-medium px-2">
+-                        Te ayudo a que tu negocio se vea <span className="bg-brandYellow/50 px-1.5 py-0.5 md:px-2 md:py-1 transform -rotate-1 inline-block">profesional</span>, claro y listo para crecer. 
+-                        <br className="hidden md:block"/>
++                        Te ayudo a que tu negocio se vea <span className="bg-brandYellow/50 px-1.5 py-0.5 md:px-2 md:py-1 transform -rotate-1 inline-block">profesional</span>, claro y listo para crecer.
++                        <br className="hidden md:block" />
+                         Branding con estrategia, dise├▒o con intenci├│n.
+                     </p>
+-                    
++
+                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-12 md:mb-16 px-4 sm:px-0">
+-                        <a href="https://wa.me/59899928009" target="_blank" rel="noopener noreferrer" 
+-                           className="inline-flex items-center justify-center gap-2 bg-brandGreen text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal w-full sm:w-auto">
++                        <a href="https://wa.me/59899928009" target="_blank" rel="noopener noreferrer"
++                            className="inline-flex items-center justify-center gap-2 bg-brandGreen text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal w-full sm:w-auto">
+                             <Icons.WhatsApp /> <span className="whitespace-nowrap">Escribirme por WhatsApp</span>
+                         </a>
+-                        <button onClick={() => setPage('portfolio')} 
+-                                className="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal group w-full sm:w-auto">
++                        <button onClick={() => setPage('portfolio')}
++                            className="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal group w-full sm:w-auto">
+                             <span className="whitespace-nowrap">Ver trabajos</span> <span className="group-hover:translate-x-1 transition-transform"><Icons.Arrow /></span>
+                         </button>
+                     </div>
+@@ -441,7 +495,7 @@
+         const ServicesGrid = ({ setPage }) => {
+             const highPriority = servicesData.filter(s => s.priority === 'high');
+             const lowPriority = servicesData.filter(s => s.priority === 'low');
+-            
++
+             return (
+                 <section className="py-16 md:py-24 px-0 bg-white border-y-4 border-brandDark relative overflow-hidden">
+                     <div className="max-w-7xl mx-auto px-4">
+@@ -454,7 +508,7 @@
+                                 Una marca m├ís profesional, un logo que realmente te represente, una web clara y f├ícil de usar, un Instagram ordenado... hay muchas formas de acompa├▒arte para que tu proyecto crezca
+                             </p>
+                         </div>
+-                        
++
+                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full mb-6">
+                             {highPriority.map((service) => (
+                                 <ServiceCard key={service.id} service={service} setPage={setPage} />
+@@ -478,8 +532,8 @@
+         };
+ 
+         const ServiceCard = ({ service, setPage }) => (
+-            <button onClick={() => setPage(service.id)} 
+-                    className={`group ${service.color} rounded-2xl md:rounded-3xl p-5 md:p-6 border-3 md:border-4 border-brandDark hover:shadow-lg transition-all text-left transform hover:-translate-y-1 min-h-[240px] md:min-h-[280px] flex flex-col w-full`}>
++            <button onClick={() => setPage(service.id)}
++                className={`group ${service.color} rounded-2xl md:rounded-3xl p-5 md:p-6 border-3 md:border-4 border-brandDark hover:shadow-lg transition-all text-left transform hover:-translate-y-1 min-h-[240px] md:min-h-[280px] flex flex-col w-full`}>
+                 <div className="w-12 h-12 md:w-16 md:h-16 mb-3 md:mb-4 transform group-hover:scale-110 transition-transform">
+                     <service.Icon />
+                 </div>
+@@ -512,13 +566,13 @@
+                     if (!sectionRef.current) return;
+                     const rect = sectionRef.current.getBoundingClientRect();
+                     const windowHeight = window.innerHeight;
+-                    
++
+                     const start = rect.top - windowHeight * 0.8;
+                     const end = rect.bottom - windowHeight * 0.2;
+                     const total = end - start;
+                     const current = -start;
+                     const progress = Math.max(0, Math.min(1, current / total));
+-                    
++
+                     setScrollProgress(progress);
+                 };
+ 
+@@ -568,7 +622,7 @@
+                             </svg>
+ 
+                             <div className="lg:hidden absolute left-4 md:left-8 top-0 bottom-0 w-1 bg-brandDark/20 rounded-full">
+-                                <div 
++                                <div
+                                     className="absolute top-0 left-0 w-full bg-brandOrange rounded-full transition-all duration-300 ease-out"
+                                     style={{ height: `${scrollProgress * 100}%` }}
+                                 ></div>
+@@ -577,13 +631,12 @@
+                             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-x-8 md:gap-y-12 relative z-10 pl-8 md:pl-16 lg:pl-0">
+                                 {steps.map((step, idx) => {
+                                     const isActive = scrollProgress > ((idx + 0.5) / steps.length);
+-                                    
++
+                                     return (
+-                                        <div key={idx} 
+-                                             className={`relative transition-all duration-500 transform ${
+-                                                 isActive ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-70 scale-95'
+-                                             } ${idx % 3 === 1 ? 'lg:mt-16' : idx % 3 === 2 ? 'lg:mt-32' : ''}`}>
+-                                            
++                                        <div key={idx}
++                                            className={`relative transition-all duration-500 transform ${isActive ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-70 scale-95'
++                                                } ${idx % 3 === 1 ? 'lg:mt-16' : idx % 3 === 2 ? 'lg:mt-32' : ''}`}>
++
+                                             <div className="lg:hidden absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2">
+                                                 <div className={`w-4 h-4 md:w-5 md:h-5 rounded-full border-2 border-brandDark ${isActive ? 'bg-brandOrange' : 'bg-white'} transition-colors z-20 relative`}>
+                                                     {isActive && <div className="absolute inset-0 rounded-full bg-brandOrange animate-ping opacity-75"></div>}
+@@ -594,7 +647,7 @@
+                                                 <div className="absolute -right-2 md:-right-4 -top-2 md:-top-4 font-display text-5xl md:text-8xl font-bold text-brandDark/10 select-none">
+                                                     {step.num}
+                                                 </div>
+-                                                
++
+                                                 <div className="relative z-10">
+                                                     <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                                                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-brandDark flex items-center justify-center font-display font-bold text-sm md:text-base ${isActive ? 'bg-brandOrange text-white' : 'bg-white'}`}>
+@@ -602,7 +655,7 @@
+                                                         </div>
+                                                         <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 border-brandDark ${isActive ? 'bg-brandGreen animate-pulse' : 'bg-white'} hidden lg:block`}></div>
+                                                     </div>
+-                                                    
++
+                                                     <h3 className="font-display text-lg md:text-2xl font-bold text-brandDark mb-2 md:mb-3 leading-tight">{step.title}</h3>
+                                                     <p className="text-brandDark/80 font-medium leading-relaxed text-sm md:text-base">{step.desc}</p>
+                                                 </div>
+@@ -631,14 +684,14 @@
+                                 Ver todo <Icons.Arrow />
+                             </button>
+                         </div>
+-                        
++
+                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+-                            {[1,2,3].map((i) => (
+-                                <div key={i} 
+-                                     className="group relative bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer aspect-[4/5]"
+-                                     onClick={() => setPage('portfolio')}>
+-                                    <img src={`https://images.unsplash.com/photo-${i === 1 ? '1558655146-d09347e92766' : i === 2 ? '1467232004584-a241de8bcf5d' : '1611162617474-5b21e879e113'}?w=800&h=600&fit=crop`} 
+-                                         alt="Proyecto" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
++                            {[1, 2, 3].map((i) => (
++                                <div key={i}
++                                    className="group relative bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer aspect-[4/5]"
++                                    onClick={() => setPage('portfolio')}>
++                                    <img src={`https://images.unsplash.com/photo-${i === 1 ? '1558655146-d09347e92766' : i === 2 ? '1467232004584-a241de8bcf5d' : '1611162617474-5b21e879e113'}?w=800&h=600&fit=crop`}
++                                        alt="Proyecto" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                     <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                                         <span className={`${i === 1 ? 'bg-brandPink' : i === 2 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
+                                             {i === 1 ? 'Identidad Visual' : i === 2 ? 'Desarrollo Web' : 'Social Media'}
+@@ -669,7 +722,7 @@
+                         backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                         backgroundSize: '40px 40px'
+                     }}></div>
+-                    
++
+                     <div className="max-w-7xl mx-auto relative z-10">
+                         <div className="flex items-center justify-center gap-2 md:gap-4 mb-10 md:mb-16 px-2">
+                             <div className="w-8 h-8 md:w-10 animate-spin-slow flex-shrink-0">
+@@ -678,18 +731,18 @@
+                             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center">
+                                 Esto dicen mis clientas &lt;3
+                             </h2>
+-                            <div className="w-8 h-8 md:w-10 animate-spin-slow flex-shrink-0" style={{animationDirection: 'reverse'}}>
++                            <div className="w-8 h-8 md:w-10 animate-spin-slow flex-shrink-0" style={{ animationDirection: 'reverse' }}>
+                                 <Icons.Star />
+                             </div>
+                         </div>
+-                        
++
+                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                             {testimonials.map((t, idx) => (
+                                 <div key={idx} className={`${t.bg} ${t.rotate} rounded-2xl md:rounded-3xl p-5 md:p-8 border-3 md:border-4 border-brandDark transform hover:rotate-0 hover:scale-105 transition-all duration-300`}>
+                                     <div className="flex gap-1 mb-3 md:mb-4">
+-                                        {[1,2,3,4,5].map(s => (
++                                        {[1, 2, 3, 4, 5].map(s => (
+                                             <svg key={s} className="w-4 h-4 md:w-5 md:h-5 text-brandDark fill-current" viewBox="0 0 20 20">
+-                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
++                                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                             </svg>
+                                         ))}
+                                     </div>
+@@ -718,7 +771,7 @@
+                 <RoadmapSection />
+                 <PortfolioPreview setPage={setPage} />
+                 <Testimonials />
+-                
++
+                 <section className="py-16 md:py-24 px-4 bg-brandPurple relative overflow-hidden">
+                     <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                         <span className="font-display text-[25vw] md:text-[20vw] font-bold text-white whitespace-nowrap"></span>
+@@ -726,8 +779,8 @@
+                     <div className="max-w-4xl mx-auto text-center relative z-10 px-2">
+                         <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 px-2">┬┐Lista para brillar?</h2>
+                         <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 font-medium">Agendemos una evaluaci├│n gratuita</p>
+-                          <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" 
+-                           className="inline-flex items-center justify-center gap-2 md:gap-3 bg-brandOrange text-white border-3 md:border-4 border-brandDark px-6 py-3 md:px-10 md:py-5 rounded-full font-display font-bold text-base md:text-xl transform hover:scale-105 transition-all w-full sm:w-auto mx-auto">
++                        <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
++                            className="inline-flex items-center justify-center gap-2 md:gap-3 bg-brandOrange text-white border-3 md:border-4 border-brandDark px-6 py-3 md:px-10 md:py-5 rounded-full font-display font-bold text-base md:text-xl transform hover:scale-105 transition-all w-full sm:w-auto mx-auto">
+                             <Icons.Calendar /> <span className="whitespace-nowrap">Agenda una evaluaci├│n gratuita</span>
+                         </a>
+                     </div>
+@@ -738,7 +791,7 @@
+         const ServicePage = ({ serviceId, setPage }) => {
+             const service = servicesData.find(s => s.id === serviceId);
+             if (!service) return null;
+-            
++
+             const detailedContent = {
+                 branding: {
+                     headline: "La claridad que tu negocio necesita para crecer",
+@@ -764,23 +817,23 @@ Y eso es lo que trabajamos ac├í.`,
+                         "Empez├ís a atraer clientes m├ís alineados a vos"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "1. Diagn├│stico y an├ílisis estrat├®gico", 
++                        {
++                            title: "1. Diagn├│stico y an├ílisis estrat├®gico",
+                             desc: "Primero entendemos d├│nde est├ís hoy.\n\nÔÇó Analizamos tu marca actual\nÔÇó Revisamos tu comunicaci├│n y presencia digital\nÔÇó Observamos a tus competidores directos\nÔÇó Detectamos oportunidades reales de posicionamiento",
+                             result: "­ƒÄ» ┬┐Para qu├®?\n\nPara que tengas claridad sobre tu punto de partida y podamos definir un camino de crecimiento concreto y realista."
+                         },
+-                        { 
+-                            title: "2. Definici├│n estrat├®gica de marca", 
++                        {
++                            title: "2. Definici├│n estrat├®gica de marca",
+                             desc: "Ac├í construimos los pilares que van a guiar todo lo que hagas a partir de ahora.\n\nÔÇó Definimos tu cliente ideal (obras, locales comerciales, viviendas)\nÔÇó Creamos una propuesta de valor clara\nÔÇó Trabajamos tu posicionamiento\nÔÇó Definimos valores, personalidad y tono de comunicaci├│n",
+                             result: "­ƒÄ» ┬┐Qu├® logramos?\n\nQue tu empresa deje de comunicar \"hago de todo\" y empiece a transmitir exactamente el tipo de proyectos que quiere captar."
+                         },
+-                        { 
+-                            title: "3. Desarrollo de identidad visual profesional", 
++                        {
++                            title: "3. Desarrollo de identidad visual profesional",
+                             desc: "Reci├®n cuando la estrategia est├í clara, dise├▒amos.\n\nÔÇó Logo principal y versiones secundarias\nÔÇó Paleta crom├ítica profesional\nÔÇó Sistema tipogr├ífico\nÔÇó Sistema visual adaptable a distintos soportes",
+                             result: "­ƒÄ» Resultado:\n\nUna imagen s├│lida, coherente y alineada al nivel de empresa que quer├®s construir.\n\nNo es solo est├®tica. Es percepci├│n de valor."
+                         },
+-                        { 
+-                            title: "4. Gu├¡a estrat├®gica de marca", 
++                        {
++                            title: "4. Gu├¡a estrat├®gica de marca",
+                             desc: "Todo queda ordenado y documentado para que no dependas de la improvisaci├│n.\n\nÔÇó Lineamientos de uso de identidad\nÔÇó Criterios de comunicaci├│n\nÔÇó Base estrat├®gica para futuras acciones (web, redes, publicidad)",
+                             result: "­ƒÄ» Resultado:\n\nUna herramienta clara que te permite crecer con coherencia en el tiempo."
+                         }
+@@ -806,23 +859,23 @@ Es el sistema visual que hace que tu negocio se vea profesional, coherente y con
+                         "Te sent├¡s m├ís segura al mostrar tu marca"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "1. Desarrollo de identidad visual estrat├®gica", 
++                        {
++                            title: "1. Desarrollo de identidad visual estrat├®gica",
+                             desc: "No dise├▒amos \"algo lindo\".\n\nDise├▒amos algo que represente tu posicionamiento.\n\nIncluye:\n\nÔÇó Logo principal\nÔÇó Versiones secundarias\nÔÇó Isotipo o elemento gr├ífico complementario\nÔÇó Sistema adaptable a distintos formatos",
+                             result: "­ƒÄ» Resultado: una marca vers├ítil que funciona en todos tus canales."
+                         },
+-                        { 
+-                            title: "2. Sistema crom├ítico y tipogr├ífico", 
++                        {
++                            title: "2. Sistema crom├ítico y tipogr├ífico",
+                             desc: "Elegimos una paleta y tipograf├¡as con intenci├│n.\n\nÔÇó Colores alineados a tu personalidad de marca\nÔÇó Sistema tipogr├ífico profesional\nÔÇó Jerarqu├¡as visuales claras",
+                             result: "­ƒÄ» Resultado: coherencia visual y reconocimiento de marca."
+                         },
+-                        { 
+-                            title: "3. Recursos gr├íficos y estilo visual", 
++                        {
++                            title: "3. Recursos gr├íficos y estilo visual",
+                             desc: "Creamos un lenguaje visual propio:\n\nÔÇó Estilo de im├ígenes\nÔÇó Recursos gr├íficos complementarios\nÔÇó Aplicaciones base para redes o piezas digitales\nÔÇó Papeler├¡a para tu marca\nÔÇó Aplicaciones digitales como por ejemplo, la firma de tu mail",
+                             result: "­ƒÄ» Resultado: tu marca empieza a verse memorable, reconocible y consistente."
+                         },
+-                        { 
+-                            title: "4. Manual de identidad visual", 
++                        {
++                            title: "4. Manual de identidad visual",
+                             desc: "Te entrego una gu├¡a clara para que sepas c├│mo usar tu marca correctamente.\n\nÔÇó Usos correctos e incorrectos\nÔÇó Aplicaciones recomendadas\nÔÇó Lineamientos b├ísicos de coherencia visual",
+                             result: "­ƒÄ» Resultado: tranquilidad de que vas a saber mantener tu marca alineada en el tiempo."
+                         }
+@@ -848,23 +901,23 @@ Es una herramienta estrat├®gica que trabaja por vos todos los d├¡as.`,
+                         "Facilit├ís el proceso de venta"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "Ô£à Email Profesional", 
++                        {
++                            title: "Ô£à Email Profesional",
+                             desc: "## La diferencia entre verse amateur y verse empresa\n\nOlvidate de usar direcciones tipo `@gmail.com`.\n\nTe ayudamos a:\n\nÔÇó Registrar tu dominio\nÔÇó Configurar tu correo con tu marca\nÔÇó Vincularlo a Gmail para que lo uses de forma simple\n\nEjemplo: tunombre@tumarca.com\n\nEs un detalle peque├▒o, pero cambia completamente la percepci├│n.",
+                             result: "**Inversi├│n: desde X USD**\n\nIncluye:\n\nÔÇó Registro de dominio\nÔÇó Configuraci├│n completa\nÔÇó 1 cuenta de correo profesional\nÔÇó Asistencia t├®cnica"
+                         },
+-                        { 
+-                            title: "­ƒî┐ Landing Page", 
++                        {
++                            title: "­ƒî┐ Landing Page",
+                             desc: "Ideal si est├ís comenzando o necesit├ís una presencia clara y concreta.\n\nUna sola secci├│n donde mostramos:\n\nÔÇó Qui├®n sos\nÔÇó Qu├® hac├®s\nÔÇó Tus servicios\nÔÇó Formulario de contacto",
+                             result: "**Inversi├│n: desde X USD**\n\nIncluye:\n\nÔÇó Dominio gratis por 1 a├▒o\nÔÇó Hosting\nÔÇó Certificado SSL\nÔÇó Dise├▒o personalizado\nÔÇó Integraci├│n con WhatsApp y redes\nÔÇó Web adaptable a celular"
+                         },
+-                        { 
+-                            title: "Ô£¿ Web de Varias Secciones", 
++                        {
++                            title: "Ô£¿ Web de Varias Secciones",
+                             desc: "Para negocios que necesitan mostrar m├ís contenido y posicionarse mejor.\n\nEjemplo de secciones:\n\nInicio ÔÇô Sobre m├¡ ÔÇô Servicios ÔÇô Blog ÔÇô Contacto",
+                             result: "**Inversi├│n: desde X USD**\n\nIncluye:\n\nÔÇó Dominio gratis por 1 a├▒o\nÔÇó Hosting\nÔÇó Certificado SSL\nÔÇó Hasta 8 secciones\nÔÇó Dise├▒o personalizado\nÔÇó Integraci├│n con WhatsApp y redes\nÔÇó Web adaptable a celular\nÔÇó Cuentas de correo profesional"
+                         },
+-                        { 
+-                            title: "­ƒøì Tienda Online", 
++                        {
++                            title: "­ƒøì Tienda Online",
+                             desc: "Para vender productos de forma profesional y organizada.\n\nPodr├ís:\n\nÔÇó Cargar productos ilimitados\nÔÇó Crear descuentos\nÔÇó Gestionar stock\nÔÇó Integrar medios de pago",
+                             result: "**Inversi├│n: desde X USD**\n\nIncluye:\n\nÔÇó Dominio gratis por 1 a├▒o\nÔÇó Hosting\nÔÇó Certificado SSL\nÔÇó Hasta 15 secciones\nÔÇó Dise├▒o personalizado\nÔÇó Integraci├│n con redes\nÔÇó Web adaptable a celular\nÔÇó Configuraci├│n inicial de tienda"
+                         }
+@@ -908,13 +961,13 @@ Para que tu negocio no solo se vea profesionalÔÇª sino que est├® listo para posi
+                         "Invert├¡s de forma m├ís inteligente"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "Identidad Visual Completa", 
++                        {
++                            title: "Identidad Visual Completa",
+                             desc: "ÔÇó Logo principal y versiones secundarias\nÔÇó Paleta crom├ítica estrat├®gica\nÔÇó Sistema tipogr├ífico\nÔÇó Recursos gr├íficos\nÔÇó Manual de identidad visual",
+                             result: "Resultado: una marca s├│lida, coherente y alineada a tu posicionamiento."
+                         },
+-                        { 
+-                            title: "Web de Varias Secciones", 
++                        {
++                            title: "Web de Varias Secciones",
+                             desc: "ÔÇó Hasta 8 secciones (Inicio, Sobre m├¡, Servicios, Blog, Contacto, etc.)\nÔÇó Dise├▒o 100% personalizado\nÔÇó Dominio gratis por 1 a├▒o\nÔÇó Hosting\nÔÇó Certificado SSL\nÔÇó Integraci├│n con WhatsApp y redes\nÔÇó Web adaptable a celular\nÔÇó Cuentas de correo profesional",
+                             result: "Resultado: una web estrat├®gica, profesional y lista para trabajar por vos."
+                         }
+@@ -942,18 +995,18 @@ Yo me encargo de la estrategia, la producci├│n y el dise├▒o.`,
+                         "Vend├®s m├ís porque le est├ís hablando a tu publico objetivo"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "­ƒî┐ Pack Presencia", 
++                        {
++                            title: "­ƒî┐ Pack Presencia",
+                             desc: "Ideal para mantener constancia sin sobrecargarte.\n\nIncluye:\n\nÔÇó 1 reel simple\nÔÇó 2 reels intermedios\nÔÇó 1 reel complejo\nÔÇó 3 carruseles / posteos",
+                             result: "­ƒÆ░ Inversi├│n: $10.000 UYU"
+                         },
+-                        { 
+-                            title: "Ô£¿ Pack Presencia Activa", 
++                        {
++                            title: "Ô£¿ Pack Presencia Activa",
+                             desc: "Para marcas que quieren mayor visibilidad y posicionamiento.\n\nIncluye:\n\nÔÇó 2 reels simples\nÔÇó 3 reels intermedios\nÔÇó 2 reel complejo\nÔÇó 5 carruseles / posteos",
+                             result: "­ƒÆ░ Inversi├│n: $15.000 UYU"
+                         },
+-                        { 
+-                            title: "Gesti├│n de Meta Ads (opcional)", 
++                        {
++                            title: "Gesti├│n de Meta Ads (opcional)",
+                             desc: "Pod├®s sumar la gesti├│n de campa├▒as en Meta Ads para que tu contenido llegue a m├ís personas y genere mejores resultados.\n\nIncluye:\n\nÔ£ö Configuraci├│n de campa├▒a\nÔ£ö Segmentaci├│n estrat├®gica\nÔ£ö Instalaci├│n de p├¡xel (si aplica)\nÔ£ö Optimizaci├│n durante 15 d├¡as\nÔ£ö Reporte de resultados",
+                             result: "­ƒÆ░ Gesti├│n desde: $XXXX UYU\n\n(Inversi├│n en publicidad no incluida)\n\nEsto es ideal para que el contenido que creemos juntas se potencie y te genere m├ís ventas a├║n."
+                         }
+@@ -974,23 +1027,23 @@ Yo me encargo de la estrategia, la producci├│n y el dise├▒o.`,
+                         "Dej├ís de depender solo del alcance org├ínico"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "Estrategia de campa├▒a", 
++                        {
++                            title: "Estrategia de campa├▒a",
+                             desc: "Definici├│n de objetivos, segmentaci├│n de audiencia y presupuesto inteligente.",
+                             result: "Cada peso invertido tiene un prop├│sito claro."
+                         },
+-                        { 
+-                            title: "Creaci├│n de anuncios", 
++                        {
++                            title: "Creaci├│n de anuncios",
+                             desc: "Dise├▒o de creativos y copy persuasivo alineado a tu marca.",
+                             result: "Anuncios que conectan y convierten."
+                         },
+-                        { 
+-                            title: "Optimizaci├│n continua", 
++                        {
++                            title: "Optimizaci├│n continua",
+                             desc: "Monitoreo, an├ílisis de m├®tricas y ajustes para mejorar resultados.",
+                             result: "Mejor ROI semana a semana."
+                         },
+-                        { 
+-                            title: "Reportes de resultados", 
++                        {
++                            title: "Reportes de resultados",
+                             desc: "Informes claros sobre el rendimiento de tus inversiones publicitarias.",
+                             result: "Transparencia total en lo que funciona."
+                         }
+@@ -1013,13 +1066,13 @@ El dise├▒o gr├ífico es la herramienta que traduce tu mensaje en impacto visual.`
+                         "Transmit├¡s profesionalismo"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "┬┐Qu├® tipo de piezas dise├▒amos?", 
++                        {
++                            title: "┬┐Qu├® tipo de piezas dise├▒amos?",
+                             desc: "Trabajamos de forma personalizada seg├║n tu necesidad:\n\nÔÇó Dise├▒o de flyers digitales o impresos\nÔÇó Dise├▒o de packaging para tus productos (bolsas, cajas, tarjetas, stickers, etc)\nÔÇó Tarjetas personales\nÔÇó Tarjetas de env├¡o\nÔÇó Tarjetas de agradecimiento\nÔÇó Presentaciones comerciales\nÔÇó Hojas membretadas\nÔÇó Sobres o Carpetines\nÔÇó Cat├ílogos de productos\nÔÇó Brochures\nÔÇó Banners para redes o web\nÔÇó Banners o carteler├¡a para eventos presenciales\nÔÇó Material gr├ífico para eventos\nÔÇó Stands para eventos\n\nCada pieza se dise├▒a alineada a tu identidad visual para mantener coherencia y profesionalismo.",
+                             result: ""
+                         },
+-                        { 
+-                            title: "┬┐C├│mo trabajamos?", 
++                        {
++                            title: "┬┐C├│mo trabajamos?",
+                             desc: "1. Nos cont├ís qu├® necesit├ís y para qu├® objetivo.\n2. Definimos formato y lineamientos.\n3. Dise├▒amos la propuesta visual.\n4. Realizamos ajustes finales.\n5. Te entregamos el material listo para usar.\n\nSimple, claro y profesional.",
+                             result: ""
+                         }
+@@ -1047,18 +1100,18 @@ Se trata de enfocarse mejor.`,
+                         "Vas a tomar decisiones estrat├®gicas"
+                     ],
+                     steps: [
+-                        { 
+-                            title: "1. Reuni├│n de diagn├│stico estrat├®gico", 
++                        {
++                            title: "1. Reuni├│n de diagn├│stico estrat├®gico",
+                             desc: "Analizamos tu negocio en profundidad:\n\nÔÇó Situaci├│n actual\nÔÇó Canales digitales\nÔÇó Comunicaci├│n\nÔÇó Oportunidades de mejora\n\nIdentificamos d├│nde est├ís perdiendo foco y d├│nde est├í el verdadero potencial de crecimiento.",
+                             result: ""
+                         },
+-                        { 
+-                            title: "2. Plan de acci├│n estrat├®gico personalizado", 
++                        {
++                            title: "2. Plan de acci├│n estrat├®gico personalizado",
+                             desc: "No es teor├¡a. Es un plan concreto.\n\nTe llev├ís:\n\nÔÇó Acciones claras y ordenadas\nÔÇó Prioridades definidas\nÔÇó Enfoque por canal\nÔÇó Objetivos medibles\n\nCada acci├│n tiene un porqu├® y un objetivo espec├¡fico.",
+                             result: ""
+                         },
+-                        { 
+-                            title: "3. Definici├│n de comunicaci├│n y posicionamiento", 
++                        {
++                            title: "3. Definici├│n de comunicaci├│n y posicionamiento",
+                             desc: "Trabajamos:\n\nÔÇó P├║blico objetivo y segmentaci├│n\nÔÇó Propuesta de valor\nÔÇó Tono y estilo de comunicaci├│n\nÔÇó Lineamientos para contenido\n\nEsto te permite dejar de improvisar y empezar a comunicar con intenci├│n.",
+                             result: ""
+                         }
+@@ -1077,14 +1130,14 @@ Se trata de enfocarse mejor.`,
+                 price: "Consultar",
+                 cta: "Agendemos una reuni├│n y veamos c├│mo puedo ayudarte."
+             };
+-            
++
+             return (
+                 <div className="min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 px-4 bg-cream w-full overflow-hidden">
+                     <div className="max-w-6xl mx-auto">
+                         <button onClick={() => setPage('home')} className="mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 transition-colors text-sm md:text-base">
+                             ÔåÉ Volver
+                         </button>
+-                        
++
+                         {/* Header modular con decoraciones */}
+                         <div className="relative mb-8">
+                             <div className="absolute -top-10 -right-10 w-20 h-20 animate-float hidden md:block z-0 opacity-50">
+@@ -1094,13 +1147,13 @@ Se trata de enfocarse mejor.`,
+                                 <div className="absolute top-4 left-4 w-8 h-8 bg-white/30 rounded-full animate-pulse"></div>
+                                 <div className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 rounded-full"></div>
+                                 <div className="absolute top-1/2 right-8 w-4 h-4 bg-brandDark rounded-full hidden md:block"></div>
+-                                
+-                                <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 relative z-10 animate-float" style={{animationDuration: '4s'}}>
++
++                                <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 relative z-10 animate-float" style={{ animationDuration: '4s' }}>
+                                     <service.Icon />
+                                 </div>
+                                 <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-brandDark mb-4 relative z-10">{service.title}</h1>
+                                 <p className="text-lg md:text-2xl text-brandDark/80 font-medium relative z-10 max-w-3xl mx-auto leading-tight">{content.headline}</p>
+-                                
++
+                                 {/* Precio flotante */}
+                                 <div className="mt-6 inline-block bg-white rounded-full px-6 py-2 border-3 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                                     <span className="font-bold text-brandDark">{content.price}</span>
+@@ -1116,7 +1169,7 @@ Se trata de enfocarse mejor.`,
+                                 </h3>
+                                 <p className="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.intro}</p>
+                             </div>
+-                            
++
+                             {content.forYou && (
+                                 <div className="bg-brandPink rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 hover:-translate-y-2 transition-all duration-300">
+                                     <h3 className="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+@@ -1216,7 +1269,7 @@ Se trata de enfocarse mejor.`,
+                             <div className="absolute top-4 left-4 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
+                             <div className="absolute bottom-4 right-4 w-32 h-32 bg-white/10 rounded-full"></div>
+                             <div className="absolute top-1/2 left-8 w-4 h-4 bg-brandYellow rounded-full hidden md:block animate-float"></div>
+-                            
++
+                             <p className="text-lg md:text-2xl font-medium mb-8 whitespace-pre-line relative z-10 leading-relaxed">{content.cta}</p>
+                             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                                 <a href="https://calendly.com" target="_blank" className="inline-flex items-center justify-center gap-2 bg-white text-brandPurple px-8 py-4 rounded-full font-display font-bold btn-lineal text-base md:text-lg shadow-lg">
+@@ -1234,7 +1287,7 @@ Se trata de enfocarse mejor.`,
+ 
+         const PortfolioPage = ({ setPage }) => {
+             const [activeCategory, setActiveCategory] = useState('todos');
+-            
++
+             const categories = [
+                 { id: 'todos', name: 'Todos' },
+                 { id: 'identidad', name: 'Identidad Visual' },
+@@ -1251,8 +1304,8 @@ Se trata de enfocarse mejor.`,
+                 { id: 6, title: "Tienda de Barrio", category: "social", desc: "Estrategia de contenido para tienda local", clientReview: "Ahora tengo una comunidad fiel." }
+             ];
+ 
+-            const filteredProjects = activeCategory === 'todos' 
+-                ? projects 
++            const filteredProjects = activeCategory === 'todos'
++                ? projects
+                 : projects.filter(p => p.category === activeCategory);
+ 
+             return (
+@@ -1261,23 +1314,22 @@ Se trata de enfocarse mejor.`,
+                         <button onClick={() => setPage('home')} className="mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 text-sm md:text-base">
+                             ÔåÉ Volver
+                         </button>
+-                        
++
+                         <div className="text-center mb-8 md:mb-12 px-2">
+                             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-brandDark mb-3 md:mb-4">Portfolio</h1>
+                             <p className="text-sm md:text-base lg:text-lg text-brandDark/70 max-w-2xl mx-auto mb-6 md:mb-8">
+                                 Algunos de los proyectos que tuve el placer de acompa├▒ar. Cada marca tiene su historia y su proceso.
+                             </p>
+-                            
++
+                             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                                 {categories.map(cat => (
+                                     <button
+                                         key={cat.id}
+                                         onClick={() => setActiveCategory(cat.id)}
+-                                        className={`px-4 py-2 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm md:text-base ${
+-                                            activeCategory === cat.id 
+-                                                ? 'bg-brandDark text-white' 
+-                                                : 'bg-white text-brandDark hover:bg-brandPink/20'
+-                                        }`}>
++                                        className={`px-4 py-2 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm md:text-base ${activeCategory === cat.id
++                                            ? 'bg-brandDark text-white'
++                                            : 'bg-white text-brandDark hover:bg-brandPink/20'
++                                            }`}>
+                                         {cat.name}
+                                     </button>
+                                 ))}
+@@ -1288,8 +1340,8 @@ Se trata de enfocarse mejor.`,
+                             {filteredProjects.map((project) => (
+                                 <div key={project.id} className="group bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                     <div className="aspect-[4/3] overflow-hidden bg-brandPink/20 relative">
+-                                        <img 
+-                                            src={`https://images.unsplash.com/photo-${project.id % 2 === 0 ? '1558655146-d09347e92766' : '1467232004584-a241de8bcf5d'}?w=800&h=600&fit=crop`} 
++                                        <img
++                                            src={`https://images.unsplash.com/photo-${project.id % 2 === 0 ? '1558655146-d09347e92766' : '1467232004584-a241de8bcf5d'}?w=800&h=600&fit=crop`}
+                                             alt={project.title}
+                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                         />
+@@ -1332,26 +1384,26 @@ Se trata de enfocarse mejor.`,
+             return (
+                 <div className="min-h-screen bg-cream overflow-x-hidden w-full">
+                     <div className="grain"></div>
+-                    
++
+                     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b-4 border-brandDark w-full">
+                         <div className="max-w-7xl mx-auto px-3 md:px-4 h-16 md:h-20 flex justify-between items-center">
+                             <button onClick={() => setPage('home')} className="h-16 md:h-20 hover:opacity-80 transition-opacity">
+-                                <img 
+-                                    src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-09-scaled.png" 
+-                                    alt="ARRANCANDONGA" 
++                                <img
++                                    src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-09-scaled.png"
++                                    alt="ARRANCANDONGA"
+                                     className="h-full w-auto object-contain"
+                                 />
+                             </button>
+-                            
++
+                             <div className="hidden md:flex items-center gap-2">
+                                 {['home', 'portfolio'].map(page => (
+-                                    <button key={page} onClick={() => setPage(page)} 
+-                                            className={`px-4 lg:px-6 py-2 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm lg:text-base ${currentPage === page ? 'bg-brandDark text-white' : 'bg-transparent hover:bg-brandPink/20'}`}>
++                                    <button key={page} onClick={() => setPage(page)}
++                                        className={`px-4 lg:px-6 py-2 rounded-full font-display font-bold border-2 border-brandDark transition-all text-sm lg:text-base ${currentPage === page ? 'bg-brandDark text-white' : 'bg-transparent hover:bg-brandPink/20'}`}>
+                                         {page === 'home' ? 'Inicio' : 'Portfolio'}
+                                     </button>
+                                 ))}
+                                 <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
+-                                   className="ml-2 lg:ml-4 bg-brandOrange text-white border-2 border-brandDark px-4 lg:px-6 py-2 rounded-full font-display font-bold btn-lineal text-sm lg:text-base whitespace-nowrap">
++                                    className="ml-2 lg:ml-4 bg-brandOrange text-white border-2 border-brandDark px-4 lg:px-6 py-2 rounded-full font-display font-bold btn-lineal text-sm lg:text-base whitespace-nowrap">
+                                     Agendar
+                                 </a>
+ 
+@@ -1367,9 +1419,9 @@ Se trata de enfocarse mejor.`,
+                         <div className="h-full overflow-y-auto p-4 sm:p-6 pt-20 md:pt-24">
+                             <div className="max-w-sm mx-auto space-y-2 sm:space-y-3">
+                                 <p className="font-display text-xs font-bold text-brandDark/40 uppercase tracking-wider mb-4 sm:mb-6 text-center">Men├║</p>
+-                                
++
+                                 {menuItems.map((item, idx) => (
+-                                    <button 
++                                    <button
+                                         key={item.id}
+                                         onClick={() => setPage(item.id)}
+                                         className={`w-full ${item.color} rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 border-brandDark transition-all flex items-center justify-between group`}
+@@ -1381,13 +1433,13 @@ Se trata de enfocarse mejor.`,
+                                         </span>
+                                     </button>
+                                 ))}
+-                                
++
+                                 <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t-2 border-brandDark/20">
+-                                    <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" 
+-                                       className="w-full bg-brandPurple text-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 border-brandDark btn-lineal flex items-center justify-center gap-2 font-display font-bold text-base sm:text-lg">
++                                    <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
++                                        className="w-full bg-brandPurple text-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 border-brandDark btn-lineal flex items-center justify-center gap-2 font-display font-bold text-base sm:text-lg">
+                                         <Icons.Calendar /> <span className="whitespace-nowrap">Agenda una reuni├│n</span>
+                                     </a>
+-                                    
++
+                                     <div className="flex gap-3 sm:gap-4 justify-center mt-4 sm:mt-6">
+                                         <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 bg-brandPink rounded-full flex items-center justify-center border-2 border-brandDark text-brandDark">
+                                             <Icons.Instagram />
+@@ -1418,20 +1470,20 @@ Se trata de enfocarse mejor.`,
+                         }}></div>
+                         <div className="max-w-7xl mx-auto relative z-10">
+                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left items-start">
++                                <div className="flex flex-col items-center md:items-start">
+                                     <div className="h-24 md:h-32 mb-4 md:mb-6">
+-                                        <img 
+-                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-08.png" 
+-                                            alt="ARRANCANDONGA" 
++                                        <img
++                                            src="https://estudioforgelab.com/wp-content/uploads/2026/03/BRANDING-ARRANCANDONGA-2026.2-08.png"
++                                            alt="ARRANCANDONGA"
+                                             className="h-full w-auto object-contain mx-auto md:mx-0"
+                                         />
+                                     </div>
+-                                    </div>
+                                     <p className="text-[#303030]/70 mb-4 md:mb-6 max-w-sm text-sm md:text-base">Estrat├®gico y con prop├│sito para emprendedoras que quieren destacar.</p>
+                                     <div className="flex gap-3 justify-center md:justify-start">
+-                                        <a href="#" className="w-10 h-10 md:w-12 md:h-12 bg-brandPink rounded-full flex items-center justify-center border-2 border-white hover:scale-110 transition-transform text-brandDark">
++                                        <a href="#" className="w-10 h-10 md:w-12 md:h-12 bg-brandPink rounded-full flex items-center justify-center border-2 border-[#303030] hover:scale-110 transition-transform text-[#303030]">
+                                             <Icons.Instagram />
+                                         </a>
+-                                        <a href="https://wa.me/59899928009" target="_blank" className="w-10 h-10 md:w-12 md:h-12 bg-brandGreen rounded-full flex items-center justify-center border-2 border-white hover:scale-110 transition-transform text-white">
++                                        <a href="https://wa.me/59899928009" target="_blank" className="w-10 h-10 md:w-12 md:h-12 bg-brandGreen rounded-full flex items-center justify-center border-2 border-[#303030] hover:scale-110 transition-transform text-white">
+                                             <Icons.WhatsApp />
+                                         </a>
+                                     </div>
+@@ -1440,8 +1492,8 @@ Se trata de enfocarse mejor.`,
+                                 <div className="flex flex-col items-center md:items-center">
+                                     <h4 className="font-display font-bold text-brandYellow mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">Servicios</h4>
+                                     <ul className="space-y-2 md:space-y-3 text-[#303030]/70 text-sm md:text-base">
+-                                        {servicesData.slice(0,4).map(s => (
+-                                            <li key={s.id}><button onClick={() => setPage(s.id)} className="hover:text-white transition-colors hover:underline">{s.title}</button></li>
++                                        {servicesData.slice(0, 4).map(s => (
++                                            <li key={s.id}><button onClick={() => setPage(s.id)} className="hover:text-[#303030] transition-colors hover:underline">{s.title}</button></li>
+                                         ))}
+                                     </ul>
+                                 </div>
+@@ -1459,15 +1511,15 @@ Se trata de enfocarse mejor.`,
+                                     </ul>
+                                 </div>
+                             </div>
+-                            
+-                            <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-white/10 text-center">
++
++                            <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[#303030]/10 text-center">
+                                 <p className="text-[#303030]/50 text-xs md:text-sm">┬® 2026 Arrancandonga. Con amor y estrategia</p>
+                             </div>
+                         </div>
+                     </footer>
+ 
+-                    <a href="https://wa.me/59899928009" target="_blank" rel="noopener noreferrer" 
+-                       className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-brandGreen text-white p-3 md:p-4 rounded-full border-2 border-brandDark hover:scale-110 transition-transform">
++                    <a href="https://wa.me/59899928009" target="_blank" rel="noopener noreferrer"
++                        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-brandGreen text-white p-3 md:p-4 rounded-full border-2 border-brandDark hover:scale-110 transition-transform">
+                         <Icons.WhatsApp />
+                     </a>
+                 </div>
+@@ -1478,4 +1530,5 @@ Se trata de enfocarse mejor.`,
+         root.render(<App />);
+     </script>
+ </body>
+-</html>
++
++</html>
+\ No newline at end of file

@@ -1,0 +1,1722 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { servicesData } from '../../data/servicesData.js';
+
+export function getStaticPaths() {
+    return servicesData.map((service) => ({
+        params: { id: service.id },
+        props: { service },
+    }));
+}
+
+const { service } = Astro.props;
+
+// Hardcoded detailedContent similar to what was in index.html, since it wasn't extracted to a separate file yet:
+const detailedContent: any = {
+    branding: {
+        headline: "La claridad que tu negocio necesita para crecer",
+        intro: `El branding no es solo un logo lindo. Es la base de tu negocio.
+                        
+                        Trabajamos en profundidad para entender quién sos, qué ofrecés y a quién le hablás. A partir de ahí, construimos una marca con personalidad, propósito y una dirección clara.`,
+        forYou: "Es para vos si te pasa que: Te cuesta explicar qué hace tu negocio, Tu marca se ve igual a la de tu competencia, Creciste y tu identidad actual ya no te representa, Sentís que comunicás sin un rumbo claro.",
+        afterProcess: [
+            "Dejás de comunicar desde la duda",
+            "Entendés exactamente a quién querés atraer",
+            "Ganás seguridad al vender",
+            "Tu mensaje se vuelve claro y coherente",
+            "Empezás a atraer clientes más alineados a vos"
+        ],
+        steps: [
+            {
+                title: "1. Diagnóstico y análisis estratégico",
+                desc: "Primero entendemos dónde estás hoy.\n\n• Analizamos tu marca actual\n• Revisamos tu comunicación y presencia digital\n• Observamos a tus competidores directos\n• Detectamos oportunidades reales de posicionamiento",
+                result: "🎯 ¿Para qué?\n\nPara que tengas claridad sobre tu punto de partida y podamos definir un camino de crecimiento concreto y realista."
+            },
+            {
+                title: "2. Definición estratégica de marca",
+                desc: "Acá construimos los pilares que van a guiar todo lo que hagas a partir de ahora.\n\n• Definimos tu cliente ideal (obras, locales comerciales, viviendas)\n• Creamos una propuesta de valor clara\n• Trabajamos tu posicionamiento\n• Definimos valores, personalidad y tono de comunicación",
+                result: "🎯 ¿Qué logramos?\n\nQue tu empresa deje de comunicar \"hago de todo\" y empiece a transmitir exactamente el tipo de proyectos que quiere captar."
+            },
+            {
+                title: "3. Desarrollo de identidad visual profesional",
+                desc: "Recién cuando la estrategia está clara, diseñamos.\n\n• Logo principal y versiones secundarias\n• Paleta cromática profesional\n• Sistema tipográfico\n• Sistema visual adaptable a distintos soportes",
+                result: "🎯 Resultado:\n\nUna imagen sólida, coherente y alineada al nivel de empresa que querés construir.\n\nNo es solo estética. Es percepción de valor."
+            },
+            {
+                title: "4. Guía estratégica de marca",
+                desc: "Todo queda ordenado y documentado para que no dependas de la improvisación.\n\n• Lineamientos de uso de identidad\n• Criterios de comunicación\n• Base estratégica para futuras acciones (web, redes, publicidad)",
+                result: "🎯 Resultado:\n\nUna herramienta clara que te permite crecer con coherencia en el tiempo."
+            }
+        ],
+        price: "Inversión: desde 350 USD",
+        cta: "Si sentís que estás trabajando mucho pero sin dirección clara... Este es el punto de partida.\n\nAgendemos una reunión y veamos cómo ordenar tu marca para que empiece a crecer con intención y no por improvisación.\n\nTu negocio no necesita más contenido.\n\nNecesita claridad."
+    },
+    // We can populate the rest based on index.html data
+    identidad: {
+        headline: "La identidad visual es la cara de tu negocio.",
+        intro: `Una imagen dice más que mil palabras, y la de tu negocio tiene que decir las correctas.
+        
+        Diseñamos un sistema visual completo que no solo se vea estético, sino que funcione estratégicamente para conectar con tu cliente ideal.`,
+        forYou: "Para marcas que ya tienen clara su estrategia y propuesta de valor, pero necesitan que su imagen visual refleje esa calidad y profesionalismo.",
+        afterProcess: [
+            "Proyectás profesionalismo",
+            "Generás más confianza",
+            "Te diferenciás visualmente",
+            "Tu comunicación se vuelve coherente",
+            "Te sentís más segura al mostrar tu marca"
+        ],
+        steps: [
+            {
+                title: "1. Desarrollo de identidad visual estratégica",
+                desc: "No diseñamos \"algo lindo\".\n\nDiseñamos algo que represente tu posicionamiento.\n\nIncluye:\n\n• Logo principal\n• Versiones secundarias\n• Isotipo o elemento gráfico complementario\n• Sistema adaptable a distintos formatos",
+                result: "🎯 Resultado: una marca versátil que funciona en todos tus canales."
+            },
+            {
+                title: "2. Sistema cromático y tipográfico",
+                desc: "Elegimos una paleta y tipografías con intención.\n\n• Colores alineados a tu personalidad de marca\n• Sistema tipográfico profesional\n• Jerarquías visuales claras",
+                result: "🎯 Resultado: coherencia visual y reconocimiento de marca."
+            },
+            {
+                title: "3. Recursos gráficos y estilo visual",
+                desc: "Creamos un lenguaje visual propio:\n\n• Estilo de imágenes\n• Recursos gráficos complementarios\n• Aplicaciones base para redes o piezas digitales\n• Papelería para tu marca\n• Aplicaciones digitales como por ejemplo, la firma de tu mail",
+                result: "🎯 Resultado: tu marca empieza a verse memorable, reconocible y consistente."
+            },
+            {
+                title: "4. Manual de identidad visual",
+                desc: "Te entrego una guía clara para que sepas cómo usar tu marca correctamente.\n\n• Usos correctos e incorrectos\n• Aplicaciones recomendadas\n• Lineamientos básicos de coherencia visual",
+                result: "🎯 Resultado: tranquilidad de que vas a saber mantener tu marca alineada en el tiempo."
+            }
+        ],
+        price: "Inversión: desde $X",
+        cta: "Si tu negocio ya creció, tu imagen también tiene que hacerlo.\n\nAgendemos una reunión y trabajemos una identidad visual que esté a la altura de la etapa en la que estás hoy.\n\nPorque cuando tu marca se ve profesional, todo empieza a sentirse más sólido."
+    },
+    web: {
+        headline: "Tu vidriera digital",
+        intro: `Tu Instagram es alquilado. Tu web es tuya.
+        
+        Diseñamos sitios web estratégicos que no solo se ven increíbles, sino que están pensados para guiar a tu cliente, generar confianza y automatizar procesos.`,
+        forYou: "Si recibís las mismas consultas por WhatsApp todo el tiempo, tus clientes no entienden bien tus servicios, o querés vender productos/servicios 24/7 sin depender solo de redes.",
+        includes: [
+            "Diseño profesional personalizado",
+            "Dominio .com, .net o .org gratis por 1 año",
+            "Hosting",
+            "Certificado de seguridad SSL",
+            "Web autoadministrable",
+            "Integración con WhatsApp",
+            "Soporte técnico inicial"
+        ],
+        afterProcess: [
+            "Te posicionás como profesional",
+            "Dejás de depender solo de redes",
+            "Tenés un espacio ordenado para mostrar tus servicios",
+            "Generás más confianza",
+            "Facilitás el proceso de venta"
+        ],
+        steps: [
+            {
+                title: "Email Profesional",
+                desc: "La diferencia entre verse amateur y verse empresa\n\nOlvidate de usar direcciones tipo `@gmail.com`.\n\nTe ayudamos a:\n\n• Registrar tu dominio\n• Configurar tu correo con tu marca\n• Vincularlo a Gmail para que lo uses de forma simple\n\nEjemplo: tunombre@tumarca.com\n\nEs un detalle pequeño, pero cambia completamente la percepción.",
+                result: "Desde X USD\n\nIncluye:\n\n• Registro de dominio\n• Configuración completa\n• 1 cuenta de correo profesional\n• Asistencia técnica"
+            },
+            {
+                title: "Landing Page",
+                desc: "Ideal si estás comenzando o necesitás una presencia clara y concreta.\n\nUna sola sección donde mostramos:\n\n• Quién sos\n• Qué hacés\n• Tus servicios\n• Formulario de contacto",
+                result: "Desde X USD\n\nIncluye:\n\n• Dominio gratis por 1 año\n• Hosting\n• Certificado SSL\n• Diseño personalizado\n• Integración con WhatsApp y redes\n• Web adaptable a celular"
+            },
+            {
+                title: "Tienda Online",
+                desc: "Para vender productos de forma profesional y organizada.\n\nPodrás:\n\n• Cargar productos ilimitados\n• Crear descuentos\n• Gestionar stock\n• Integrar medios de pago",
+                result: "Desde X USD\n\nIncluye:\n\n• Dominio gratis por 1 año\n• Hosting\n• Certificado SSL\n• Hasta 15 secciones\n• Diseño personalizado\n• Integración con redes\n• Web adaptable a celular\n• Configuración inicial de tienda"
+            },
+            {
+                title: "Varias Secciones",
+                desc: "Para negocios que necesitan mostrar más contenido y posicionarse mejor.\n\nEjemplo de secciones:\n\n• Inicio\n• Sobre mí\n• Servicios\n• Blog\n• Contacto",
+                result: "Desde X USD\n\nIncluye:\n\n• Dominio gratis por 1 año\n• Hosting\n• Certificado SSL\n• Hasta 8 secciones\n• Diseño personalizado\n• Integración con WhatsApp y redes\n• Web adaptable a celular\n• Cuentas de correo profesional"
+            }
+        ],
+        faq: [
+            { q: "¿El dominio es mío?", a: "Sí. El dominio se registra a tu nombre. Es tuyo." },
+            { q: "¿Puedo editar mi web después?", a: "Sí. Son autoadministrables y te enseñamos cómo usarla." },
+            { q: "¿Incluye hosting y seguridad?", a: "Sí, todos los planes lo incluyen." },
+            { q: "¿No sé qué plan elegir?", a: "Te asesoramos para que elijas el que realmente necesitás." }
+        ],
+        price: "Inversión: desde $X",
+        cta: "¿Lista para tener tu propia vidriera digital?\n\nAgendemos una reunión y definimos qué tipo de web necesita tu negocio hoy.\n\nTu marca merece un lugar propio.\n\nY podemos crearlo."
+    },
+    pack: {
+        headline: "Creamos tu identidad visual y tu sitio web para que tu marca tenga todo lo necesario para mostrarse al mundo de forma profesional.",
+        intro: `Si vas a hacer una web, que sea con una marca sólida.
+
+Si vas a crear una marca, que tenga dónde mostrarse.
+
+Este pack combina:
+
+✨ Desarrollo de Identidad Visual
+✨ Web de Varias Secciones
+
+Para que tu negocio no solo se vea profesional… sino que esté listo para posicionarse.`,
+        afterProcess: [
+            "Todo es coherente entre tu marca y tu web",
+            "El mensaje es más claro",
+            "La experiencia del cliente es sólida",
+            "Ahorrás tiempo y decisiones",
+            "Invertís de forma más inteligente"
+        ],
+        steps: [
+            {
+                title: "Identidad Visual Completa",
+                desc: "• Logo principal y versiones secundarias\n• Paleta cromática estratégica\n• Sistema tipográfico\n• Recursos gráficos\n• Manual de identidad visual",
+                result: "Resultado: una marca sólida, coherente y alineada a tu posicionamiento."
+            },
+            {
+                title: "Web de Varias Secciones",
+                desc: "• Hasta 8 secciones (Inicio, Sobre mí, Servicios, Blog, Contacto, etc.)\n• Diseño 100% personalizado\n• Dominio gratis por 1 año\n• Hosting\n• Certificado SSL\n• Integración con WhatsApp y redes\n• Web adaptable a celular\n• Cuentas de correo profesional",
+                result: "Resultado: una web estratégica, profesional y lista para trabajar por vos."
+            }
+        ],
+        price: "Inversión: X USD",
+        cta: "Agendemos una reunión y empecemos a construir una marca que no solo se vea bien, sino que esté preparada para crecer.\n\nTu negocio merece coherencia y este pack es el punto de partida."
+    },
+    social: {
+        headline: "Producción de contenido audiovisual para tus redes sociales",
+        intro: `Creamos el contenido. Vos te enfocás en tu negocio.
+
+Este servicio está pensado para marcas que quieren presencia profesional en RRSS sin improvisar.
+
+Planificamos juntas, grabamos el material y te entrego todo listo para publicar.
+
+Vos gestionás tu cuenta.
+
+Yo me encargo de la estrategia, la producción y el diseño.`,
+        forYou: "Si hoy sentís que:\n\n• No sabés qué publicar\n• Te quedás sin ideas\n• Publicás sin una intención clara y cuando tenés un tiempo libre\n• No ves resultados\n\nNo necesitás más inspiración. Necesitás estructura.",
+        afterProcess: [
+            "Dejás de improvisar",
+            "Comunicás con claridad",
+            "Te posicionás como referente",
+            "Generás más confianza y una comunidad fiel que quiere comprarte",
+            "Vendés más porque le estás hablando a tu publico objetivo"
+        ],
+        steps: [
+            {
+                title: "🌿 Pack Presencia",
+                desc: "Ideal para mantener constancia sin sobrecargarte.\n\nIncluye:\n\n• 1 reel simple\n• 2 reels intermedios\n• 1 reel complejo\n• 3 carruseles / posteos",
+                result: "Desde $10.000 UYU"
+            },
+            {
+                title: "✨ Pack Presencia Activa",
+                desc: "Para marcas que quieren mayor visibilidad y posicionamiento.\n\nIncluye:\n\n• 2 reels simples\n• 3 reels intermedios\n• 2 reel complejo\n• 5 carruseles / posteos",
+                result: "Desde $18.000 UYU"
+            },
+            {
+                title: "Gestión de Meta Ads (opcional)",
+                desc: "Podés sumar la gestión de campañas en Meta Ads para que tu contenido llegue a más personas y genere mejores resultados.\n\nIncluye:\n\n✔ Configuración de campaña\n✔ Segmentación estratégica\n✔ Instalación de píxel (si aplica)\n✔ Optimización durante 15 días\n✔ Reporte de resultados",
+                result: "Gestión desde: $8.000 UYU\n\n(Inversión en publicidad no incluida)\n\nEsto es ideal para que el contenido que creemos juntas se potencie y te genere más ventas aún."
+            }
+        ],
+        process: "✔ Reunión online de planificación (1 hora)\n\n✔ Definición de ideas y enfoque estratégico\n\n✔ Guiones para reels\n\n✔ Copys para posteos y carruseles\n\n✔ Jornada de grabación presencial (hasta 4 horas) o en caso de que prefieras no salir en cámara, podemos ofrecerte un creador de contenido que lo haga por vos (consultar)\n\n✔ Edición y diseño\n\n✔ Entrega lista para publicar\n\n⏱ Entrega: 7 días hábiles desde la grabación.",
+        price: "Desde $10.000 UYU",
+        cta: "Si estás cansada de no saber que c$r%jos publicar…\n\nAgendemos una reunión y armemos un plan de contenido alineado a tu marca y a tus objetivos.\n\nTu negocio no necesita más posts. Necesita dirección."
+    },
+    ads: {
+        headline: "Hacemos que tu negocio llegue a las personas correctas",
+        intro: `Publicar en redes es importante, pero no siempre es suficiente para crecer.
+
+La publicidad digital permite que tu marca llegue a nuevas personas, aumente su visibilidad y genere oportunidades reales de venta.
+
+Diseñamos campañas estratégicas tanto en Meta Ads (Instagram y Facebook) como en Google Ads, para que tu negocio aparezca frente a quienes realmente pueden convertirse en clientes.
+
+Mientras que Meta Ads permite descubrir tu marca y generar interés, Google Ads te posiciona frente a personas que ya están buscando activamente lo que ofrecés.
+
+No se trata de gastar más, se trata de invertir mejor.`,
+        afterProcess: [
+            "Llegás a tu público objetivo específico",
+            "Generás consultas reales y medibles",
+            "Optimizás tu inversión publicitaria",
+            "Escalás tu negocio de forma predecible",
+            "Dejás de depender solo del alcance orgánico"
+        ],
+        steps: [
+            {
+                title: "Estrategia de campaña",
+                desc: "Definición de objetivos, segmentación de audiencia y presupuesto inteligente.",
+                result: "Cada peso invertido tiene un propósito claro."
+            },
+            {
+                title: "Creación de anuncios",
+                desc: "Diseño de creativos y copy persuasivo alineado a tu marca.",
+                result: "Anuncios que conectan y convierten."
+            },
+            {
+                title: "Optimización continua",
+                desc: "Monitoreo, análisis de métricas y ajustes para mejorar resultados.",
+                result: "Mejor ROI semana a semana."
+            },
+            {
+                title: "Reportes de resultados",
+                desc: "Informes claros sobre el rendimiento de tus inversiones publicitarias.",
+                result: "Transparencia total en lo que funciona."
+            }
+        ],
+        price: "Inversión: desde $X/mes (gestión)",
+        cta: "¿Querés empezar a atraer nuevos clientes con publicidad digital?\n\nPodemos analizar tu negocio y diseñar una campaña alineada a tus objetivos.\n\nAgendá una reunión y vemos cómo potenciar tu presencia digital con anuncios estratégicos."
+    },
+    diseno: {
+        headline: "Soluciones visuales para impulsar tu marca",
+        price: "Inversión: desde 50 USD",
+        intro: `No todo requiere un proceso de branding completo.
+
+A veces lo que tu negocio necesita es una pieza puntual, bien pensada y profesional, que eleve la percepción de tu marca y acompañe tus objetivos.
+
+El diseño gráfico es la herramienta que traduce tu mensaje en impacto visual.`,
+        forYou: "Para marcas que: Quieren elevar la calidad visual de su comunicación, Necesitan piezas específicas para campañas o lanzamientos, Buscan coherencia en cada punto de contacto, Quieren diferenciarse visualmente.",
+        afterProcess: [
+            "Refuerzas tu posicionamiento",
+            "Aumentás la percepción de valor",
+            "Generás mayor impacto",
+            "Transmitís profesionalismo"
+        ],
+        steps: [
+            {
+                title: "¿Qué tipo de piezas diseñamos?",
+                desc: "Trabajamos de forma personalizada según tu necesidad:\n\n• Diseño de flyers digitales o impresos\n• Diseño de packaging para tus productos (bolsas, cajas, tarjetas, stickers, etc)\n• Tarjetas personales\n• Tarjetas de envío\n• Tarjetas de agradecimiento\n• Presentaciones comerciales\n• Hojas membretadas\n• Sobres o Carpetines\n• Catálogos de productos\n• Brochures\n• Banners para redes o web\n• Banners o cartelería para eventos presenciales\n• Material gráfico para eventos\n• Stands para eventos\n\nCada pieza se diseña alineada a tu identidad visual para mantener coherencia y profesionalismo.",
+                result: ""
+            },
+            {
+                title: "¿Cómo trabajamos?",
+                desc: "1. Nos contás qué necesitás y para qué objetivo.\n2. Definimos formato y lineamientos.\n3. Diseñamos la propuesta visual.\n4. Realizamos ajustes finales.\n5. Te entregamos el material listo para usar.\n\nSimple, claro y profesional.",
+                result: ""
+            }
+        ],
+        cta: "¿Necesitás una pieza específica para tu negocio?\n\nEscribime y contame qué estás buscando.\n\nCreamos el diseño que tu marca necesita para dar el siguiente paso."
+    },
+    marketing: {
+        headline: "Orden, dirección y estrategia para crecer con propósito",
+        intro: `Si sentís que estás haciendo muchas cosas pero sin resultados claros, el problema no es la falta de esfuerzo.
+
+Es la falta de dirección.
+
+La asesoría en Marketing Digital está pensada para ordenar tu crecimiento sin cambiar tu identidad visual, sino trabajando la base estratégica:
+qué comunicar, a quién, por dónde y con qué objetivo.
+
+No se trata de hacer más.
+Se trata de enfocarse mejor.`,
+        forYou: "Es para vos si te pasa que: Te sentís estancada, Estas invirtiendo sin resultados claros, Queres profesionalizar tu marketing, Necesitas una estructura antes de ejecutar.",
+        afterProcess: [
+            "Vas a tenés claridad",
+            "Vas a sabér qué hacer y qué dejar de hacer",
+            "Vas a entendés dónde invertir",
+            "Vas a comunicsr con coherencia",
+            "Vas a tomar decisiones estratégicas"
+        ],
+        steps: [
+            {
+                title: "1. Reunión de diagnóstico estratégico",
+                desc: "Analizamos tu negocio en profundidad:\n\n• Situación actual\n• Canales digitales\n• Comunicación\n• Oportunidades de mejora\n\nIdentificamos dónde estás perdiendo foco y dónde está el verdadero potencial de crecimiento.",
+                result: ""
+            },
+            {
+                title: "2. Análisis de competencia (Benchmark)",
+                desc: "Analizamos cómo se están posicionando otras marcas de tu rubro en el entorno digital.\n\nEsto nos permite identificar:\n\n• Qué están haciendo otras empresas del sector\n• Qué oportunidades están desaprovechando\n• Qué tipo de comunicación utilizan\n• En qué puede diferenciarse tu marca\n\nEl objetivo no es copiar a la competencia, sino detectar oportunidades para posicionarte de forma más clara y estratégica.",
+                result: ""
+            },
+            {
+                title: "3. Definición de comunicación y posicionamiento",
+                desc: "Trabajamos:\n\n• Público objetivo y segmentación\n• Propuesta de valor\n• Tono y estilo de comunicación\n• Lineamientos para contenido\n\nEsto te permite dejar de improvisar y empezar a comunicar con intención.",
+                result: ""
+            },
+            {
+                title: "4. Plan de acción estratégico personalizado",
+                desc: "No es teoría. Es un plan concreto.\n\nTe llevás:\n\n• Acciones claras y ordenadas\n• Prioridades definidas\n• Enfoque por canal\n• Objetivos medibles\n\nCada acción tiene un porqué y un objetivo específico.",
+                result: ""
+            }
+        ],
+        price: "Inversión: desde 350 USD",
+        cta: "Si querés dejar de improvisar y empezar a crecer con estrategia…\n\nAgendemos una reunión y ordenemos tu marketing digital desde la base."
+    }
+};
+
+const content = detailedContent[service.id] || {
+    headline: service.title,
+    intro: service.desc,
+    forYou: "",
+    afterProcess: [],
+    steps: [],
+    price: "Consultar",
+    cta: "Agendemos una reunión y veamos cómo puedo ayudarte."
+};
+---
+
+<Layout title={`${service.title} | Servicios Arrancandonga`}>
+    <div class="min-h-screen pt-4 md:pt-6 pb-8 md:pb-12 px-4 bg-cream w-full overflow-hidden flex flex-col">
+        <Header />
+        <div class="grain"></div>
+        <div class="max-w-6xl mx-auto flex-grow relative z-10 w-full">
+            <a href="/" class="inline-block mb-6 md:mb-8 font-display font-bold text-brandDark/60 hover:text-brandOrange flex items-center gap-2 transition-colors text-sm md:text-base w-max">
+                ← Volver al inicio
+            </a>
+
+            {/* Header modular con decoraciones */}
+            <div class="relative mb-8">
+                <div class="absolute -top-10 -right-10 w-20 h-20 animate-float hidden md:block z-0 opacity-50 text-brandYellow">
+                    <Icon name="Star" />
+                </div>
+                <div class={`${service.color} rounded-3xl md:rounded-[3rem] p-8 md:p-16 border-4 border-brandDark text-center relative overflow-hidden transform hover:scale-[1.02] transition-transform duration-500`}>
+                    <div class="absolute top-4 left-4 w-8 h-8 bg-white/30 rounded-full animate-pulse"></div>
+                    <div class="absolute bottom-4 right-4 w-12 h-12 bg-white/20 rounded-full"></div>
+                    <div class="absolute top-1/2 right-8 w-4 h-4 bg-brandDark rounded-full hidden md:block"></div>
+
+                    <div class="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 relative z-10 animate-float" style="animation-duration: 4s;">
+                        <Icon name={service.iconName as any} />
+                    </div>
+                    <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-brandDark mb-4 relative z-10">{service.title}</h1>
+                    <p class="text-lg md:text-2xl text-brandDark/80 font-medium relative z-10 max-w-3xl mx-auto leading-tight">{content.headline}</p>
+
+                    {/* Precio flotante */}
+                    <div class="mt-6 inline-block bg-white rounded-full px-6 py-2 border-3 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                        <span class="font-bold text-brandDark">{content.price}</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Introducción */}
+            {['branding', 'identidad', 'web'].includes(service.id) ? (
+                <div class="max-w-4xl mx-auto text-center mb-16 space-y-6 md:space-y-8 px-4">
+                    {service.id === 'branding' && (
+                        <>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                El <strong>branding estratégico</strong> no es solo tener un logo lindo.<br/>
+                                Es ordenar tu negocio para que sepas exactamente:
+                            </p>
+                            <p class="text-xl md:text-3xl text-brandOrange font-bold leading-tight max-w-3xl mx-auto px-4">
+                                A quién le estás hablando, qué estás ofreciendo realmente y por qué deberían elegirte a vos
+                            </p>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                Si hoy sentís que tu comunicación es confusa, que te cuesta definir tu público ideal o que atraés clientes que no son los que querés, el problema no es tu contenido, <strong>es falta de claridad estratégica</strong> y eso es lo que trabajamos acá.
+                            </p>
+                        </>
+                    )}
+                    {service.id === 'identidad' && (
+                        <>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                Tus productos o servicios pueden ser excelentes pero si su imagen no lo transmite, tus posibles clientes nunca lo van a percibir.
+                            </p>
+                            <p class="text-xl md:text-3xl text-brandOrange font-bold italic leading-tight max-w-3xl mx-auto px-4">
+                                La identidad visual no es solo un logo.
+                            </p>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                Es el sistema visual que hace que tu negocio se vea profesional, coherente y confiable en cada punto de contacto.
+                            </p>
+                        </>
+                    )}
+                    {service.id === 'web' && (
+                        <>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                Las redes sociales son prestadas. Si mañana a alguien se le ocurre que Instagram, Facebook o Tiktok no existen más, tu negocio se queda sin nada.
+                            </p>
+                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
+                                <strong>Por el contrario tu web, ES TUYA.</strong> Es el lugar donde tu marca se presenta con claridad, donde tu mensaje está ordenado y donde tu cliente ideal entiende rápidamente qué hacés y por qué sos la opción OBVIA que tiene que elegir.
+                            </p>
+                            <p class="text-xl md:text-3xl text-brandOrange font-bold italic leading-tight max-w-3xl mx-auto px-4">
+                                Una web bien pensada no es un gasto. Es una herramienta estratégica que trabaja por vos todos los días.
+                            </p>
+                        </>
+                    )}
+                </div>
+            ) : service.id === 'pack' ? (
+                <>
+                    {/* El servicio - ancho completo */}
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg mb-8 max-w-4xl mx-auto">
+                        <h3 class="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+                            <span class="text-3xl">💡</span> El servicio
+                        </h3>
+                        <p class="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.intro}</p>
+                    </div>
+
+                    {/* ¿Para quién es este pack? - Texto plano con íconos */}
+                    <div class="max-w-4xl mx-auto mb-16 px-4">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-2 text-brandDark text-center">
+                            ¿Para quién es este pack?
+                        </h3>
+                        <p class="text-brandDark/70 font-medium text-lg md:text-xl mb-8 text-center">
+                            Es para vos si:
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                            {/* Item 1 */}
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-brandYellow rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0 transform -rotate-3">
+                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                    </svg>
+                                </div>
+                                <p class="text-brandDark font-medium text-base md:text-lg leading-relaxed pt-2">
+                                    Estás lista para profesionalizar tu negocio
+                                </p>
+                            </div>
+                            
+                            {/* Item 2 */}
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-brandPink rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0 transform rotate-2">
+                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                    </svg>
+                                </div>
+                                <p class="text-brandDark font-medium text-base md:text-lg leading-relaxed pt-2">
+                                    Querés dejar de improvisar tu imagen
+                                </p>
+                            </div>
+                            
+                            {/* Item 3 */}
+                            <div class="flex items-start gap-4 md:col-span-2">
+                                <div class="w-14 h-14 bg-brandBlue rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0 transform -rotate-2">
+                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <p class="text-brandDark font-medium text-base md:text-lg leading-relaxed pt-2">
+                                    Necesitás una web que refleje el profesionalismo de tu negocio y te facilite el proceso de ventas
+                                </p>
+                            </div>
+                            
+                            {/* Item 4 */}
+                            <div class="flex items-start gap-4 md:col-span-2">
+                                <div class="w-14 h-14 bg-brandLavender rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0 transform rotate-3">
+                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-brandDark font-medium text-base md:text-lg leading-relaxed pt-2">
+                                    Buscás coherencia en todo lo que comunicás
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <p class="font-bold text-lg md:text-xl text-brandDark text-center mt-10">
+                            Si sentís que tu marca está "a medias" y tu presencia digital también, este es el lugar correcto!
+                        </p>
+                    </div>
+                </>
+            ) : service.id === 'social' ? (
+                <>
+                    {/* El servicio */}
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg mb-8 max-w-4xl mx-auto">
+                        <h3 class="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+                            <span class="text-3xl">💡</span> El servicio
+                        </h3>
+                        <p class="text-brandOrange font-bold text-lg md:text-xl mb-4">Creamos el contenido. Vos te enfocás en tu negocio.</p>
+                        <p class="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.intro.replace('Creamos el contenido. Vos te enfocás en tu negocio.\n\n', '')}</p>
+                    </div>
+
+                    {/* Si hoy sentís que - Texto plano con título rosa */}
+                    <div class="max-w-4xl mx-auto mb-16 px-4">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-6 text-brandDark text-center">
+                            Si hoy sentís que:
+                        </h3>
+                        <ul class="space-y-3 max-w-2xl mx-auto mb-6">
+                            <li class="flex items-start gap-3 text-brandDark font-medium text-base md:text-lg">
+                                <span class="text-brandOrange font-bold">•</span>
+                                <span>No sabés qué publicar</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-brandDark font-medium text-base md:text-lg">
+                                <span class="text-brandOrange font-bold">•</span>
+                                <span>Te quedás sin ideas</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-brandDark font-medium text-base md:text-lg">
+                                <span class="text-brandOrange font-bold">•</span>
+                                <span>Publicás sin una intención clara y cuando tenés un tiempo libre</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-brandDark font-medium text-base md:text-lg">
+                                <span class="text-brandOrange font-bold">•</span>
+                                <span>No ves resultados</span>
+                            </li>
+                        </ul>
+                        <p class="font-bold text-lg md:text-xl text-brandDark text-center">
+                            No necesitás más inspiración. Necesitás estructura.
+                        </p>
+                    </div>
+                </>
+            ) : service.id === 'ads' ? (
+                <>
+                    {/* El servicio - Ancho completo con diseño mejorado */}
+                    <div class="bg-white rounded-3xl p-8 md:p-12 border-4 border-brandDark shadow-lg mb-8 max-w-5xl mx-auto">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-6 text-brandDark flex items-center gap-3">
+                            <span class="text-4xl">💡</span> El servicio
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <p class="text-brandDark text-lg md:text-xl font-medium leading-relaxed">
+                                Publicar en redes es importante, pero no siempre es suficiente para crecer.
+                            </p>
+                            
+                            <p class="text-brandDark/80 text-base md:text-lg leading-relaxed">
+                                La publicidad digital permite que tu marca llegue a nuevas personas, aumente su visibilidad y genere oportunidades reales de venta.
+                            </p>
+                            
+                            <div class="bg-brandPink/20 rounded-2xl p-6 border-2 border-brandPink">
+                                <p class="text-brandDark text-base md:text-lg leading-relaxed">
+                                    Diseñamos campañas estratégicas tanto en <span class="font-bold">Meta Ads</span> (Instagram y Facebook) como en <span class="font-bold">Google Ads</span>, para que tu negocio aparezca frente a quienes realmente pueden convertirse en clientes.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-brandYellow/20 rounded-xl p-4 border-2 border-brandYellow">
+                                    <p class="text-brandDark font-bold mb-1">Meta Ads</p>
+                                    <p class="text-brandDark/80 text-sm">Permite descubrir tu marca y generar interés</p>
+                                </div>
+                                <div class="bg-brandLavender/30 rounded-xl p-4 border-2 border-brandLavender">
+                                    <p class="text-brandDark font-bold mb-1">Google Ads</p>
+                                    <p class="text-brandDark/80 text-sm">Te posiciona frente a personas que ya están buscando activamente lo que ofrecés</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-brandOrange font-bold text-lg md:text-xl text-center pt-4">
+                                No se trata de gastar más, se trata de invertir mejor.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Este servicio es ideal para - Caja rosa ancho completo */}
+                    <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl max-w-5xl mx-auto mb-16 transform hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark text-center">
+                            Este servicio es ideal para negocios que:
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                            <div class="flex items-center gap-4 bg-white/60 rounded-2xl p-4 border-2 border-brandDark/20 transform hover:scale-105 transition-transform">
+                                <div class="w-12 h-12 bg-brandYellow rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Quieren aumentar su visibilidad</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/60 rounded-2xl p-4 border-2 border-brandDark/20 transform hover:scale-105 transition-transform">
+                                <div class="w-12 h-12 bg-brandOrange rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Buscan generar más consultas o ventas</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/60 rounded-2xl p-4 border-2 border-brandDark/20 transform hover:scale-105 transition-transform">
+                                <div class="w-12 h-12 bg-brandBlue rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Quieren llegar a nuevos clientes</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/60 rounded-2xl p-4 border-2 border-brandDark/20 transform hover:scale-105 transition-transform">
+                                <div class="w-12 h-12 bg-brandLavender rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Desean aprovechar el potencial de Instagram y Facebook</span>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ) : service.id === 'diseno' ? (
+                <>
+                    {/* El servicio */}
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg mb-8 max-w-4xl mx-auto">
+                        <h3 class="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+                            <span class="text-3xl">💡</span> El servicio
+                        </h3>
+                        <p class="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.intro}</p>
+                    </div>
+
+                    {/* Para marcas que - Con diseño de tarjetas */}
+                    <div class="max-w-5xl mx-auto mb-16 px-4">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark text-center">
+                            Para marcas que:
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-4 bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+                                <div class="w-14 h-14 bg-brandYellow rounded-xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base">Quieren elevar la calidad visual de su comunicación</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300">
+                                <div class="w-14 h-14 bg-brandPink rounded-xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                                        <polyline points="21 15 16 10 5 21"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base">Necesitan piezas específicas para campañas o lanzamientos</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+                                <div class="w-14 h-14 bg-brandBlue rounded-xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base">Buscan coherencia en cada punto de contacto</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300">
+                                <div class="w-14 h-14 bg-brandLavender rounded-xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="font-bold text-brandDark text-base">Quieren diferenciarse visualmente</span>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ) : service.id === 'marketing' ? (
+                <>
+                    {/* El servicio - Diseño centrado y mejorado */}
+                    <div class="bg-white rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] hover:shadow-[12px_12px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 mb-8 max-w-4xl mx-auto relative overflow-hidden">
+                        {/* Decoración esquina */}
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-brandYellow/30 rounded-full"></div>
+                        <div class="absolute right-6 top-6 w-12 h-12 bg-brandYellow rounded-full border-3 border-brandDark flex items-center justify-center transform rotate-12">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        
+                        <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark flex items-center gap-3 relative z-10">
+                            <span class="text-4xl">💡</span> El servicio
+                        </h3>
+                        
+                        <div class="space-y-6 relative z-10">
+                            <p class="text-brandDark text-lg md:text-xl font-medium leading-relaxed">
+                                Si sentís que estás haciendo muchas cosas pero sin resultados claros, el problema no es la falta de esfuerzo, es la falta de dirección.
+                            </p>
+                            
+                            <div class="bg-brandYellow/20 rounded-2xl p-6 border-3 border-brandYellow">
+                                <p class="text-brandDark text-base md:text-lg leading-relaxed">
+                                    La asesoría en Marketing Digital está pensada para ordenar tu crecimiento sin cambiar tu identidad visual, sino trabajando la base estratégica:
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="inline-block bg-white rounded-full px-4 py-2 border-2 border-brandDark text-brandDark font-bold text-sm">qué comunicar</span>
+                                    <span class="inline-block bg-brandPink rounded-full px-4 py-2 border-2 border-brandDark text-brandDark font-bold text-sm">a quién</span>
+                                    <span class="inline-block bg-brandBlue/30 rounded-full px-4 py-2 border-2 border-brandDark text-brandDark font-bold text-sm">por dónde</span>
+                                    <span class="inline-block bg-brandLavender rounded-full px-4 py-2 border-2 border-brandDark text-brandDark font-bold text-sm">con qué objetivo</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-brandOrange font-bold text-xl md:text-2xl text-center pt-4">
+                                No se trata de hacer más, se trata de enfocarse mejor.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Es para vos si - Tarjeta rosa debajo */}
+                    <div class="bg-brandPink rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] hover:shadow-[12px_12px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 mb-12 max-w-4xl mx-auto relative overflow-hidden">
+                        {/* Decoración esquina */}
+                        <div class="absolute -left-4 -top-4 w-24 h-24 bg-white/30 rounded-full"></div>
+                        <div class="absolute left-6 top-6 w-12 h-12 bg-white rounded-full border-3 border-brandDark flex items-center justify-center transform -rotate-12">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v4l3 3"/>
+                            </svg>
+                        </div>
+                        
+                        <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark text-center relative z-10">
+                            Es para vos si te pasa que
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                            <div class="flex items-center gap-4 bg-white/70 rounded-2xl p-5 border-3 border-brandDark shadow-md transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
+                                <div class="w-12 h-12 bg-brandYellow rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">😰</span>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Te sentís estancada</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/70 rounded-2xl p-5 border-3 border-brandDark shadow-md transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                                <div class="w-12 h-12 bg-brandOrange rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">💸</span>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Estás invirtiendo sin resultados claros</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/70 rounded-2xl p-5 border-3 border-brandDark shadow-md transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
+                                <div class="w-12 h-12 bg-brandBlue rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">🚀</span>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Querés profesionalizar tu marketing</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/70 rounded-2xl p-5 border-3 border-brandDark shadow-md transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                                <div class="w-12 h-12 bg-brandLavender rounded-xl border-2 border-brandDark flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">📋</span>
+                                </div>
+                                <span class="font-bold text-brandDark text-base md:text-lg">Necesitas una estructura antes de ejecutar</span>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+                        <h3 class="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+                            <span class="text-3xl">💡</span> El servicio
+                        </h3>
+                        <p class="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.intro}</p>
+                    </div>
+
+                    {content.forYou && (
+                        <div class="bg-brandPink rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 hover:-translate-y-2 transition-all duration-300">
+                            <h3 class="font-bold text-xl md:text-2xl mb-4 text-brandDark flex items-center gap-2">
+                                <span class="text-3xl">🎯</span> ¿Por qué es para vos?
+                            </h3>
+                            <p class="text-brandDark/80 whitespace-pre-line text-sm md:text-base leading-relaxed">{content.forYou}</p>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Bloque ancho completo para Identidad Visual */}
+            {service.id === 'identidad' && (
+                <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl max-w-4xl mx-auto mb-16 transform hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="font-bold text-xl md:text-2xl mb-8 text-brandDark">
+                        Si sentís que hace tiempo venís trabajando en tu negocio pero:
+                    </h3>
+                    <ul class="space-y-4 mb-8">
+                        {[
+                            "Tu imagen se ve improvisada",
+                            "Cambiás colores y estilos todo el tiempo",
+                            "No hay coherencia entre redes, piezas y web",
+                            "Tu marca no refleja tu nivel actual"
+                        ].map((item: string) => (
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandDark font-bold mt-0.5 md:mt-1 text-lg">-</span>
+                                <span class="text-brandDark font-medium text-base md:text-xl leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <p class="font-bold text-lg md:text-2xl text-brandDark">
+                        Entonces es momento de ordenarla.
+                    </p>
+                </div>
+            )}
+
+            {/* Bloque ancho completo para Desarrollo Web */}
+            {service.id === 'web' && (
+                <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl max-w-4xl mx-auto mb-16 transform hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="font-bold text-xl md:text-2xl mb-8 text-brandDark">
+                        ¿Cuándo necesitás una web?
+                    </h3>
+                    <ul class="space-y-4 mb-8">
+                        {[
+                            "Cuando dependés 100% de redes sociales",
+                            "Cuando te cuesta explicar lo que hacés por mensaje",
+                            "Cuando querés verte más profesional",
+                            "Cuando estás lista para posicionarte en serio"
+                        ].map((item: string) => (
+                            <li class="flex items-start gap-3">
+                                <span class="text-brandDark font-bold mt-0.5 md:mt-1 text-lg">-</span>
+                                <span class="text-brandDark font-medium text-base md:text-xl leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <p class="font-bold text-lg md:text-2xl text-brandDark">
+                        Tu web no es solo presencia.<br/><br/>
+                        Es posicionamiento.
+                    </p>
+                </div>
+            )}
+
+
+
+            {/* Proceso de trabajo (para Social Media) */}
+            {content.process && service.id === 'social' && (
+                <div class="bg-brandBlue rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-lg mb-8 text-white">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-8 text-center flex items-center justify-center gap-3">
+                        <span class="text-4xl">🎬</span> ¿Cómo trabajamos?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {[
+                            { icon: "📅", text: "Reunión online de planificación (1 hora)" },
+                            { icon: "💡", text: "Definición de ideas y enfoque estratégico" },
+                            { icon: "📝", text: "Guiones para reels" },
+                            { icon: "✍️", text: "Copys para posteos y carruseles" },
+                            { icon: "🎥", text: "Jornada de grabación presencial (hasta 4 horas)" },
+                            { icon: "✨", text: "Edición y diseño" },
+                            { icon: "🚀", text: "Entrega lista para publicar" },
+                            { icon: "⏱️", text: "Entrega: 7 días hábiles desde la grabación" }
+                        ].map((item) => (
+                            <div class="flex items-center gap-3 bg-white/20 rounded-2xl p-4 border-2 border-white/30 transform hover:scale-105 transition-transform">
+                                <span class="text-2xl">{item.icon}</span>
+                                <span class="font-medium text-sm md:text-base">{item.text}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {content.process && service.id !== 'social' && (
+                <div class="bg-brandBlue rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 transition-all duration-300 mb-8 text-white">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-6 text-center flex items-center justify-center gap-3">
+                        <span class="text-4xl">🎬</span> ¿Cómo trabajamos?
+                    </h3>
+                    <p class="whitespace-pre-line text-sm md:text-base leading-relaxed opacity-90">{content.process}</p>
+                </div>
+            )}
+
+            {/* Pasos/Incluye en grid de tarjetas */}
+            {content.steps && content.steps.length > 0 && (
+                <div class="mb-8">
+                    {service.id !== 'ads' && (
+                        <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark text-center">
+                            {service.id === 'web' ? <>Elegí el formato que <span class="font-bold italic text-brandOrange">mejor se adapta a tu etapa</span></> : (service.id === 'diseno' || service.id === 'marketing') ? 'Detalles del servicio' : '¿Qué trabajamos en este proceso?'}
+                        </h3>
+                    )}
+                    
+                    {service.id === 'web' ? (
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+                            {content.steps.map((step: any, idx: number) => {
+                                const bgColors = ['bg-brandOrange', 'bg-brandYellow', 'bg-brandBlue', 'bg-brandPink'];
+                                const images = ['em-email.png', 'em-landing.png', 'em-store.png', 'em-web.png'];
+                                const color = bgColors[idx % 4];
+                                const image = images[idx % 4];
+                                
+                                // Parse step.desc to extract intro text vs bullet points if starting with •
+                                const descLines = step.desc.split('\n');
+                                const introDesc = descLines.filter((l: string) => !l.trim().startsWith('•') && l.trim().length > 0 && !l.includes('Te ayudamos')).join('\n\n');
+                                const bulletDesc = descLines.filter((l: string) => l.trim().startsWith('•')).map((l: string) => l.replace('•', '').trim());
+                                const helpText = descLines.filter((l: string) => l.includes('Te ayudamos') || l.includes('Ejemplo:')).join('\n');
+
+                                // Parse step.result directly for "Desde X USD"
+                                const resultLines = step.result ? step.result.split('\n').map((l: string) => l.trim()).filter(Boolean) : [];
+                                const priceText = resultLines.length > 0 ? resultLines[0] : "";
+                                const includeIntro = resultLines.length > 1 ? resultLines[1] : "";
+                                const includeBullets = resultLines.slice(2).filter((l: string) => l.trim().startsWith('•')).map((l: string) => l.replace('•', '').trim());
+
+                                return (
+                                    <div class={`${color} rounded-[2rem] p-6 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[10px_10px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full group`}>
+                                        {/* Icono */}
+                                        <div class="flex justify-center mb-4 relative z-10">
+                                            <div class="w-16 h-16 bg-white/40 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                                <img src={`/${image}`} alt={step.title} class="w-10 h-10 object-contain" />
+                                            </div>
+                                        </div>
+                                        
+                                        {/* Título */}
+                                        <h4 class="font-display font-bold text-xl text-brandDark text-center mb-4">{step.title}</h4>
+
+                                        {/* Descripción intro */}
+                                        <div class="text-brandDark/90 text-sm font-medium mb-3 relative z-10">
+                                            {introDesc && <p class="leading-snug">{introDesc}</p>}
+                                        </div>
+                                        
+                                        {/* Texto de ayuda */}
+                                        {helpText && (
+                                            <div class="text-brandDark/80 text-xs mb-3 italic">
+                                                {helpText}
+                                            </div>
+                                        )}
+
+                                        {/* Bullets principales */}
+                                        {bulletDesc.length > 0 && (
+                                            <ul class="space-y-1.5 mb-4 flex-grow">
+                                                {bulletDesc.map((b: string, i: number) => (
+                                                    <li class="flex items-start gap-2 text-sm text-brandDark/85">
+                                                        <span class="text-brandDark font-bold mt-0.5 flex-shrink-0">•</span>
+                                                        <span class="leading-snug">{b}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                        {step.result && (
+                                            <div class="mt-auto relative z-10">
+                                                {/* Botón de Precio */}
+                                                <div class="text-center mb-4">
+                                                    <div class="inline-block bg-white border-2 border-brandDark rounded-lg px-5 py-2 shadow-sm">
+                                                        <span class="font-bold text-base text-brandDark">{priceText}</span>
+                                                    </div>
+                                                </div>
+
+                                                {/* Lo que incluye */}
+                                                <div class="bg-white/40 rounded-xl p-3 border-2 border-brandDark/20">
+                                                    {includeIntro && <p class="text-brandDark font-bold text-sm mb-2">{includeIntro}</p>}
+                                                    {includeBullets.length > 0 && (
+                                                        <ul class="space-y-1">
+                                                            {includeBullets.map((b: string, i: number) => (
+                                                                <li class="flex items-start gap-2 text-xs text-brandDark/90">
+                                                                    <span class="text-brandDark font-bold flex-shrink-0">•</span>
+                                                                    <span class="leading-tight">{b}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : service.id === 'pack' ? (
+                        <div class="grid md:grid-cols-2 gap-8">
+                            {/* Tarjeta 1 - Identidad Visual */}
+                            <div class="relative">
+                                {/* Número decorativo */}
+                                <div class="absolute -top-6 -left-4 w-16 h-16 bg-brandYellow rounded-2xl border-4 border-brandDark flex items-center justify-center shadow-lg z-10 transform -rotate-6">
+                                    <span class="font-display font-bold text-3xl text-brandDark">01</span>
+                                </div>
+                                <div class="bg-brandYellow rounded-[2.5rem] p-8 pt-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] hover:shadow-[12px_12px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 h-full">
+                                    {/* Icono */}
+                                    <div class="w-20 h-20 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center mb-6 mx-auto transform rotate-3">
+                                        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M12 6v6l4 2"/>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-display font-bold text-2xl text-brandDark text-center mb-6">Identidad Visual Completa</h4>
+                                    <ul class="space-y-3 mb-6">
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Logo principal y versiones secundarias</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Paleta cromática estratégica</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Sistema tipográfico</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Recursos gráficos</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Manual de identidad visual</span>
+                                        </li>
+                                    </ul>
+                                    <div class="bg-white rounded-2xl p-4 border-3 border-brandDark">
+                                        <p class="text-sm font-bold text-brandDark text-center">Resultado: una marca sólida, coherente y alineada a tu posicionamiento.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Tarjeta 2 - Web */}
+                            <div class="relative mt-8 md:mt-0">
+                                {/* Número decorativo */}
+                                <div class="absolute -top-6 -left-4 w-16 h-16 bg-brandPink rounded-2xl border-4 border-brandDark flex items-center justify-center shadow-lg z-10 transform rotate-6">
+                                    <span class="font-display font-bold text-3xl text-brandDark">02</span>
+                                </div>
+                                <div class="bg-brandPink rounded-[2.5rem] p-8 pt-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] hover:shadow-[12px_12px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 h-full">
+                                    {/* Icono */}
+                                    <div class="w-20 h-20 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center mb-6 mx-auto transform -rotate-3">
+                                        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-display font-bold text-2xl text-brandDark text-center mb-6">Web de Varias Secciones</h4>
+                                    <ul class="space-y-3 mb-6">
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Hasta 8 secciones (Inicio, Sobre mí, Servicios, Blog, etc.)</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Diseño 100% personalizado</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Dominio gratis + Hosting + SSL</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Integración WhatsApp y redes</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-brandDark/90">
+                                            <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold">✓</span>
+                                            <span class="text-sm font-medium">Web adaptable a celular + Correos</span>
+                                        </li>
+                                    </ul>
+                                    <div class="bg-white rounded-2xl p-4 border-3 border-brandDark">
+                                        <p class="text-sm font-bold text-brandDark text-center">Resultado: una web estratégica, profesional y lista para trabajar por vos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : service.id === 'social' ? (
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Pack Presencia */}
+                            <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                {/* Decoración esquina */}
+                                <div class="absolute -right-4 -top-4 w-20 h-20 bg-brandYellow/30 rounded-full"></div>
+                                <div class="absolute right-4 top-4 w-10 h-10 bg-brandYellow rounded-full border-2 border-brandDark flex items-center justify-center transform rotate-12">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </div>
+                                
+                                <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-brandDark pr-12">Pack Presencia</h4>
+                                <p class="text-brandDark/70 text-sm mb-4">Ideal para mantener constancia sin sobrecargarte.</p>
+                                
+                                <div class="bg-brandYellow/20 rounded-2xl p-4 mb-4 border-2 border-brandYellow">
+                                    <p class="text-brandDark font-bold text-sm mb-2">Incluye:</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandYellow rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">1</span>
+                                            <span>reel simple</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandYellow rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">2</span>
+                                            <span>reels intermedios</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandYellow rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">1</span>
+                                            <span>reel complejo</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandYellow rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">3</span>
+                                            <span>carruseles / posteos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center">
+                                    <p class="font-bold text-brandDark">Desde $10.000 UYU</p>
+                                </div>
+                            </div>
+                            
+                            {/* Pack Presencia Activa */}
+                            <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                {/* Decoración esquina */}
+                                <div class="absolute -right-4 -top-4 w-20 h-20 bg-brandPink/30 rounded-full"></div>
+                                <div class="absolute right-4 top-4 w-10 h-10 bg-brandPink rounded-full border-2 border-brandDark flex items-center justify-center transform -rotate-12">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </div>
+                                
+                                <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-brandDark pr-12">Pack Presencia Activa</h4>
+                                <p class="text-brandDark/70 text-sm mb-4">Para marcas que quieren mayor visibilidad y posicionamiento.</p>
+                                
+                                <div class="bg-brandPink/20 rounded-2xl p-4 mb-4 border-2 border-brandPink">
+                                    <p class="text-brandDark font-bold text-sm mb-2">Incluye:</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandPink rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">2</span>
+                                            <span>reels simples</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandPink rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">3</span>
+                                            <span>reels intermedios</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandPink rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">2</span>
+                                            <span>reels complejos</span>
+                                        </li>
+                                        <li class="flex items-center gap-2 text-sm text-brandDark">
+                                            <span class="w-5 h-5 bg-brandPink rounded-full border border-brandDark flex items-center justify-center text-xs font-bold">5</span>
+                                            <span>carruseles / posteos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center">
+                                    <p class="font-bold text-brandDark">Desde $18.000 UYU</p>
+                                </div>
+                            </div>
+                            
+                            {/* Gestión de Meta Ads - Ancho completo */}
+                            <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden md:col-span-2">
+                                {/* Decoración */}
+                                <div class="absolute -right-4 -top-4 w-24 h-24 bg-brandBlue/20 rounded-full"></div>
+                                <div class="absolute right-6 top-6 w-10 h-10 bg-brandLavender rounded-full border-2 border-brandDark flex items-center justify-center transform rotate-6">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-brandDark pr-12">Gestión de Meta Ads (opcional)</h4>
+                                        <p class="text-brandDark/70 text-sm mb-4">Podés sumar la gestión de campañas en Meta Ads para que tu contenido llegue a más personas y genere mejores resultados.</p>
+                                        
+                                        <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center md:text-left">
+                                            <p class="font-bold text-brandDark">Gestión desde: $8.000 UYU</p>
+                                            <p class="text-xs text-brandDark/60 mt-1">(Inversión en publicidad no incluida)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-brandBlue/10 rounded-2xl p-4 border-2 border-brandBlue/30">
+                                        <p class="text-brandDark font-bold text-sm mb-3">Incluye:</p>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                <span class="text-brandBlue font-bold">✓</span>
+                                                <span>Configuración de campaña</span>
+                                            </li>
+                                            <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                <span class="text-brandBlue font-bold">✓</span>
+                                                <span>Segmentación estratégica</span>
+                                            </li>
+                                            <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                <span class="text-brandBlue font-bold">✓</span>
+                                                <span>Instalación de píxel (si aplica)</span>
+                                            </li>
+                                            <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                <span class="text-brandBlue font-bold">✓</span>
+                                                <span>Optimización durante 15 días</span>
+                                            </li>
+                                            <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                <span class="text-brandBlue font-bold">✓</span>
+                                                <span>Reporte de resultados</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : service.id === 'ads' ? (
+                        <>
+                            {/* Título y subtítulo */}
+                            <div class="text-center mb-8 max-w-4xl mx-auto px-4">
+                                <h3 class="font-bold text-2xl md:text-3xl mb-4 text-brandDark">
+                                    ¿Qué hacemos dentro de este servicio?
+                                </h3>
+                                <p class="text-brandDark/70 text-lg">
+                                    La gestión de publicidad digital incluye todo el proceso necesario para que una campaña funcione correctamente.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                {/* Tarjeta 1 - Estrategia de campaña */}
+                                <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                    {/* Corazón decorativo */}
+                                    <div class="absolute -right-3 -top-3 w-14 h-14 bg-brandYellow rounded-full border-3 border-brandDark flex items-center justify-center transform rotate-12">
+                                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-brandDark pr-10">Estrategia de campaña</h4>
+                                    
+                                    <p class="text-brandDark/80 text-sm mb-4">Antes de lanzar cualquier anuncio definimos:</p>
+                                    
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandPink font-bold">•</span>
+                                            <span>Objetivo de la campaña (ventas, mensajes, tráfico, visibilidad)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandPink font-bold">•</span>
+                                            <span>Público al que queremos llegar</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandPink font-bold">•</span>
+                                            <span>Mensaje principal de la comunicación</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandPink font-bold">•</span>
+                                            <span>Tipo de contenido más efectivo</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20">
+                                        <p class="text-sm font-bold text-brandDark">Esto evita invertir dinero en anuncios sin dirección.</p>
+                                    </div>
+                                </div>
+                                
+                                {/* Tarjeta 2 - Configuración y lanzamiento */}
+                                <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                    {/* Corazón decorativo */}
+                                    <div class="absolute -right-3 -top-3 w-14 h-14 bg-brandPink rounded-full border-3 border-brandDark flex items-center justify-center transform -rotate-12">
+                                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-brandDark pr-10">Configuración y lanzamiento</h4>
+                                    
+                                    <p class="text-brandDark/80 text-sm mb-4">Nos encargamos de:</p>
+                                    
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandBlue font-bold">•</span>
+                                            <span>Configuración del administrador de anuncios</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandBlue font-bold">•</span>
+                                            <span>Segmentación de audiencias</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandBlue font-bold">•</span>
+                                            <span>Creación y configuración de campañas</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandBlue font-bold">•</span>
+                                            <span>Instalación de píxel si es necesario</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandBlue font-bold">•</span>
+                                            <span>Conexión con Instagram y Facebook</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20">
+                                        <p class="text-sm font-bold text-brandDark">Todo queda preparado para que la campaña funcione correctamente.</p>
+                                    </div>
+                                </div>
+                                
+                                {/* Tarjeta 3 - Gestión y optimización */}
+                                <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                    {/* Corazón decorativo */}
+                                    <div class="absolute -right-3 -top-3 w-14 h-14 bg-brandBlue rounded-full border-3 border-brandDark flex items-center justify-center transform rotate-6">
+                                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-brandDark pr-10">Gestión y optimización</h4>
+                                    
+                                    <p class="text-brandDark/80 text-sm mb-4">Una vez que la campaña está activa:</p>
+                                    
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandOrange font-bold">•</span>
+                                            <span>Analizamos el rendimiento de los anuncios</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandOrange font-bold">•</span>
+                                            <span>Ajustamos audiencias si es necesario</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandOrange font-bold">•</span>
+                                            <span>Optimizamos la inversión publicitaria</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandOrange font-bold">•</span>
+                                            <span>Mejoramos los anuncios que generan mejores resultados</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20">
+                                        <p class="text-sm font-bold text-brandDark">La publicidad digital necesita seguimiento para rendir al máximo.</p>
+                                    </div>
+                                </div>
+                                
+                                {/* Tarjeta 4 - Reporte de resultados */}
+                                <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                                    {/* Corazón decorativo */}
+                                    <div class="absolute -right-3 -top-3 w-14 h-14 bg-brandLavender rounded-full border-3 border-brandDark flex items-center justify-center transform -rotate-6">
+                                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-brandDark pr-10">Reporte de resultados</h4>
+                                    
+                                    <p class="text-brandDark/80 text-sm mb-4">Al finalizar la campaña recibirás un informe con:</p>
+                                    
+                                    <ul class="space-y-2 mb-4">
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandYellow font-bold">•</span>
+                                            <span>Alcance obtenido</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandYellow font-bold">•</span>
+                                            <span>Resultados generados</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandYellow font-bold">•</span>
+                                            <span>Aprendizajes de la campaña</span>
+                                        </li>
+                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                            <span class="text-brandYellow font-bold">•</span>
+                                            <span>Recomendaciones para próximas acciones</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20">
+                                        <p class="text-sm font-bold text-brandDark">Esto permite tomar decisiones más inteligentes en futuras campañas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    ) : service.id === 'diseno' ? (
+                        <div class="flex flex-col gap-6 max-w-4xl mx-auto">
+                            {/* Primero - ¿Cómo trabajamos? (fondo violeta) */}
+                            <div class="bg-brandPurple rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg text-white">
+                                <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-white">¿Cómo trabajamos?</h4>
+                                <ol class="space-y-3 mb-4">
+                                    <li class="flex items-start gap-3 text-white/90">
+                                        <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold text-brandDark">1</span>
+                                        <span>Nos contás qué necesitás y para qué objetivo.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-white/90">
+                                        <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold text-brandDark">2</span>
+                                        <span>Definimos formato y lineamientos.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-white/90">
+                                        <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold text-brandDark">3</span>
+                                        <span>Diseñamos la propuesta visual.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-white/90">
+                                        <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold text-brandDark">4</span>
+                                        <span>Realizamos ajustes finales.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-white/90">
+                                        <span class="w-6 h-6 bg-white rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold text-brandDark">5</span>
+                                        <span>Te entregamos el material listo para usar.</span>
+                                    </li>
+                                </ol>
+                                <p class="font-bold text-white">Simple, claro y profesional.</p>
+                            </div>
+                            
+                            {/* Segundo - ¿Qué tipo de piezas diseñamos? (fondo blanco) */}
+                            <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-lg">
+                                <h4 class="font-display font-bold text-xl md:text-2xl mb-4 text-brandDark">¿Qué tipo de piezas diseñamos?</h4>
+                                <p class="text-brandDark/80 text-sm mb-4">Trabajamos de forma personalizada según tu necesidad:</p>
+                                <ul class="space-y-2 mb-4">
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Diseño de flyers digitales o impresos</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Diseño de packaging para tus productos (bolsas, cajas, tarjetas, stickers, etc)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Tarjetas personales</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Tarjetas de envío</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Tarjetas de agradecimiento</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Presentaciones comerciales</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Hojas membretadas</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Sobres o Carpetines</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Catálogos de productos</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Brochures</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Banners para redes o web</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Banners o cartelería para eventos presenciales</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Material gráfico para eventos</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-brandDark">
+                                        <span class="text-brandOlive font-bold">•</span>
+                                        <span>Stands para eventos</span>
+                                    </li>
+                                </ul>
+                                <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20">
+                                    <p class="text-sm font-bold text-brandDark">Cada pieza se diseña alineada a tu identidad visual para mantener coherencia y profesionalismo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : service.id === 'marketing' ? (
+                        <div class="grid md:grid-cols-2 gap-6">
+                            {content.steps.map((step: any, idx: number) => {
+                                const colors = ['bg-brandYellow', 'bg-brandPink', 'bg-brandBlue', 'bg-brandLavender'];
+                                const color = colors[idx % 4];
+                                const icons = ['💡', '🔍', '🎯', '🚀'];
+                                const icon = icons[idx % 4];
+                                
+                                // Parsear descripción para separar texto introductorio de bullets
+                                const lines = step.desc.split('\n');
+                                const introLines = [];
+                                const bulletLines = [];
+                                let foundBullets = false;
+                                let afterBullets = [];
+                                
+                                for (const line of lines) {
+                                    const trimmed = line.trim();
+                                    if (trimmed.startsWith('•')) {
+                                        foundBullets = true;
+                                        bulletLines.push(trimmed.replace('•', '').trim());
+                                    } else if (foundBullets && trimmed.length > 0 && !trimmed.startsWith('•')) {
+                                        afterBullets.push(trimmed);
+                                    } else if (!foundBullets && trimmed.length > 0) {
+                                        introLines.push(trimmed);
+                                    }
+                                }
+                                
+                                return (
+                                    <div class={`${color} rounded-[2rem] p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[10px_10px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full group`}>
+                                        {/* Número decorativo */}
+                                        <div class="absolute -right-4 -top-4 w-20 h-20 bg-white/40 rounded-full flex items-center justify-center border-3 border-brandDark transform group-hover:scale-110 transition-transform">
+                                            <span class="font-display font-bold text-3xl text-brandDark">{idx + 1}</span>
+                                        </div>
+                                        
+                                        {/* Icono */}
+                                        <div class="mb-4 relative z-10">
+                                            <span class="text-4xl">{icon}</span>
+                                        </div>
+                                        
+                                        {/* Título */}
+                                        <h4 class="font-display font-bold text-xl md:text-2xl text-brandDark mb-4 relative z-10 pr-12">{step.title}</h4>
+                                        
+                                        {/* Descripción introductoria */}
+                                        {introLines.length > 0 && (
+                                            <p class="text-brandDark/90 text-sm md:text-base font-medium mb-4 relative z-10 leading-relaxed">
+                                                {introLines.join(' ')}
+                                            </p>
+                                        )}
+                                        
+                                        {/* Bullets con diseño */}
+                                        {bulletLines.length > 0 && (
+                                            <div class="bg-white/60 rounded-2xl p-4 border-2 border-brandDark/30 mb-4">
+                                                <ul class="space-y-2">
+                                                    {bulletLines.map((bullet: string, i: number) => (
+                                                        <li class="flex items-start gap-2 text-sm text-brandDark">
+                                                            <span class="text-brandOrange font-bold flex-shrink-0">•</span>
+                                                            <span class="leading-snug">{bullet}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+                                        
+                                        {/* Texto final (después de bullets) */}
+                                        {afterBullets.length > 0 && (
+                                            <p class="text-brandDark/80 text-sm md:text-base italic relative z-10 mt-auto pt-2">
+                                                {afterBullets.join(' ')}
+                                            </p>
+                                        )}
+                                        
+                                        {/* Resultado si existe */}
+                                        {step.result && (
+                                            <div class="mt-4 bg-white rounded-xl p-3 border-2 border-brandDark/20 text-sm font-medium text-brandDark relative z-10">
+                                                {step.result}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <div class="grid md:grid-cols-2 gap-6">
+                            {content.steps.map((step: any, idx: number) => (
+                                <div class={`bg-white rounded-3xl p-6 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 relative overflow-hidden group ${idx % 2 === 0 ? 'hover:rotate-1' : 'hover:-rotate-1'}`}>
+                                    <div class="absolute -right-6 -top-6 text-8xl font-bold text-brandDark/5 select-none group-hover:scale-110 transition-transform">
+                                        {idx + 1}
+                                    </div>
+                                    <h4 class="font-bold text-lg md:text-xl mb-3 text-brandDark relative z-10 pr-8">{step.title}</h4>
+                                    <p class="text-brandDark/70 text-sm md:text-base mb-3 whitespace-pre-line relative z-10">{step.desc}</p>
+                                    {step.result && (
+                                        <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-sm font-medium text-brandDark relative z-10 whitespace-pre-line">
+                                            {step.result}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Tarjeta de beneficios con rotación (ahora debajo de los pasos) */}
+            {content.afterProcess && content.afterProcess.length > 0 && (
+                <div class="bg-brandYellow rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-lg transform -rotate-1 hover:rotate-0 hover:scale-[1.02] transition-all duration-300 mb-8">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-6 text-brandDark text-center flex items-center justify-center gap-3">
+                        <span class="text-4xl">✨</span> ¿Qué cambia después?
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {content.afterProcess.map((item: string) => (
+                            <div class="bg-white/80 rounded-2xl p-4 border-2 border-brandDark/20 flex items-start gap-3 transform hover:scale-105 transition-transform">
+                                <span class="text-2xl flex-shrink-0">✓</span>
+                                <span class="font-medium text-brandDark text-sm md:text-base">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Lista de includes para web */}
+            {content.includes && (
+                <div class="bg-brandLavender rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-lg transform hover:scale-[1.01] transition-all duration-300 mb-8">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-6 text-brandDark text-center">Todas nuestras webs incluyen</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        {content.includes.map((item: string) => (
+                            <div class="flex items-center gap-3 bg-white/60 rounded-xl p-3 border-2 border-brandDark/20">
+                                <span class="text-brandGreen"><Icon name="Check" /></span>
+                                <span class="font-medium text-brandDark text-sm md:text-base">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* FAQ */}
+            {content.faq && (
+                <div class="bg-white rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-lg mb-8">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-6 text-brandDark text-center">Preguntas frecuentes</h3>
+                    <div class="space-y-4">
+                        {content.faq.map((item: any) => (
+                            <div class="border-b-2 border-brandDark/10 pb-4 last:border-0 last:pb-0">
+                                <p class="font-bold text-brandDark text-base md:text-lg mb-1 flex items-center gap-2">
+                                    <span class="text-brandOrange">•</span> {item.q}
+                                </p>
+                                <p class="text-brandDark/70 text-sm md:text-base pl-6">{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* CTA Final */}
+            <div class={`${service.id === 'branding' || service.id === 'marketing' ? 'bg-brandYellow text-brandDark' : service.id === 'identidad' ? 'bg-brandPink text-brandDark' : service.id === 'web' ? 'bg-brandBlue text-white' : service.id === 'pack' ? 'bg-brandLavender text-brandDark' : service.id === 'social' ? 'bg-brandOrange text-brandDark' : service.id === 'ads' ? 'bg-brandPink text-brandDark' : service.id === 'diseno' ? 'bg-brandOlive text-brandDark' : 'bg-brandPurple text-white'} rounded-3xl md:rounded-[3rem] p-8 md:p-16 border-4 border-brandDark text-center shadow-2xl relative overflow-hidden transform hover:scale-[1.02] transition-all duration-500`}>
+                {service.id === 'branding' ? (
+                    <>
+                        <div class="absolute top-4 left-4 w-16 h-16 bg-white/30 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-4 right-4 w-24 h-24 bg-white/20 rounded-full"></div>
+                        <div class="absolute top-1/2 left-8 w-4 h-4 bg-brandDark rounded-full hidden md:block animate-float"></div>
+                    </>
+                ) : service.id === 'identidad' ? (
+                    <>
+                        <div class="absolute top-4 left-4 w-20 h-20 bg-white/30 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-4 right-4 w-32 h-32 bg-white/20 rounded-full"></div>
+                        <div class="absolute top-1/2 left-8 w-4 h-4 bg-brandDark rounded-full hidden md:block animate-float"></div>
+                    </>
+                ) : service.id === 'web' ? (
+                    <>
+                        <div class="absolute top-8 left-8 w-24 h-24 bg-white/10 rounded-full"></div>
+                        <div class="absolute bottom-8 right-8 w-40 h-40 bg-white/10 rounded-full"></div>
+                        <div class="absolute top-1/2 left-12 w-4 h-4 bg-brandYellow rounded-full hidden md:block animate-pulse"></div>
+                    </>
+                ) : service.id === 'social' ? (
+                    <>
+                        <div class="absolute top-6 left-6 w-20 h-20 bg-white/20 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-6 right-6 w-28 h-28 bg-white/15 rounded-full"></div>
+                        <div class="absolute top-1/2 left-10 w-4 h-4 bg-brandDark rounded-full hidden md:block animate-float"></div>
+                    </>
+                ) : service.id === 'ads' ? (
+                    <>
+                        <div class="absolute top-6 left-6 w-20 h-20 bg-white/20 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-6 right-6 w-28 h-28 bg-white/15 rounded-full"></div>
+                        <div class="absolute top-1/2 left-10 w-4 h-4 bg-brandDark rounded-full hidden md:block animate-float"></div>
+                    </>
+                ) : service.id === 'diseno' ? (
+                    <>
+                        <div class="absolute top-6 left-6 w-20 h-20 bg-white/20 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-6 right-6 w-28 h-28 bg-white/15 rounded-full"></div>
+                        <div class="absolute top-1/2 left-10 w-4 h-4 bg-brandDark rounded-full hidden md:block animate-float"></div>
+                    </>
+                ) : (
+                    <>
+                        <div class="absolute top-4 left-4 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-4 right-4 w-32 h-32 bg-white/10 rounded-full"></div>
+                        <div class="absolute top-1/2 left-8 w-4 h-4 bg-brandYellow rounded-full hidden md:block animate-float"></div>
+                    </>
+                )}
+
+                <p class="text-lg md:text-2xl font-medium mb-8 whitespace-pre-line relative z-10 leading-relaxed max-w-4xl mx-auto">{content.cta}</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                    <a href="https://calendly.com/arrancandonga-estudiocreativo/conocernos-mejor" target="_blank" class={`inline-flex items-center justify-center gap-2 bg-white ${service.id === 'branding' || service.id === 'identidad' || service.id === 'pack' || service.id === 'social' || service.id === 'ads' || service.id === 'diseno' || service.id === 'marketing' ? 'text-brandDark' : service.id === 'web' ? 'text-brandBlue' : 'text-brandPurple'} px-8 py-4 rounded-full font-display font-bold btn-lineal text-base md:text-lg shadow-lg hover:shadow-xl`}>
+                        <Icon name="Calendar" /> <span>Agendar reunión</span>
+                    </a>
+                    <a href="https://wa.me/59899928009" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-display font-bold text-base md:text-lg shadow-lg hover:shadow-xl border-2 border-transparent hover:border-white transition-colors">
+                        <Icon name="WhatsApp" /> <span>Escribir por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            
+            {/* Servicios que potencian la publicidad - Solo para Ads */}
+            {service.id === 'ads' && (
+                <div class="max-w-4xl mx-auto mt-12 px-4">
+                    <h3 class="font-bold text-2xl md:text-3xl mb-8 text-brandDark text-center">
+                        Servicios que potencian la publicidad
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {/* Producción de contenido */}
+                        <a href="/servicios/social" class="bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center group">
+                            <div class="w-14 h-14 bg-brandOrange rounded-xl border-2 border-brandDark flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-brandDark mb-2">Producción de contenido</h4>
+                            <p class="text-brandDark/70 text-sm">Para crear anuncios</p>
+                        </a>
+                        
+                        {/* Desarrollo web */}
+                        <a href="/servicios/web" class="bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center group">
+                            <div class="w-14 h-14 bg-brandBlue rounded-xl border-2 border-brandDark flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-brandDark mb-2">Desarrollo web</h4>
+                            <p class="text-brandDark/70 text-sm">Para dirigir tráfico</p>
+                        </a>
+                        
+                        {/* Asesoría en marketing */}
+                        <a href="/servicios/marketing" class="bg-white rounded-2xl p-5 border-4 border-brandDark shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center group">
+                            <div class="w-14 h-14 bg-brandYellow rounded-xl border-2 border-brandDark flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10"/>
+                                    <line x1="12" y1="20" x2="12" y2="4"/>
+                                    <line x1="6" y1="20" x2="6" y2="14"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-brandDark mb-2">Asesoría en marketing</h4>
+                            <p class="text-brandDark/70 text-sm">Para definir estrategia</p>
+                        </a>
+                    </div>
+                </div>
+            )}
+        </div>
+    </div>
+    <Footer />
+</Layout>

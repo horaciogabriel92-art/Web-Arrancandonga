@@ -1,0 +1,39 @@
+---
+import { servicesData } from '../data/servicesData.js';
+import ServiceCard from './ServiceCard.astro';
+
+const highPriority = servicesData.filter(s => s.priority === 'high');
+const lowPriority = servicesData.filter(s => s.priority === 'low');
+---
+
+<section class="py-16 md:py-24 px-0 bg-white border-y-4 border-brandDark relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-10 md:mb-16 px-2">
+            <span class="inline-block bg-brandPink px-3 py-1 md:px-4 md:py-1 rounded-full text-brandDark font-display font-bold text-xs md:text-sm mb-3 md:mb-4 border-2 border-brandDark transform rotate-2">
+                SERVICIOS
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brandDark mb-3 md:mb-4 px-2">¿Cómo te puedo ayudar?</h2>
+            <p class="text-sm sm:text-base md:text-lg text-brandDark/70 max-w-3xl mx-auto leading-relaxed px-2">
+                Una marca más profesional, un logo que realmente te represente, una web clara y fácil de usar, un Instagram ordenado... hay muchas formas de acompañarte para que tu proyecto crezca
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full mb-6">
+            {highPriority.map((service) => (
+                <ServiceCard service={service} />
+            ))}
+        </div>
+
+        <div class="flex items-center justify-center gap-4 my-8 md:my-12">
+            <div class="h-px bg-brandDark/20 flex-1"></div>
+            <span class="text-brandDark/50 font-display text-sm">También ofrezco</span>
+            <div class="h-px bg-brandDark/20 flex-1"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full">
+            {lowPriority.map((service) => (
+                <ServiceCard service={service} />
+            ))}
+        </div>
+    </div>
+</section>

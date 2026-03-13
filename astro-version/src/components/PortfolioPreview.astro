@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+import { projectsData } from '../data/projectsData.js';
+
+const previewProjects = projectsData.slice(0, 3);
+---
+
+<section class="py-16 md:py-24 px-4 bg-brandPink/20 overflow-hidden border-b-4 border-brandDark">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-12 gap-4 px-2">
+            <div class="text-center md:text-left">
+                <span class="inline-block bg-brandBlue text-white px-3 py-1 rounded-full text-xs font-bold mb-2 border-2 border-brandDark">PORTFOLIO</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brandDark">Algunos trabajos</h2>
+                <p class="text-brandDark/70 mt-2 text-sm md:text-base">Proyectos que tuve el placer de acompañar</p>
+            </div>
+            <a href="/portfolio" class="inline-flex items-center gap-2 bg-brandDark text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full font-display font-bold text-sm md:text-base btn-lineal">
+                Ver todo <Icon name="Arrow" />
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {previewProjects.map((project, i) => (
+                <a href={`/proyecto/${project.id}`}
+                    class="group relative bg-white rounded-2xl md:rounded-3xl border-3 md:border-4 border-brandDark overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 block aspect-[4/5]">
+                    <img src={project.image1}
+                        alt={project.title} class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                    <div class="absolute top-3 left-3 md:top-4 md:left-4">
+                        <span class={`${i === 0 ? 'bg-brandPink' : i === 1 ? 'bg-brandBlue' : 'bg-brandOrange'} px-2 py-0.5 md:px-3 md:py-1 rounded-full border-2 border-brandDark text-xs font-display font-bold`}>
+                            {project.category === 'identidad' ? 'Identidad Visual' : project.category === 'web' ? 'Desarrollo Web' : 'Social Media'}
+                        </span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-white border-t-3 md:border-t-4 border-brandDark p-3 md:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <p class="font-display font-bold text-brandDark text-base md:text-lg">{project.title}</p>
+                        <p class="text-xs md:text-sm text-brandDark/60">Ver caso completo →</p>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </div>
+</section>

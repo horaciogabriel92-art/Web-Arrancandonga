@@ -1,0 +1,69 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="relative pt-16 md:pt-20 pb-20 md:pb-32 px-4 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center justify-center hero-grid bg-cream border-b-4 border-brandDark">
+    <div class="absolute top-20 left-4 md:left-20 w-10 h-10 md:w-16 md:h-16 bg-brandOrange rounded-full border-4 border-brandDark animate-float hidden sm:block"></div>
+    <div class="absolute top-32 right-4 md:right-32 w-8 h-8 md:w-12 md:h-12 bg-brandYellow rotate-12 border-4 border-brandDark animate-float-reverse hidden sm:block"></div>
+    <div class="absolute bottom-32 left-4 md:left-32 w-12 h-12 md:w-20 md:h-20 bg-brandPink rounded-full border-4 border-brandDark animate-float hidden sm:block z-0"></div>
+
+    <div class="absolute top-24 right-1/4 w-8 h-8 md:w-10 md:h-10 animate-spin-slow hidden sm:block z-20">
+        <Icon name="Star" />
+    </div>
+    <div class="absolute bottom-24 left-1/4 w-6 h-6 md:w-8 md:h-8 animate-float hidden sm:block z-20">
+        <Icon name="Star" />
+    </div>
+
+    <div class="absolute top-0 left-0 w-full bg-brandPurple text-white border-b-4 border-brandDark py-2 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap flex gap-4 md:gap-8">
+            {[...Array(10)].map((_, i) => (
+                <span class="font-display font-bold text-xs md:text-sm flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brandDark rounded-full"></span>
+                    DE EMPRENDIMIENTO A MARCA PROFESIONAL
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brandDark rounded-full"></span>
+                    DISEÑO ESTRATÉGICO
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brandDark rounded-full"></span>
+                    CLARIDAD QUE POSICIONA
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brandDark rounded-full"></span>
+                </span>
+            ))}
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10 w-full text-center mt-8 md:mt-12 px-2 sm:px-4">
+        <div class="inline-flex items-center gap-1 md:gap-2 bg-white px-3 py-1.5 md:px-4 md:py-2 rounded-full border-2 border-brandDark mb-6 md:mb-8 transform -rotate-2">
+            <span class="text-base md:text-lg">✨</span>
+            <span class="font-display font-bold text-xs md:text-sm">Branding estratégico y con propósito</span>
+            <span class="text-base md:text-lg">❤️</span>
+        </div>
+
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brandDark leading-[0.9] mb-4 md:mb-6 tracking-tight">
+            ¿Tu marca ya no<br />
+            <span class="relative inline-block">
+                refleja
+                <span class="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-4 bg-brandPink/60 -z-10 transform -rotate-1"></span>
+            </span> todo lo que<br />
+            <span class="text-brandOrange italic">creciste?</span>
+        </h1>
+
+        <p class="text-base sm:text-lg md:text-xl text-brandDark/80 mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto font-medium px-2">
+            Te ayudo a que tu negocio se vea <span class="bg-brandYellow/50 px-1.5 py-0.5 md:px-2 md:py-1 transform -rotate-1 inline-block">profesional</span>, claro y listo para crecer.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-12 md:mb-16 px-4 sm:px-0">
+            <a href="https://wa.me/59899928009" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 bg-brandGreen text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal w-full sm:w-auto">
+                <Icon name="WhatsApp" /> <span class="whitespace-nowrap">Escribirme por WhatsApp</span>
+            </a>
+            <a href="/portfolio"
+                class="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-4 py-3 md:px-8 md:py-4 rounded-full font-display font-bold text-sm md:text-base lg:text-lg btn-lineal group w-full sm:w-auto">
+                <span class="whitespace-nowrap">Ver trabajos</span> <span class="group-hover:translate-x-1 transition-transform"><Icon name="Arrow" /></span>
+            </a>
+        </div>
+
+        <div class="inline-flex items-center gap-2 bg-brandPink px-3 py-1.5 md:px-4 md:py-2 rounded-full border-2 border-brandDark transform rotate-1">
+            <div class="w-2.5 h-2.5 md:w-3 md:h-3 bg-brandGreen rounded-full animate-pulse"></div>
+            <span class="font-display font-bold text-xs md:text-sm whitespace-nowrap">Disponible para proyectos</span>
+        </div>
+    </div>
+</section>

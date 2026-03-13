@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+const { title = "ARRANCANDONGA | Branding & Diseño", description = "Arrancandonga - Estudio de Branding & Diseño Estratégico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer." } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no">
+    <title>{title}</title>
+    
+    <!-- Metaetiquetas SEO para Google -->
+    <meta name="description" content={description}>
+    <meta name="keywords" content="Branding, Diseño Gráfico, Identidad Visual, Desarrollo Web, Social Media, Publicidad Digital, Marketing, Arrancandonga">
+    <meta name="author" content="Arrancandonga">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content="https://arrancandonga.vercel.app/">
+    <meta property="og:site_name" content="Arrancandonga">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-cream font-display text-brandDark antialiased">
+    <slot />
+</body>
+</html>

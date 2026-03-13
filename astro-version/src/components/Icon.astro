@@ -1,0 +1,179 @@
+---
+export interface Props {
+  name: 'Calendar' | 'Arrow' | 'ArrowRight' | 'Instagram' | 'WhatsApp' | 'Menu' | 'Close' | 'Star' | 'Check' | 'Branding' | 'Identity' | 'Web' | 'Social' | 'Design' | 'Pack' | 'Ads' | 'Marketing' | 'Gift';
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+---
+
+{name === 'Calendar' && (
+    <svg class={`w-5 h-5 md:w-6 md:h-6 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+)}
+
+{name === 'Arrow' && (
+    <svg class={`w-5 h-5 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+)}
+
+{name === 'ArrowRight' && (
+    <svg class={`w-5 h-5 md:w-6 md:h-6 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+)}
+
+{name === 'Instagram' && (
+    <svg class={`w-5 h-5 md:w-6 md:h-6 ${className}`} fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    </svg>
+)}
+
+{name === 'WhatsApp' && (
+    <svg class={`w-5 h-5 md:w-6 md:h-6 ${className}`} fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+)}
+
+{name === 'Menu' && (
+    <svg class={`w-6 h-6 ${className}`} fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+)}
+
+{name === 'Close' && (
+    <svg class={`w-6 h-6 ${className}`} fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+)}
+
+{name === 'Star' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 0L24.4903 15.5097L40 20L24.4903 24.4903L20 40L15.5097 24.4903L0 20L15.5097 15.5097L20 0Z" fill="#FDB62A" stroke="#1a1a1a" stroke-width="2" />
+    </svg>
+)}
+
+{name === 'Check' && (
+    <svg class={`w-6 h-6 text-brandGreen ${className}`} fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+)}
+
+{name === 'Branding' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10L60 40L90 50L60 60L50 90L40 60L10 50L40 40L50 10Z" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        <circle cx="50" cy="50" r="15" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+    </svg>
+)}
+
+{name === 'Identity' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="15" width="25" height="25" rx="5" fill="#FFBEC6" stroke="#1a1a1a" stroke-width="3" />
+        <rect x="60" y="15" width="25" height="25" rx="5" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        <rect x="15" y="60" width="25" height="25" rx="5" fill="#6B87C8" stroke="#1a1a1a" stroke-width="3" />
+        <rect x="60" y="60" width="25" height="25" rx="5" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+        <circle cx="50" cy="50" r="8" fill="#AEA433" stroke="#1a1a1a" stroke-width="3" />
+    </svg>
+)}
+
+{name === 'Web' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="20" width="80" height="60" rx="8" fill="#6B87C8" stroke="#1a1a1a" stroke-width="3" />
+        <line x1="10" y1="35" x2="90" y2="35" stroke="#1a1a1a" stroke-width="3" />
+        <circle cx="22" cy="27" r="4" fill="#FFBEC6" stroke="#1a1a1a" stroke-width="2" />
+        <circle cx="35" cy="27" r="4" fill="#FDB62A" stroke="#1a1a1a" stroke-width="2" />
+        <circle cx="48" cy="27" r="4" fill="#FE5007" stroke="#1a1a1a" stroke-width="2" />
+        <path d="M30 55L45 70L70 45" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)}
+
+{name === 'Social' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Cámara/celular grabando video */}
+        <rect x="25" y="20" width="50" height="60" rx="8" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+        {/* Pantalla */}
+        <rect x="30" y="28" width="40" height="44" rx="4" fill="#1a1a1a" />
+        {/* Círculo de grabación (lente) */}
+        <circle cx="50" cy="50" r="12" fill="#FFBEC6" stroke="#FDB62A" stroke-width="3" />
+        {/* Botón de grabar (círculo rojo) */}
+        <circle cx="50" cy="50" r="5" fill="#FE5007" />
+        {/* Botón lateral */}
+        <rect x="22" y="38" width="6" height="12" rx="2" fill="#FDB62A" stroke="#1a1a1a" stroke-width="2" />
+        {/* Líneas de sonido/vibración */}
+        <path d="M78 40L85 35M78 50L88 50M78 60L85 65" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" />
+    </svg>
+)}
+
+{name === 'Design' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Lápiz vertical clásico */}
+        {/* Cuerpo amarillo */}
+        <rect x="38" y="15" width="24" height="55" rx="2" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        {/* Punta de madera */}
+        <path d="M38 70L50 95L62 70H38Z" fill="#E8D5C4" stroke="#1a1a1a" stroke-width="3" />
+        {/* Mina de grafito */}
+        <path d="M44 70L50 88L56 70H44Z" fill="#6B87C8" stroke="#1a1a1a" stroke-width="2" />
+        {/* Borrador rosa */}
+        <rect x="38" y="8" width="24" height="12" rx="3" fill="#FFBEC6" stroke="#1a1a1a" stroke-width="3" />
+        {/* Anillo metálico */}
+        <rect x="38" y="18" width="24" height="6" fill="#C0C0C0" stroke="#1a1a1a" stroke-width="2" />
+        {/* Líneas decorativas en el cuerpo */}
+        <line x1="42" y1="30" x2="58" y2="30" stroke="#1a1a1a" stroke-width="1.5" />
+        <line x1="42" y1="38" x2="58" y2="38" stroke="#1a1a1a" stroke-width="1.5" />
+        <line x1="42" y1="46" x2="58" y2="46" stroke="#1a1a1a" stroke-width="1.5" />
+        <line x1="42" y1="54" x2="58" y2="54" stroke="#1a1a1a" stroke-width="1.5" />
+        {/* Brillo */}
+        <line x1="44" y1="22" x2="44" y2="65" stroke="white" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round" />
+    </svg>
+)}
+
+{name === 'Pack' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="60" height="50" rx="5" fill="#E6D5F5" stroke="#1a1a1a" stroke-width="3" />
+        <rect x="20" y="30" width="60" height="15" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        <line x1="50" y1="30" x2="50" y2="80" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M50 30C50 20 35 15 35 25C35 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M50 30C50 20 65 15 65 25C65 30 50 30 50 30Z" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+    </svg>
+)}
+
+{name === 'Ads' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Altavoz/megáfono */}
+        <path d="M60 25L85 15V85L60 75V25Z" fill="#FFBEC6" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M60 25H35C25 25 20 35 20 50C20 65 25 75 35 75H60V25Z" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        {/* Ondas de sonido */}
+        <path d="M88 30C92 35 92 65 88 70" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none" />
+        <path d="M92 25C98 35 98 65 92 75" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none" />
+        {/* Base del altavoz */}
+        <rect x="30" y="75" width="30" height="8" rx="2" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+    </svg>
+)}
+
+{name === 'Marketing' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none">
+        <rect x="15" y="55" width="70" height="30" rx="5" fill="#6B87C8" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M20 55V35C20 25 35 20 50 20C65 20 80 25 80 35V55" stroke="#1a1a1a" stroke-width="3" fill="none" />
+        <circle cx="50" cy="70" r="8" fill="#FDB62A" stroke="#1a1a1a" stroke-width="2" />
+        <path d="M35 40L45 50L65 30" stroke="#FE5007" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)}
+
+{name === 'Gift' && (
+    <svg class={`w-full h-full ${className}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="35" width="60" height="45" rx="4" fill="#E6D5F5" stroke="#1a1a1a" stroke-width="3" />
+        <rect x="20" y="35" width="60" height="15" fill="#FDB62A" stroke="#1a1a1a" stroke-width="3" />
+        <line x1="50" y1="35" x2="50" y2="80" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M50 35C50 25 35 20 35 30C35 35 50 35 50 35Z" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+        <path d="M50 35C50 25 65 20 65 30C65 35 50 35 50 35Z" fill="#FE5007" stroke="#1a1a1a" stroke-width="3" />
+    </svg>
+)}

@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+    service: {
+        id: string;
+        title: string;
+        desc: string;
+        color: string;
+        iconName: any;
+    };
+}
+
+const { service } = Astro.props;
+---
+
+<a href={`/servicios/${service.id}`}
+    class={`group ${service.color} rounded-2xl md:rounded-3xl p-5 md:p-6 border-3 md:border-4 border-brandDark hover:shadow-lg transition-all text-left transform hover:-translate-y-1 min-h-[240px] md:min-h-[280px] flex flex-col w-full block`}>
+    <div class="w-12 h-12 md:w-16 md:h-16 mb-3 md:mb-4 transform group-hover:scale-110 transition-transform">
+        <Icon name={service.iconName as any} />
+    </div>
+    <h3 class="font-display text-lg md:text-xl font-bold text-brandDark mb-2 md:mb-3 leading-tight">
+        {service.title}
+    </h3>
+    <p class="text-brandDark/80 font-medium leading-relaxed text-xs md:text-sm mb-3 md:mb-4 flex-grow">{service.desc}</p>
+    <div class="flex items-center text-brandDark font-bold font-display text-xs md:text-sm mt-auto">
+        <span>Ver más</span>
+        <Icon name="Arrow" />
+    </div>
+</a>
