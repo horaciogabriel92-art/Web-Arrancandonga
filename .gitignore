@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# carpetas temporales a eliminar
+astro-version/
+casos de estudio/
