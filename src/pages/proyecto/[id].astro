@@ -51,8 +51,8 @@ const reelCarouselStyles = `
     /* Estilos para el contenido de la solución */
     .solution-content h4 {
         display: inline-block;
-        margin-bottom: 0.75rem;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
     }
     .solution-content h4:first-child {
         margin-top: 0;
@@ -60,19 +60,35 @@ const reelCarouselStyles = `
     .solution-content ul {
         list-style: none;
         padding: 0;
-        margin: 0;
+        margin: 1.5rem 0;
     }
     .solution-content li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+    .solution-content li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--color-brandOrange);
+        font-weight: bold;
     }
     .solution-content strong {
         font-weight: 700;
     }
     .solution-content p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
     }
     .solution-content p:last-child {
         margin-bottom: 0;
+    }
+    .solution-content h4 + p {
+        margin-top: 0.5rem;
+    }
+    .solution-content p + h4 {
+        margin-top: 2.5rem;
     }
 `;
 ---
@@ -308,14 +324,14 @@ const reelCarouselStyles = `
                         </div>
 
                         {/* La solución */}
-                        <div class="bg-brandPink rounded-3xl p-6 md:p-10 border-4 border-brandDark shadow-[6px_6px_0px_#27272A]">
-                            <div class="flex items-center gap-3 mb-6">
-                                <div class="w-12 h-12 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                        <div class="bg-white rounded-3xl p-8 md:p-12 border-4 border-brandDark shadow-[6px_6px_0px_#27272A]">
+                            <div class="flex items-center gap-3 mb-8">
+                                <div class="w-12 h-12 bg-brandYellow rounded-2xl border-3 border-brandDark flex items-center justify-center">
                                     <span class="text-2xl">💡</span>
                                 </div>
                                 <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">La solución</h3>
                             </div>
-                            <div class="text-brandDark/90 text-base md:text-lg leading-relaxed whitespace-pre-line solution-content" set:html={project.solution} />
+                            <div class="text-brandDark text-base md:text-lg leading-relaxed solution-content" set:html={project.solution} />
                         </div>
 
                         {/* Galería de imágenes */}

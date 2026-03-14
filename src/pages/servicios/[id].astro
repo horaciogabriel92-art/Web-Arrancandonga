@@ -412,17 +412,45 @@ const content = detailedContent[service.id] || {
                         </>
                     )}
                     {service.id === 'web' && (
-                        <>
-                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
-                                Las redes sociales son prestadas. Si mañana a alguien se le ocurre que Instagram, Facebook o Tiktok no existen más, tu negocio se queda sin nada.
-                            </p>
-                            <p class="text-lg md:text-2xl text-brandDark font-medium leading-relaxed">
-                                <strong>Por el contrario tu web, ES TUYA.</strong> Es el lugar donde tu marca se presenta con claridad, donde tu mensaje está ordenado y donde tu cliente ideal entiende rápidamente qué hacés y por qué sos la opción OBVIA que tiene que elegir.
-                            </p>
-                            <p class="text-xl md:text-3xl text-brandOrange font-bold italic leading-tight max-w-3xl mx-auto px-4">
-                                Una web bien pensada no es un gasto. Es una herramienta estratégica que trabaja por vos todos los días.
-                            </p>
-                        </>
+                        <div class="space-y-6 max-w-4xl mx-auto">
+                            {/* Card 1: Alerta */}
+                            <div class="bg-brandPink rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] relative overflow-hidden">
+                                <div class="absolute -right-4 -top-4 text-8xl opacity-10">⚠️</div>
+                                <div class="relative z-10 flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                        <span class="text-2xl">⚠️</span>
+                                    </div>
+                                    <p class="text-lg md:text-xl text-brandDark font-medium leading-relaxed">
+                                        Las redes sociales son prestadas. Si mañana a alguien se le ocurre que Instagram, Facebook o Tiktok no existen más, tu negocio se queda sin nada.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* Card 2: Propiedad */}
+                            <div class="bg-brandBlue rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] relative overflow-hidden">
+                                <div class="absolute -right-4 -top-4 text-8xl opacity-10">🏠</div>
+                                <div class="relative z-10 flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center flex-shrink-0">
+                                        <span class="text-2xl">🔑</span>
+                                    </div>
+                                    <p class="text-lg md:text-xl text-brandDark font-medium leading-relaxed">
+                                        <strong>Por el contrario tu web, ES TUYA.</strong> Es el lugar donde tu marca se presenta con claridad, donde tu mensaje está ordenado y donde tu cliente ideal entiende rápidamente qué hacés y por qué sos la opción OBVIA que tiene que elegir.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* Card 3: Conclusión */}
+                            <div class="bg-brandYellow rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] text-center relative overflow-hidden">
+                                <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-white/30 rounded-full"></div>
+                                <div class="absolute -right-6 -top-6 w-16 h-16 bg-white/30 rounded-full"></div>
+                                <div class="relative z-10">
+                                    <span class="text-4xl mb-4 block">💡</span>
+                                    <p class="text-xl md:text-2xl text-brandDark font-bold italic leading-tight">
+                                        Una web bien pensada no es un gasto. Es una herramienta estratégica que trabaja por vos todos los días.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     )}
                 </div>
             ) : service.id === 'pack' ? (
@@ -796,54 +824,128 @@ const content = detailedContent[service.id] || {
                 </div>
             )}
 
-            {/* Bloque ancho completo para Identidad Visual */}
+            {/* Bloque ancho completo para Identidad Visual - Rediseñado */}
             {service.id === 'identidad' && (
-                <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl max-w-4xl mx-auto mb-16 transform hover:-translate-y-1 transition-all duration-300">
-                    <h3 class="font-bold text-xl md:text-2xl mb-8 text-brandDark">
-                        Si sentís que hace tiempo venís trabajando en tu negocio pero:
-                    </h3>
-                    <ul class="space-y-4 mb-8">
+                <div class="max-w-5xl mx-auto mb-16">
+                    {/* Header con título exacto */}
+                    <div class="text-center mb-10">
+                        <h3 class="font-display font-bold text-xl md:text-2xl text-brandDark">
+                            Si sentís que hace tiempo venís trabajando en tu negocio pero:
+                        </h3>
+                    </div>
+                    
+                    {/* Grid de cards visuales - Textos exactos */}
+                    <div class="grid md:grid-cols-2 gap-5 mb-10">
                         {[
-                            "Tu imagen se ve improvisada",
-                            "Cambiás colores y estilos todo el tiempo",
-                            "No hay coherencia entre redes, piezas y web",
-                            "Tu marca no refleja tu nivel actual"
-                        ].map((item: string) => (
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandDark font-bold mt-0.5 md:mt-1 text-lg">-</span>
-                                <span class="text-brandDark font-medium text-base md:text-xl leading-relaxed">{item}</span>
-                            </li>
+                            { 
+                                text: "Tu imagen se ve improvisada", 
+                                icon: "🎨",
+                                color: "bg-brandYellow"
+                            },
+                            { 
+                                text: "Cambiás colores y estilos todo el tiempo", 
+                                icon: "🌈",
+                                color: "bg-brandPink"
+                            },
+                            { 
+                                text: "No hay coherencia entre redes, piezas y web", 
+                                icon: "📱",
+                                color: "bg-brandBlue"
+                            },
+                            { 
+                                text: "Tu marca no refleja tu nivel actual", 
+                                icon: "📉",
+                                color: "bg-brandOrange"
+                            }
+                        ].map((item: any, idx: number) => (
+                            <div class={`${item.color} rounded-3xl p-6 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[10px_10px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group`}>
+                                {/* Número de fondo */}
+                                <div class="absolute -right-4 -top-4 text-7xl font-bold text-brandDark/10 select-none font-display">
+                                    0{idx + 1}
+                                </div>
+                                
+                                {/* Icono */}
+                                <div class="w-14 h-14 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center mb-4 transform group-hover:rotate-6 transition-transform shadow-sm">
+                                    <span class="text-2xl">{item.icon}</span>
+                                </div>
+                                
+                                {/* Texto principal exacto */}
+                                <p class="font-display font-bold text-lg md:text-xl text-brandDark relative z-10 leading-snug">
+                                    {item.text}
+                                </p>
+                            </div>
                         ))}
-                    </ul>
-                    <p class="font-bold text-lg md:text-2xl text-brandDark">
-                        Entonces es momento de ordenarla.
-                    </p>
+                    </div>
+                    
+                    {/* Call to action final - Texto exacto */}
+                    <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl text-center transform hover:-translate-y-1 transition-all duration-300">
+                        <p class="font-bold text-lg md:text-2xl text-brandDark">
+                            Entonces es momento de ordenarla.
+                        </p>
+                    </div>
                 </div>
             )}
 
-            {/* Bloque ancho completo para Desarrollo Web */}
+            {/* Bloque ancho completo para Desarrollo Web - Rediseñado */}
             {service.id === 'web' && (
-                <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl max-w-4xl mx-auto mb-16 transform hover:-translate-y-1 transition-all duration-300">
-                    <h3 class="font-bold text-xl md:text-2xl mb-8 text-brandDark">
-                        ¿Cuándo necesitás una web?
-                    </h3>
-                    <ul class="space-y-4 mb-8">
+                <div class="max-w-5xl mx-auto mb-16">
+                    {/* Header */}
+                    <div class="text-center mb-10">
+                        <h3 class="font-display font-bold text-2xl md:text-3xl text-brandDark">
+                            ¿Cuándo necesitás una web?
+                        </h3>
+                    </div>
+                    
+                    {/* Grid de 4 cards */}
+                    <div class="grid md:grid-cols-2 gap-5 mb-10">
                         {[
-                            "Cuando dependés 100% de redes sociales",
-                            "Cuando te cuesta explicar lo que hacés por mensaje",
-                            "Cuando querés verte más profesional",
-                            "Cuando estás lista para posicionarte en serio"
-                        ].map((item: string) => (
-                            <li class="flex items-start gap-3">
-                                <span class="text-brandDark font-bold mt-0.5 md:mt-1 text-lg">-</span>
-                                <span class="text-brandDark font-medium text-base md:text-xl leading-relaxed">{item}</span>
-                            </li>
+                            { 
+                                text: "Cuando dependés 100% de redes sociales", 
+                                icon: "📱",
+                                color: "bg-brandPink"
+                            },
+                            { 
+                                text: "Cuando te cuesta explicar lo que hacés por mensaje", 
+                                icon: "💬",
+                                color: "bg-brandBlue"
+                            },
+                            { 
+                                text: "Cuando querés verte más profesional", 
+                                icon: "💼",
+                                color: "bg-brandYellow"
+                            },
+                            { 
+                                text: "Cuando estás lista para posicionarte en serio", 
+                                icon: "🚀",
+                                color: "bg-brandOrange"
+                            }
+                        ].map((item: any, idx: number) => (
+                            <div class={`${item.color} rounded-3xl p-6 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[10px_10px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group`}>
+                                {/* Número de fondo */}
+                                <div class="absolute -right-4 -top-4 text-7xl font-bold text-brandDark/10 select-none font-display">
+                                    0{idx + 1}
+                                </div>
+                                
+                                {/* Icono */}
+                                <div class="w-14 h-14 bg-white rounded-2xl border-3 border-brandDark flex items-center justify-center mb-4 transform group-hover:rotate-6 transition-transform shadow-sm">
+                                    <span class="text-2xl">{item.icon}</span>
+                                </div>
+                                
+                                {/* Texto */}
+                                <p class="font-display font-bold text-lg md:text-xl text-brandDark relative z-10 leading-snug">
+                                    {item.text}
+                                </p>
+                            </div>
                         ))}
-                    </ul>
-                    <p class="font-bold text-lg md:text-2xl text-brandDark">
-                        Tu web no es solo presencia.<br/><br/>
-                        Es posicionamiento.
-                    </p>
+                    </div>
+                    
+                    {/* CTA final - Textos exactos */}
+                    <div class="bg-brandPink rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-xl text-center transform hover:-translate-y-1 transition-all duration-300">
+                        <p class="font-bold text-lg md:text-2xl text-brandDark leading-relaxed">
+                            Tu web no es solo presencia.<br/><br/>
+                            Es posicionamiento.
+                        </p>
+                    </div>
                 </div>
             )}
 
@@ -1542,20 +1644,63 @@ const content = detailedContent[service.id] || {
                         </div>
                     ) : (
                         <div class="grid md:grid-cols-2 gap-6">
-                            {content.steps.map((step: any, idx: number) => (
-                                <div class={`bg-white rounded-3xl p-6 border-4 border-brandDark shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 relative overflow-hidden group ${idx % 2 === 0 ? 'hover:rotate-1' : 'hover:-rotate-1'}`}>
-                                    <div class="absolute -right-6 -top-6 text-8xl font-bold text-brandDark/5 select-none group-hover:scale-110 transition-transform">
-                                        {idx + 1}
-                                    </div>
-                                    <h4 class="font-bold text-lg md:text-xl mb-3 text-brandDark relative z-10 pr-8">{step.title}</h4>
-                                    <p class="text-brandDark/70 text-sm md:text-base mb-3 whitespace-pre-line relative z-10">{step.desc}</p>
-                                    {step.result && (
-                                        <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-sm font-medium text-brandDark relative z-10 whitespace-pre-line">
-                                            {step.result}
+                            {content.steps.map((step: any, idx: number) => {
+                                const accentColors = ['bg-brandYellow', 'bg-brandPink', 'bg-brandBlue', 'bg-brandOrange'];
+                                const accentColor = accentColors[idx % 4];
+                                const icons = ['🔍', '📍', '🎨', '📋'];
+                                const icon = icons[idx % 4];
+                                
+                                // Parse description
+                                const lines = step.desc.split('\n');
+                                const introText = lines.filter((l: string) => !l.trim().startsWith('•') && l.trim().length > 0).join(' ');
+                                const bullets = lines.filter((l: string) => l.trim().startsWith('•')).map((l: string) => l.replace('•', '').trim());
+                                
+                                // Parse result
+                                const resultLines = step.result ? step.result.split('\n').filter((l: string) => l.trim().length > 0) : [];
+                                const resultTitle = resultLines.length > 0 ? resultLines[0] : '';
+                                const resultText = resultLines.length > 1 ? resultLines.slice(1).join(' ') : '';
+                                
+                                return (
+                                    <div class="bg-white rounded-3xl p-6 md:p-8 border-4 border-brandDark shadow-[6px_6px_0px_#27272A] hover:shadow-[10px_10px_0px_#27272A] transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full group">
+                                        {/* Header con icono y número */}
+                                        <div class="flex items-start justify-between mb-4">
+                                            <div class={`w-14 h-14 ${accentColor} rounded-2xl border-3 border-brandDark flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                                                <span class="text-2xl">{icon}</span>
+                                            </div>
+                                            <span class="font-display font-bold text-4xl text-brandDark/10 select-none">0{idx + 1}</span>
                                         </div>
-                                    )}
-                                </div>
-                            ))}
+                                        
+                                        {/* Título */}
+                                        <h4 class="font-display font-bold text-xl text-brandDark mb-3">{step.title}</h4>
+                                        
+                                        {/* Descripción intro */}
+                                        {introText && (
+                                            <p class="text-brandDark/80 text-sm font-medium mb-4 leading-relaxed">{introText}</p>
+                                        )}
+                                        
+                                        {/* Bullets */}
+                                        {bullets.length > 0 && (
+                                            <ul class="space-y-2 mb-4 flex-grow">
+                                                {bullets.map((bullet: string, i: number) => (
+                                                    <li class="flex items-start gap-2 text-sm text-brandDark/90">
+                                                        <span class={`w-5 h-5 ${accentColor} rounded-full border-2 border-brandDark flex items-center justify-center flex-shrink-0 text-xs font-bold`}>✓</span>
+                                                        <span class="leading-snug">{bullet}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                        
+                                        {/* Resultado */}
+                                        {step.result && (
+                                            <div class={`mt-auto ${accentColor}/20 rounded-2xl p-4 border-2 border-brandDark/30 relative overflow-hidden`}>
+                                                <div class={`absolute -right-2 -top-2 w-8 h-8 ${accentColor} rounded-full border-2 border-brandDark flex items-center justify-center text-sm`}>🎯</div>
+                                                <p class="text-brandDark font-bold text-sm mb-1">{resultTitle}</p>
+                                                <p class="text-brandDark/80 text-xs leading-relaxed">{resultText}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
                     )}
                 </div>
