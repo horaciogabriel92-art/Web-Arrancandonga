@@ -379,6 +379,50 @@ const reelCarouselStyles = `
                             </div>
                         )}
 
+                        {/* Flipbook PDF - Solo si tiene flipbook definido */}
+                        {project.flipbook && (
+                            <div class="space-y-6 md:space-y-8 pb-12 md:pb-16">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-brandYellow rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-brandDark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">{project.flipbookTitle || 'Documento del proyecto'}</h3>
+                                </div>
+                                
+                                <div class="relative bg-brandDark rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-[8px_8px_0px_#71717A]">
+                                    {/* Decoración de libro */}
+                                    <div class="absolute left-4 top-4 bottom-4 w-2 bg-white/10 rounded-full hidden md:block"></div>
+                                    
+                                    <div class="bg-white rounded-xl overflow-hidden" style="height: 500px; md:height: 700px;">
+                                        <iframe 
+                                            src={`${project.flipbook}#view=FitH`}
+                                            class="w-full h-full"
+                                            title={project.flipbookTitle || 'Documento'}
+                                        />
+                                    </div>
+                                    
+                                    {/* Controles de navegación visuales */}
+                                    <div class="flex justify-center mt-4 gap-4">
+                                        <a 
+                                            href={project.flipbook} 
+                                            target="_blank"
+                                            class="inline-flex items-center gap-2 bg-brandYellow text-brandDark px-6 py-3 rounded-full font-display font-bold border-2 border-brandDark shadow-[4px_4px_0px_#27272A] hover:shadow-[6px_6px_0px_#27272A] hover:-translate-y-1 transition-all"
+                                        >
+                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                                <polyline points="15 3 21 3 21 9"/>
+                                                <line x1="10" y1="14" x2="21" y2="3"/>
+                                            </svg>
+                                            Abrir en nueva pestaña
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
                         {/* Galería de imágenes estándar - Solo si NO tiene socialFeed ni gallery */}
                         {!isEdesiaSocial && !project.socialFeed && (!project.gallery || project.gallery.length === 0) && (
                             <div class="space-y-6 md:space-y-8 pb-12 md:pb-16">
