@@ -51,7 +51,7 @@ Además, el branding debía dialogar con el diseño interior que se estaba desar
         image1: "/casos-de-estudio/banner edesia 1920x823-14.webp",
         image2: "/casos-de-estudio/mockup edesia 800x1000-01.webp",
         image3: "/casos-de-estudio/miniatura edesia 800x1000-10.webp",
-        thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp",
+        thumbnail: "/casos-de-estudio/banner edesia social media 1920x823-01.webp",
         relatedProject: { id: '2', title: 'Edesia Café - Social Media', label: 'Ver estrategia de redes sociales →' }
     },
     {
