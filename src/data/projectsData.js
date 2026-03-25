@@ -457,9 +457,7 @@ La comunicación debía transmitir confianza, cercanía y profesionalismo, posic
         image1: "/casos-de-estudio/banner nutridamente 1920x823-03.webp",
         image2: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp",
         image3: "/casos-de-estudio/banner nutridamente 1920x823-03.webp",
-        thumbnail: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp",
-        flipbook: "/casos-de-estudio/bitacora-nutridamente.pdf",
-        flipbookTitle: "Bitácora Nutricional"
+        thumbnail: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp"
     },
     {
         id: '9',
