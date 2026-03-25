@@ -325,28 +325,30 @@ const reelCarouselStyles = `
                             <div class="text-brandDark text-base md:text-lg leading-relaxed solution-content" set:html={project.solution} />
                         </div>
 
-                        {/* Galería de imágenes */}
-                        <div class="space-y-6 md:space-y-8">
-                            <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
-                            <div class={`grid gap-4 md:gap-6 ${isEdesiaSocial ? 'md:grid-cols-1' : 'md:grid-cols-2'}`}>
-                                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="1">
-                                    <img src={project.image2} alt={`${project.title} detalle 1`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
-                                            <span class="text-xl">🔍</span>
+                        {/* Galería de imágenes - Oculta para Edesia Social Media */}
+                        {!isEdesiaSocial && (
+                            <div class="space-y-6 md:space-y-8">
+                                <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
+                                <div class="grid gap-4 md:gap-6 md:grid-cols-2">
+                                    <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="1">
+                                        <img src={project.image2} alt={`${project.title} detalle 1`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                            <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
+                                                <span class="text-xl">🔍</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="2">
-                                    <img src={project.image3} alt={`${project.title} detalle 2`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                                        <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
-                                            <span class="text-xl">🔍</span>
+                                    <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index="2">
+                                        <img src={project.image3} alt={`${project.title} detalle 2`} class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                            <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
+                                                <span class="text-xl">🔍</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* Carrusel Circular 3D de Reels - Solo para Edesia Social Media */}
                         {isEdesiaSocial && project.reels && (
