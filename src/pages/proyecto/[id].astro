@@ -392,20 +392,39 @@ const reelCarouselStyles = `
                                     <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">{project.flipbookTitle || 'Documento del proyecto'}</h3>
                                 </div>
                                 
-                                <div class="relative bg-brandDark rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-[8px_8px_0px_#71717A]">
-                                    {/* Decoración de libro */}
-                                    <div class="absolute left-4 top-4 bottom-4 w-2 bg-white/10 rounded-full hidden md:block"></div>
-                                    
-                                    <div class="bg-white rounded-xl overflow-hidden" style="height: 500px; md:height: 700px;">
-                                        <iframe 
-                                            src={`${project.flipbook}#view=FitH`}
-                                            class="w-full h-full"
-                                            title={project.flipbookTitle || 'Documento'}
-                                        />
+                                {/* Flipbook Container - Estilo revista */}
+                                <div class="relative max-w-5xl mx-auto">
+                                    {/* Libro abierto */}
+                                    <div class="bg-[#f5f5f5] rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-[12px_12px_0px_#52525B] border-4 border-brandDark">
+                                        <div class="flex flex-col md:flex-row gap-0">
+                                            {/* Página izquierda */}
+                                            <div class="flex-1 bg-white rounded-l-xl md:rounded-l-2xl shadow-inner overflow-hidden" style="min-height: 400px; md:min-height: 600px;">
+                                                <iframe 
+                                                    src={`${project.flipbook}#page=1&view=FitH`}
+                                                    class="w-full h-full"
+                                                    style="min-height: 400px; md:min-height: 600px;"
+                                                    title={`${project.flipbookTitle} - Página izquierda`}
+                                                />
+                                            </div>
+                                            
+                                            {/* Lomo del libro */}
+                                            <div class="w-2 bg-gradient-to-b from-gray-300 via-gray-100 to-gray-300 shadow-inner hidden md:block"></div>
+                                            <div class="h-2 bg-gradient-to-r from-gray-300 via-gray-100 to-gray-300 shadow-inner md:hidden"></div>
+                                            
+                                            {/* Página derecha */}
+                                            <div class="flex-1 bg-white rounded-r-xl md:rounded-r-2xl shadow-inner overflow-hidden" style="min-height: 400px; md:min-height: 600px;">
+                                                <iframe 
+                                                    src={`${project.flipbook}#page=2&view=FitH`}
+                                                    class="w-full h-full"
+                                                    style="min-height: 400px; md:min-height: 600px;"
+                                                    title={`${project.flipbookTitle} - Página derecha`}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                     
-                                    {/* Controles de navegación visuales */}
-                                    <div class="flex justify-center mt-4 gap-4">
+                                    {/* Controles */}
+                                    <div class="flex justify-center items-center gap-4 mt-6">
                                         <a 
                                             href={project.flipbook} 
                                             target="_blank"
@@ -416,7 +435,7 @@ const reelCarouselStyles = `
                                                 <polyline points="15 3 21 3 21 9"/>
                                                 <line x1="10" y1="14" x2="21" y2="3"/>
                                             </svg>
-                                            Abrir en nueva pestaña
+                                            Abrir PDF
                                         </a>
                                     </div>
                                 </div>
