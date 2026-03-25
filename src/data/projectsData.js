@@ -747,6 +747,17 @@ El desafío fue crear una identidad visual que acompañara momentos especiales c
         image1: "/casos-de-estudio/banner veni a la fiesta 1920x823-05.webp",
         image2: "/casos-de-estudio/miniatura veni a la fiesta 800x1000-05.webp",
         image3: "/casos-de-estudio/banner veni a la fiesta 1920x823-05.webp",
-        thumbnail: "/casos-de-estudio/miniatura veni a la fiesta 800x1000-05.webp"
+        thumbnail: "/casos-de-estudio/miniatura veni a la fiesta 800x1000-05.webp",
+        socialFeed: [
+            "/casos-de-estudio/fila-1-columna-1.webp",
+            "/casos-de-estudio/fila-1-columna-2.webp",
+            "/casos-de-estudio/fila-1-columna-3.webp",
+            "/casos-de-estudio/fila-2-columna-1.webp",
+            "/casos-de-estudio/fila-2-columna-2.webp",
+            "/casos-de-estudio/fila-2-columna-3.webp",
+            "/casos-de-estudio/fila-3-columna-1.webp",
+            "/casos-de-estudio/fila-3-columna-2.webp",
+            "/casos-de-estudio/fila-3-columna-3.webp"
+        ]
     }
 ];
