@@ -498,7 +498,69 @@ La marca necesitaba un canal de comunicación digital claro que acompañara su a
         image1: "/casos-de-estudio/banner optica rochas vision 1920x823-02.webp",
         image2: "/casos-de-estudio/miniatura optica rochas vision 800x1000-02.webp",
         image3: "/casos-de-estudio/banner optica rochas vision 1920x823-02.webp",
-        thumbnail: "/casos-de-estudio/miniatura optica rochas vision 800x1000-02.webp"
+        thumbnail: "/casos-de-estudio/miniatura optica rochas vision 800x1000-02.webp",
+        carousels: [
+            {
+                title: "Armazón",
+                images: [
+                    "/casos-de-estudio/fila-1-columna-1.webp",
+                    "/casos-de-estudio/fila-1-columna-2.webp",
+                    "/casos-de-estudio/fila-1-columna-3.webp",
+                    "/casos-de-estudio/fila-1-columna-4.webp",
+                    "/casos-de-estudio/fila-1-columna-5.webp"
+                ]
+            },
+            {
+                title: "Chequeo",
+                images: [
+                    "/casos-de-estudio/POSTEO 1-01.webp",
+                    "/casos-de-estudio/POSTEO 1-02.webp",
+                    "/casos-de-estudio/POSTEO 1-03.webp",
+                    "/casos-de-estudio/POSTEO 1-04.webp",
+                    "/casos-de-estudio/POSTEO 1-05.webp"
+                ]
+            },
+            {
+                title: "Luz Azul",
+                images: [
+                    "/casos-de-estudio/fila-1-columna-1.webp",
+                    "/casos-de-estudio/fila-1-columna-2.webp",
+                    "/casos-de-estudio/fila-1-columna-3.webp",
+                    "/casos-de-estudio/fila-1-columna-4.webp",
+                    "/casos-de-estudio/fila-1-columna-5.webp",
+                    "/casos-de-estudio/fila-1-columna-6.webp"
+                ]
+            },
+            {
+                title: "Patas",
+                images: [
+                    "/casos-de-estudio/fila-1-columna-1.webp",
+                    "/casos-de-estudio/fila-1-columna-2.webp",
+                    "/casos-de-estudio/fila-1-columna-3.webp",
+                    "/casos-de-estudio/fila-1-columna-4.webp"
+                ]
+            },
+            {
+                title: "Primavera",
+                images: [
+                    "/casos-de-estudio/fila-1-columna-1.webp",
+                    "/casos-de-estudio/fila-1-columna-2.webp",
+                    "/casos-de-estudio/fila-1-columna-3.webp",
+                    "/casos-de-estudio/fila-1-columna-4.webp",
+                    "/casos-de-estudio/fila-1-columna-5.webp"
+                ]
+            },
+            {
+                title: "Stories Domingo",
+                images: [
+                    "/casos-de-estudio/5.webp",
+                    "/casos-de-estudio/6.webp",
+                    "/casos-de-estudio/7.webp",
+                    "/casos-de-estudio/8.webp",
+                    "/casos-de-estudio/10.webp"
+                ]
+            }
+        ]
     },
     {
         id: '10',
