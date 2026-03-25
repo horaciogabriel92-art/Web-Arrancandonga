@@ -116,14 +116,14 @@ El desafío era acompañar el crecimiento del negocio en su nueva etapa, utiliza
             { label: "Tiempo", value: "5 meses" }
         ],
         reels: [
-            { url: "https://www.instagram.com/p/DPhI2LkjgC3/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DQzqGsljsTL/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DPzAojujm7H/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DR-WNKYCa3L/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DRKgzWdDuRp/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DRNsxTEjpSk/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DVb9kqtDuyG/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" },
-            { url: "https://www.instagram.com/p/DSF3Iu1jgAN/", thumbnail: "/casos-de-estudio/miniatura edesia 800x1000-10.webp" }
+            { url: "https://www.instagram.com/p/DPhI2LkjgC3/", thumbnail: "/casos-de-estudio/1.webp" },
+            { url: "https://www.instagram.com/p/DQzqGsljsTL/", thumbnail: "/casos-de-estudio/2.webp" },
+            { url: "https://www.instagram.com/p/DPzAojujm7H/", thumbnail: "/casos-de-estudio/3.webp" },
+            { url: "https://www.instagram.com/p/DR-WNKYCa3L/", thumbnail: "/casos-de-estudio/4.webp" },
+            { url: "https://www.instagram.com/p/DRKgzWdDuRp/", thumbnail: "/casos-de-estudio/5.webp" },
+            { url: "https://www.instagram.com/p/DRNsxTEjpSk/", thumbnail: "/casos-de-estudio/6.webp" },
+            { url: "https://www.instagram.com/p/DVb9kqtDuyG/", thumbnail: "/casos-de-estudio/7.webp" },
+            { url: "https://www.instagram.com/p/DSF3Iu1jgAN/", thumbnail: "/casos-de-estudio/8.webp" }
         ],
         image1: "/casos-de-estudio/banner edesia social media 1920x823-01.webp",
         image2: "/casos-de-estudio/miniatura edesia 800x1000-10.webp",
