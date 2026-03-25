@@ -362,11 +362,11 @@ const reelCarouselStyles = `
 
                         {/* Galería de imágenes adicionales - Solo si tiene gallery definido */}
                         {project.gallery && project.gallery.length > 0 && (
-                            <div class="space-y-6 md:space-y-8">
+                            <div class="space-y-6 md:space-y-8 pt-4">
                                 <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
-                                <div class="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+                                <div class="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
                                     {project.gallery.map((img: string, idx: number) => (
-                                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index={idx + 3}>
+                                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[4px_4px_0px_#52525B] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index={idx + 3}>
                                             <img src={img} alt={`${project.title} imagen ${idx + 1}`} class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
                                             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                                 <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
