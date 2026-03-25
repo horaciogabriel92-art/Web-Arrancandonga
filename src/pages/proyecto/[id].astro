@@ -343,7 +343,7 @@ const reelCarouselStyles = `
                                 {/* Grid del feed 3x3 - Sin bordes de teléfono */}
                                 <div class="grid grid-cols-3 gap-2 md:gap-3">
                                     {project.socialFeed.map((img: string, idx: number) => (
-                                        <div class="relative aspect-square rounded-xl overflow-hidden group cursor-pointer modal-trigger social-feed-item" data-index={idx}>
+                                        <div class="relative aspect-[4/5] rounded-xl overflow-hidden group cursor-pointer social-feed-item">
                                             <img 
                                                 src={img} 
                                                 alt={`Feed ${idx + 1}`}
@@ -366,8 +366,8 @@ const reelCarouselStyles = `
                                 <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
                                 <div class="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
                                     {project.gallery.map((img: string, idx: number) => (
-                                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[4px_4px_0px_#52525B] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index={idx + 3}>
-                                            <img src={img} alt={`${project.title} imagen ${idx + 1}`} class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        <div class="relative aspect-[5/4] rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[4px_4px_0px_#52525B] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index={idx + 3}>
+                                            <img src={img} alt={`${project.title} imagen ${idx + 1}`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                                 <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
                                                     <span class="text-xl">🔍</span>
@@ -553,7 +553,22 @@ const reelCarouselStyles = `
         <p id="modalCaption" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full border-2 border-brandDark font-bold text-brandDark"></p>
     </div>
 
-    <script define:vars={{ images, title: project.title }}>
+    {/* Modal para el Feed de Instagram */}
+    <div id="feedModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+        <button id="closeFeedModalBtn" class="absolute top-4 right-4 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandPink transition-colors z-10">
+            ✕
+        </button>
+        <button id="prevFeedBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandYellow transition-colors z-10">
+            ←
+        </button>
+        <button id="nextFeedBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-2xl hover:bg-brandYellow transition-colors z-10">
+            →
+        </button>
+        <img id="feedModalImage" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl border-4 border-white" />
+        <p id="feedModalCaption" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full border-2 border-brandDark font-bold text-brandDark"></p>
+    </div>
+
+    <script define:vars={{ images, title: project.title, socialFeed: project.socialFeed || [] }}>
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
@@ -612,6 +627,58 @@ const reelCarouselStyles = `
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
         });
+
+        // Modal del Feed de Instagram
+        if (socialFeed.length > 0) {
+            const feedModal = document.getElementById('feedModal');
+            const feedModalImage = document.getElementById('feedModalImage');
+            const feedModalCaption = document.getElementById('feedModalCaption');
+            const closeFeedBtn = document.getElementById('closeFeedModalBtn');
+            const prevFeedBtn = document.getElementById('prevFeedBtn');
+            const nextFeedBtn = document.getElementById('nextFeedBtn');
+            const feedTriggers = document.querySelectorAll('.social-feed-item');
+            
+            let currentFeedIndex = 0;
+
+            function openFeedModal(index) {
+                currentFeedIndex = index;
+                feedModalImage.src = socialFeed[index];
+                feedModalCaption.textContent = 'Feed de Instagram - Imagen ' + (index + 1);
+                feedModal.classList.remove('hidden');
+                feedModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeFeedModal() {
+                feedModal.classList.add('hidden');
+                feedModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            function nextFeedImage() {
+                currentFeedIndex = (currentFeedIndex + 1) % socialFeed.length;
+                feedModalImage.src = socialFeed[currentFeedIndex];
+                feedModalCaption.textContent = 'Feed de Instagram - Imagen ' + (currentFeedIndex + 1);
+            }
+
+            function prevFeedImage() {
+                currentFeedIndex = (currentFeedIndex - 1 + socialFeed.length) % socialFeed.length;
+                feedModalImage.src = socialFeed[currentFeedIndex];
+                feedModalCaption.textContent = 'Feed de Instagram - Imagen ' + (currentFeedIndex + 1);
+            }
+
+            feedTriggers.forEach((trigger, idx) => {
+                trigger.addEventListener('click', () => openFeedModal(idx));
+            });
+
+            closeFeedBtn.addEventListener('click', closeFeedModal);
+            prevFeedBtn.addEventListener('click', prevFeedImage);
+            nextFeedBtn.addEventListener('click', nextFeedImage);
+
+            feedModal.addEventListener('click', (e) => {
+                if (e.target === feedModal) closeFeedModal();
+            });
+        }
 
         // Carrusel Circular 3D de Reels
         const reelsContainer = document.getElementById('reelsContainer');
