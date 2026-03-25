@@ -325,7 +325,7 @@ const reelCarouselStyles = `
                             <div class="text-brandDark text-base md:text-lg leading-relaxed solution-content" set:html={project.solution} />
                         </div>
 
-                        {/* Instagram Feed - Para proyectos de Social Media */}
+                        {/* Feed de Social Media */}
                         {project.socialFeed && (
                             <div class="space-y-6 md:space-y-8">
                                 <div class="flex items-center gap-3">
@@ -334,85 +334,53 @@ const reelCarouselStyles = `
                                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                         </svg>
                                     </div>
-                                    <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Feed de Instagram</h3>
-                                </div>
-                                
-                                {/* Mockup de teléfono con el feed */}
-                                <div class="max-w-md mx-auto">
-                                    <div class="bg-brandDark rounded-[3rem] p-3 shadow-[8px_8px_0px_#71717A]">
-                                        {/* Notch del teléfono */}
-                                        <div class="flex justify-center mb-4">
-                                            <div class="w-24 h-6 bg-brandDark rounded-full flex items-center justify-center gap-2">
-                                                <div class="w-2 h-2 rounded-full bg-zinc-700"></div>
-                                                <div class="w-12 h-1.5 rounded-full bg-zinc-700"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Pantalla del teléfono */}
-                                        <div class="bg-white rounded-[2rem] overflow-hidden">
-                                            {/* Header tipo Instagram */}
-                                            <div class="bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-3">
-                                                <div class="w-8 h-8 rounded-full bg-brandPink border-2 border-brandDark flex items-center justify-center">
-                                                    <span class="text-xs font-bold">V</span>
-                                                </div>
-                                                <span class="font-semibold text-sm">venialafiesta</span>
-                                                <svg class="w-4 h-4 ml-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
-                                                </svg>
-                                            </div>
-                                            
-                                            {/* Grid del feed 3x3 */}
-                                            <div class="grid grid-cols-3 gap-0.5 bg-gray-200">
-                                                {project.socialFeed.map((img: string, idx: number) => (
-                                                    <div class="relative aspect-square bg-white overflow-hidden group cursor-pointer social-feed-item" data-index={idx}>
-                                                        <img 
-                                                            src={img} 
-                                                            alt={`Feed ${idx + 1}`}
-                                                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                                        />
-                                                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                                                            <svg class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
-                                                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            
-                                            {/* Footer tipo Instagram */}
-                                            <div class="bg-white px-4 py-3 border-t border-gray-100 flex justify-around items-center">
-                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                                                </svg>
-                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <circle cx="11" cy="11" r="8"/>
-                                                    <path d="m21 21-4.35-4.35"/>
-                                                </svg>
-                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M12 5v14M5 12h14"/>
-                                                </svg>
-                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                                                </svg>
-                                                <div class="w-6 h-6 rounded-full bg-brandPink border-2 border-brandDark"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Home indicator */}
-                                        <div class="flex justify-center mt-2">
-                                            <div class="w-32 h-1 bg-zinc-700 rounded-full"></div>
-                                        </div>
+                                    <div>
+                                        <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Feed de Instagram</h3>
+                                        <p class="text-sm text-brandDark/60 mt-1">Identidad Visual · Social Media</p>
                                     </div>
                                 </div>
                                 
-                                <p class="text-center text-sm text-brandDark/70 mt-4">
-                                    Así se ve el feed de @{project.title?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'cliente'} en Instagram
-                                </p>
+                                {/* Grid del feed 3x3 - Sin bordes de teléfono */}
+                                <div class="grid grid-cols-3 gap-2 md:gap-3">
+                                    {project.socialFeed.map((img: string, idx: number) => (
+                                        <div class="relative aspect-square rounded-xl overflow-hidden group cursor-pointer modal-trigger social-feed-item" data-index={idx}>
+                                            <img 
+                                                src={img} 
+                                                alt={`Feed ${idx + 1}`}
+                                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                                <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79--4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
 
-                        {/* Galería de imágenes estándar - Solo si no hay socialFeed ni es Edesia Social */}
-                        {!isEdesiaSocial && !project.socialFeed && (
+                        {/* Galería de imágenes adicionales - Solo si tiene gallery definido */}
+                        {project.gallery && project.gallery.length > 0 && (
+                            <div class="space-y-6 md:space-y-8">
+                                <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
+                                <div class="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+                                    {project.gallery.map((img: string, idx: number) => (
+                                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] transform hover:-translate-y-1 transition-transform cursor-pointer group modal-trigger" data-index={idx + 10}>
+                                            <img src={img} alt={`${project.title} imagen ${idx + 1}`} class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
+                                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                                <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 border-3 border-brandDark">
+                                                    <span class="text-xl">🔍</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Galería de imágenes estándar - Solo si NO tiene socialFeed ni gallery */}
+                        {!isEdesiaSocial && !project.socialFeed && (!project.gallery || project.gallery.length === 0) && (
                             <div class="space-y-6 md:space-y-8">
                                 <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
                                 <div class="grid gap-4 md:gap-6 md:grid-cols-2">

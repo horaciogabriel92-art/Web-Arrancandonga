@@ -758,6 +758,14 @@ El desafío fue crear una identidad visual que acompañara momentos especiales c
             "/casos-de-estudio/fila-3-columna-1.webp",
             "/casos-de-estudio/fila-3-columna-2.webp",
             "/casos-de-estudio/fila-3-columna-3.webp"
+        ],
+        gallery: [
+            "/casos-de-estudio/88.webp",
+            "/casos-de-estudio/89.webp",
+            "/casos-de-estudio/90.webp",
+            "/casos-de-estudio/91.webp",
+            "/casos-de-estudio/92.webp",
+            "/casos-de-estudio/web.webp"
         ]
     }
 ];
