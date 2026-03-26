@@ -888,7 +888,15 @@ El objetivo del proyecto fue crear una tienda online que centralizara las ventas
         image1: "/casos-de-estudio/banner Personal Shopper 1920x823-09.webp",
         image2: "/casos-de-estudio/miniatura Personal Shopper 800x1000-09.webp",
         image3: "/casos-de-estudio/banner Personal Shopper 1920x823-09.webp",
-        thumbnail: "/casos-de-estudio/miniatura Personal Shopper 800x1000-09.webp"
+        thumbnail: "/casos-de-estudio/miniatura Personal Shopper 800x1000-09.webp",
+        gallery: [
+            "/casos-de-estudio/Personal Shopper ID/93.webp",
+            "/casos-de-estudio/Personal Shopper ID/94.webp",
+            "/casos-de-estudio/Personal Shopper ID/95.webp",
+            "/casos-de-estudio/Personal Shopper ID/96.webp",
+            "/casos-de-estudio/Personal Shopper ID/Portfolio (1).webp"
+        ],
+        websiteUrl: "https://www.personalshopperuy.com"
     },
     {
         id: '13',
