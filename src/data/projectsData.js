@@ -1018,5 +1018,50 @@ El desafío fue crear una identidad visual que acompañara momentos especiales c
             "/casos-de-estudio/92.webp",
             "/casos-de-estudio/web.webp"
         ]
+    },
+    {
+        id: '15',
+        title: "Arquitectura Sin Límites",
+        category: "web",
+        tags: ["Diseño Web", "Desarrollo Web", "Construcción", "Profesional"],
+        desc: "Diseño y desarrollo de sitio web para empresa de construcción orientado a mostrar servicios y generar consultas.",
+        clientReview: "",
+        client: "Arquitectura Sin Límites",
+        year: "2026",
+        services: ["Diseño Web", "Desarrollo Web"],
+        challenge: `Arquitectura Sin Límites es una empresa de construcción que buscaba contar con un sitio web propio donde pudiera mostrar sus trabajos y facilitar el contacto con potenciales clientes.
+
+El objetivo principal era crear una presencia online clara y profesional que permitiera a las personas conocer más sobre sus servicios y solicitar presupuestos de manera simple.`,
+        solution: `<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">🎯 Enfoque</h4>
+<p class="mb-4">El desarrollo del sitio estuvo centrado en la <strong class="text-brandOrange font-bold">claridad de la información y la facilidad de navegación</strong>:</p>
+
+<div class="bg-white/50 rounded-xl p-4 border-2 border-brandDark/20 mb-4">
+    <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Estructura pensada para presentar servicios de forma ordenada</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Diseño limpio y profesional</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Enfoque en la conversión, facilitando el contacto directo</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Adaptación a distintos dispositivos</span></li>
+    </ul>
+</div>
+
+<p class="mb-4">El sitio fue diseñado para funcionar como una <strong class="text-brandOrange font-bold">herramienta comercial</strong>, acompañando el crecimiento del negocio.</p>
+
+<div class="h-px bg-brandDark/20 my-4"></div>
+
+<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">✨ Resultado</h4>
+<p class="mb-4">El resultado es una <strong class="text-brandOrange font-bold">web clara y funcional</strong> que permite comunicar los servicios de la empresa de manera profesional y generar nuevas oportunidades de contacto con clientes interesados en presupuestar sus obras.</p>`,
+        image1: "/casos-de-estudio/Arquitectura Sin Limites/Portfolio.webp",
+        image2: "/casos-de-estudio/Arquitectura Sin Limites/web mockup.webp",
+        image3: "/casos-de-estudio/Arquitectura Sin Limites/Portfolio.webp",
+        thumbnail: "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
+        gallery: [
+            "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/81.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/82.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/83.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/84.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/85.webp",
+            "/casos-de-estudio/Arquitectura Sin Limites/86.webp"
+        ]
     }
 ];
