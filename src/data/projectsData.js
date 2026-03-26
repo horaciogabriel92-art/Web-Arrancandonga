@@ -219,7 +219,19 @@ La identidad debía transmitir sensibilidad estética, coherencia y sofisticaci�
         image1: "/casos-de-estudio/banner orillas1920x823-12.webp",
         image2: "/casos-de-estudio/miniatura orillas 800x1000.webp",
         image3: "/casos-de-estudio/banner orillas1920x823-12.webp",
-        thumbnail: "/casos-de-estudio/miniatura orillas 800x1000.webp"
+        thumbnail: "/casos-de-estudio/miniatura orillas 800x1000.webp",
+        gallery: [
+            "/casos-de-estudio/Orillas ID/27.webp",
+            "/casos-de-estudio/Orillas ID/28.webp",
+            "/casos-de-estudio/Orillas ID/29.webp",
+            "/casos-de-estudio/Orillas ID/30.webp",
+            "/casos-de-estudio/Orillas ID/31.webp",
+            "/casos-de-estudio/Orillas ID/32.webp",
+            "/casos-de-estudio/Orillas ID/33.webp",
+            "/casos-de-estudio/Orillas ID/34.webp",
+            "/casos-de-estudio/Orillas ID/35.webp",
+            "/casos-de-estudio/Orillas ID/36.webp"
+        ]
     },
     {
         id: '4',
