@@ -540,7 +540,59 @@ La comunicación debía transmitir confianza, cercanía y profesionalismo, posic
         image1: "/casos-de-estudio/banner nutridamente 1920x823-03.webp",
         image2: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp",
         image3: "/casos-de-estudio/banner nutridamente 1920x823-03.webp",
-        thumbnail: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp"
+        thumbnail: "/casos-de-estudio/miniatura nutridamente 800x1000-03.webp",
+        carousels: [
+            {
+                title: "Potencial Deportivo",
+                folder: "Carrusel - Potencial Deportivo",
+                images: [
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-16.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-17.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-24.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-25.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-26.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-27.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Potencial Deportivo/POTENICIAL DEPORTIVO-38.webp"
+                ]
+            },
+            {
+                title: "Quien soy",
+                folder: "Carrusel - Quien soy",
+                images: [
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-09.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-10.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-11.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-12.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-13.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-14.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Quien soy/Quien soy-15.webp"
+                ]
+            },
+            {
+                title: "Trabajar conmigo",
+                folder: "Carrusel - Trabajar conmigo",
+                images: [
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-1.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-2.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-3.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-4.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-5.webp",
+                    "/casos-de-estudio/Nutridamente Social/Carrusel - Trabajar conmigo/fila-1-columna-6.webp"
+                ]
+            }
+        ],
+        gallery: [
+            "/casos-de-estudio/Nutridamente Social/fila-1-columna-1.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-1-columna-2.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-1-columna-3.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-2-columna-1.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-2-columna-2.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-2-columna-3.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-3-columna-1.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-3-columna-2.webp",
+            "/casos-de-estudio/Nutridamente Social/fila-3-columna-3.webp"
+        ],
+        hideGallery: true
     },
     {
         id: '9',
