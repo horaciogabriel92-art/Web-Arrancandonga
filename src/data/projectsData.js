@@ -420,7 +420,28 @@ El desafío del proyecto fue transformar una identidad visual genérica en una m
         image1: "/casos-de-estudio/banner Mar Ruiz English Academy 1920x823-11.webp",
         image2: "/casos-de-estudio/miniatura Mar Ruiz English Academy 800x1000-12.webp",
         image3: "/casos-de-estudio/banner Mar Ruiz English Academy 1920x823-11.webp",
-        thumbnail: "/casos-de-estudio/miniatura Mar Ruiz English Academy 800x1000-12.webp"
+        thumbnail: "/casos-de-estudio/miniatura Mar Ruiz English Academy 800x1000-12.webp",
+        gallery: [
+            "/casos-de-estudio/Mar Ruiz ID/46.webp",
+            "/casos-de-estudio/Mar Ruiz ID/47.webp",
+            "/casos-de-estudio/Mar Ruiz ID/48.webp",
+            "/casos-de-estudio/Mar Ruiz ID/49.webp",
+            "/casos-de-estudio/Mar Ruiz ID/50.webp",
+            "/casos-de-estudio/Mar Ruiz ID/51.webp",
+            "/casos-de-estudio/Mar Ruiz ID/52.webp",
+            "/casos-de-estudio/Mar Ruiz ID/53.webp",
+            "/casos-de-estudio/Mar Ruiz ID/54.webp",
+            "/casos-de-estudio/Mar Ruiz ID/55.webp",
+            "/casos-de-estudio/Mar Ruiz ID/56.webp",
+            "/casos-de-estudio/Mar Ruiz ID/57.webp",
+            "/casos-de-estudio/Mar Ruiz ID/58.webp",
+            "/casos-de-estudio/Mar Ruiz ID/59.webp",
+            "/casos-de-estudio/Mar Ruiz ID/60.webp",
+            "/casos-de-estudio/Mar Ruiz ID/61.webp",
+            "/casos-de-estudio/Mar Ruiz ID/62.webp",
+            "/casos-de-estudio/Mar Ruiz ID/63.webp",
+            "/casos-de-estudio/Mar Ruiz ID/64.webp"
+        ]
     },
     {
         id: '7',
