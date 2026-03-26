@@ -821,7 +821,16 @@ La marca necesitaba transmitir autenticidad, tradición y carácter artesanal, d
         image1: "/casos-de-estudio/banner panes artesanos 1920x823-06.webp",
         image2: "/casos-de-estudio/miniatura panes artesanos 800x1000-06.webp",
         image3: "/casos-de-estudio/banner panes artesanos 1920x823-06.webp",
-        thumbnail: "/casos-de-estudio/miniatura panes artesanos 800x1000-06.webp"
+        thumbnail: "/casos-de-estudio/miniatura panes artesanos 800x1000-06.webp",
+        gallery: [
+            "/casos-de-estudio/Panes Artesanos ID/72.webp",
+            "/casos-de-estudio/Panes Artesanos ID/73.webp",
+            "/casos-de-estudio/Panes Artesanos ID/74.webp",
+            "/casos-de-estudio/Panes Artesanos ID/75.webp",
+            "/casos-de-estudio/Panes Artesanos ID/76.webp",
+            "/casos-de-estudio/Panes Artesanos ID/77.webp",
+            "/casos-de-estudio/Panes Artesanos ID/78.webp"
+        ]
     },
     {
         id: '12',
