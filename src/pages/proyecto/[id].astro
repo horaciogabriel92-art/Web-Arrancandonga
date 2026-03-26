@@ -398,6 +398,31 @@ const reelCarouselStyles = `
                             </div>
                         )}
 
+                        {/* Video del proyecto */}
+                        {project.video && (
+                            <div class="space-y-6 md:space-y-8 pb-12 md:pb-16">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-brandPink rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-brandDark" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Video del proyecto</h3>
+                                </div>
+                                <div class="relative rounded-2xl md:rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A]">
+                                    <video 
+                                        controls 
+                                        preload="metadata" 
+                                        poster={project.image1}
+                                        class="w-full aspect-video object-cover"
+                                    >
+                                        <source src={project.video} type="video/mp4" />
+                                        Tu navegador no soporta el video.
+                                    </video>
+                                </div>
+                            </div>
+                        )}
+
                         
 
                         {/* Galería de imágenes estándar - Solo si NO tiene socialFeed ni gallery ni hideGallery */}

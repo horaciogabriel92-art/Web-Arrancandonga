@@ -942,7 +942,20 @@ El objetivo del proyecto fue diseñar un packaging que transmitiera justamente e
         image1: "/casos-de-estudio/banner picot 1920x823-04.webp",
         image2: "/casos-de-estudio/miniatura picot 800x1000-04.webp",
         image3: "/casos-de-estudio/banner picot 1920x823-04.webp",
-        thumbnail: "/casos-de-estudio/miniatura picot 800x1000-04.webp"
+        thumbnail: "/casos-de-estudio/miniatura picot 800x1000-04.webp",
+        gallery: [
+            "/casos-de-estudio/PICOT ID/6BCFA928-180C-468A-BDC9-FC6115DB67AF.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4238.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4249.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4253.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4266.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4268.webp",
+            "/casos-de-estudio/PICOT ID/IMG_4270.webp",
+            "/casos-de-estudio/PICOT ID/PACKAGING-13.webp",
+            "/casos-de-estudio/PICOT ID/PACKAGING-14.webp",
+            "/casos-de-estudio/PICOT ID/PACKAGING-15.webp"
+        ],
+        video: "/casos-de-estudio/PICOT ID/video-picot.mp4"
     },
     {
         id: '14',
