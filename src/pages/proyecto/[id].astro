@@ -530,6 +530,74 @@ const reelCarouselStyles = `
                             </div>
                         )}
 
+                        {/* Carrusel Circular 3D de Portadas - Para proyectos con coverImages */}
+                        {project.coverImages && project.coverImages.length > 0 && (
+                            <div class="pt-4">
+                                <div class="flex items-center gap-3 mb-8">
+                                    <div class="w-12 h-12 bg-brandPink rounded-2xl border-3 border-brandDark flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-brandDark" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Portadas</h3>
+                                </div>
+                                
+                                {/* Contenedor del Carrusel 3D */}
+                                <div class="relative h-[500px] md:h-[600px] flex items-center justify-center" id="coversCarousel">
+                                    {/* Botones de navegación laterales */}
+                                    <button id="coversPrev" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-brandYellow rounded-full border-4 border-brandDark flex items-center justify-center text-2xl shadow-[4px_4px_0px_#27272A] hover:shadow-[6px_6px_0px_#27272A] hover:-translate-y-1 transition-all">
+                                        ←
+                                    </button>
+                                    <button id="coversNext" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-brandYellow rounded-full border-4 border-brandDark flex items-center justify-center text-2xl shadow-[4px_4px_0px_#27272A] hover:shadow-[6px_6px_0px_#27272A] hover:-translate-y-1 transition-all">
+                                        →
+                                    </button>
+                                    
+                                    {/* Contenedor circular */}
+                                    <div class="relative w-[280px] h-[400px] md:w-[320px] md:h-[480px]" id="coversContainer">
+                                        {project.coverImages.map((cover: string, index: number) => {
+                                            const angle = (360 / project.coverImages.length) * index;
+                                            return (
+                                                <div 
+                                                    class="cover-card absolute w-[180px] h-[320px] md:w-[200px] md:h-[360px] left-1/2 top-1/2 -ml-[90px] -mt-[160px] md:-ml-[100px] md:-mt-[180px] transition-all duration-500 ease-out cursor-pointer"
+                                                    data-index={index}
+                                                    data-angle={angle}
+                                                    style={`transform: rotateY(${angle}deg) translateZ(200px) scale(0.7); opacity: 0.5;`}
+                                                >
+                                                    <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-brandDark shadow-[6px_6px_0px_#27272A] bg-brandPink">
+                                                        {/* Imagen de portada */}
+                                                        <img 
+                                                            src={cover} 
+                                                            alt={`Portada ${index + 1}`}
+                                                            class="w-full h-full object-cover"
+                                                        />
+                                                        {/* Número */}
+                                                        <div class="absolute top-3 left-3 bg-brandYellow px-3 py-1 rounded-full border-2 border-brandDark">
+                                                            <span class="text-sm font-bold text-brandDark">#{index + 1}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    
+                                    {/* Indicador de swipe */}
+                                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-2 text-brandDark/50 md:hidden">
+                                        <span class="text-sm">← Desliza →</span>
+                                    </div>
+                                </div>
+                                
+                                {/* Indicadores de posición */}
+                                <div class="flex justify-center gap-2 mt-6" id="coversIndicators">
+                                    {project.coverImages.map((_: any, index: number) => (
+                                        <button 
+                                            class={`covers-indicator w-3 h-3 rounded-full border-2 border-brandDark transition-all ${index === 0 ? 'bg-brandPink w-8' : 'bg-white'}`}
+                                            data-index={index}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Carruseles Instagram - Para proyectos de Social Media con carruseles */}
                         {project.carousels && project.carousels.length > 0 && (
                             <div class="space-y-8 md:space-y-12 pt-4">
@@ -1008,6 +1076,136 @@ const reelCarouselStyles = `
                 if (e.key === 'Escape' && !reelModal.classList.contains('hidden')) {
                     closeReelModal();
                 }
+            });
+        }
+        
+        // Carrusel Circular 3D de Portadas (sin video)
+        const coversContainer = document.getElementById('coversContainer');
+        const coversPrev = document.getElementById('coversPrev');
+        const coversNext = document.getElementById('coversNext');
+        const coverCards = document.querySelectorAll('.cover-card');
+        const coverIndicators = document.querySelectorAll('.covers-indicator');
+        
+        if (coversContainer && coversPrev && coversNext && coverCards.length > 0) {
+            let currentCoverIndex = 0;
+            const totalCovers = coverCards.length;
+            const angleStep = 360 / totalCovers;
+            
+            function updateCoversCarousel() {
+                coverCards.forEach((card, i) => {
+                    const offset = i - currentCoverIndex;
+                    let angle = offset * angleStep;
+                    
+                    // Normalizar ángulo para que esté entre -180 y 180
+                    if (angle > 180) angle -= 360;
+                    if (angle < -180) angle += 360;
+                    
+                    // Calcular posición y escala
+                    const isActive = i === currentCoverIndex;
+                    const absAngle = Math.abs(angle);
+                    
+                    let translateZ = 200;
+                    let scale = 0.7;
+                    let opacity = 0.5;
+                    let zIndex = 10 - absAngle;
+                    
+                    if (isActive) {
+                        translateZ = 280;
+                        scale = 1;
+                        opacity = 1;
+                        zIndex = 20;
+                    } else if (absAngle <= angleStep * 1.5) {
+                        // Tarjetas cercanas
+                        translateZ = 200 - (absAngle * 0.5);
+                        scale = 0.75;
+                        opacity = 0.7;
+                        zIndex = 15 - Math.floor(absAngle / angleStep);
+                    }
+                    
+                    card.style.transform = `rotateY(${angle}deg) translateZ(${translateZ}px) scale(${scale})`;
+                    card.style.opacity = opacity;
+                    card.style.zIndex = zIndex;
+                    
+                    // Añadir/quitar clase activa
+                    if (isActive) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar indicadores
+                coverIndicators.forEach((ind, i) => {
+                    if (i === currentCoverIndex) {
+                        ind.classList.add('bg-brandPink', 'w-8');
+                        ind.classList.remove('bg-white');
+                    } else {
+                        ind.classList.remove('bg-brandPink', 'w-8');
+                        ind.classList.add('bg-white');
+                    }
+                });
+            }
+            
+            // Inicializar
+            coversContainer.style.transformStyle = 'preserve-3d';
+            coversContainer.style.perspective = '1000px';
+            updateCoversCarousel();
+            
+            // Navegación con botones
+            coversPrev.addEventListener('click', () => {
+                currentCoverIndex = (currentCoverIndex - 1 + totalCovers) % totalCovers;
+                updateCoversCarousel();
+            });
+            
+            coversNext.addEventListener('click', () => {
+                currentCoverIndex = (currentCoverIndex + 1) % totalCovers;
+                updateCoversCarousel();
+            });
+            
+            // Click en tarjeta para activarla
+            coverCards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (i !== currentCoverIndex) {
+                        currentCoverIndex = i;
+                        updateCoversCarousel();
+                    }
+                });
+            });
+            
+            // Touch/Swipe support
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            coversContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            coversContainer.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const deltaX = touchEndX - touchStartX;
+                const deltaY = touchEndY - touchStartY;
+                
+                // Solo manejar swipe horizontal (deltaX mayor que deltaY)
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                    if (deltaX > 0) {
+                        // Swipe derecha - anterior
+                        currentCoverIndex = (currentCoverIndex - 1 + totalCovers) % totalCovers;
+                    } else {
+                        // Swipe izquierda - siguiente
+                        currentCoverIndex = (currentCoverIndex + 1) % totalCovers;
+                    }
+                    updateCoversCarousel();
+                }
+            }, { passive: true });
+            
+            // Navegación con indicadores
+            coverIndicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => {
+                    currentCoverIndex = i;
+                    updateCoversCarousel();
+                });
             });
         }
         

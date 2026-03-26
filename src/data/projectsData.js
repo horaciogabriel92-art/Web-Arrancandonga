@@ -593,13 +593,13 @@ La comunicación debía transmitir confianza, cercanía y profesionalismo, posic
             "/casos-de-estudio/Nutridamente Social/fila-3-columna-3.webp"
         ],
         hideGallery: true,
-        reels: [
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-32.webp", url: "#" },
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-33.webp", url: "#" },
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-34.webp", url: "#" },
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-35.webp", url: "#" },
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-36.webp", url: "#" },
-            { thumbnail: "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-38.webp", url: "#" }
+        coverImages: [
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-32.webp",
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-33.webp",
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-34.webp",
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-35.webp",
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-36.webp",
+            "/casos-de-estudio/Nutridamente Social/Portadas para reels/Calendario de contenidos-38.webp"
         ]
     },
     {
