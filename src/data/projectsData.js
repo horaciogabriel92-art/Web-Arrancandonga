@@ -502,64 +502,80 @@ La marca necesitaba un canal de comunicación digital claro que acompañara su a
         carousels: [
             {
                 title: "Armazón",
+                folder: "Carrusel - Armazon",
                 images: [
-                    "/casos-de-estudio/fila-1-columna-1.webp",
-                    "/casos-de-estudio/fila-1-columna-2.webp",
-                    "/casos-de-estudio/fila-1-columna-3.webp",
-                    "/casos-de-estudio/fila-1-columna-4.webp",
-                    "/casos-de-estudio/fila-1-columna-5.webp"
+                    "/casos-de-estudio/Carrusel - Armazon/rochas-armazon-1.webp",
+                    "/casos-de-estudio/Carrusel - Armazon/rochas-armazon-2.webp",
+                    "/casos-de-estudio/Carrusel - Armazon/rochas-armazon-3.webp",
+                    "/casos-de-estudio/Carrusel - Armazon/rochas-armazon-4.webp",
+                    "/casos-de-estudio/Carrusel - Armazon/rochas-armazon-5.webp"
                 ]
             },
             {
                 title: "Chequeo",
+                folder: "Carrusel Chequeo",
                 images: [
-                    "/casos-de-estudio/POSTEO 1-01.webp",
-                    "/casos-de-estudio/POSTEO 1-02.webp",
-                    "/casos-de-estudio/POSTEO 1-03.webp",
-                    "/casos-de-estudio/POSTEO 1-04.webp",
-                    "/casos-de-estudio/POSTEO 1-05.webp"
+                    "/casos-de-estudio/Carrusel Chequeo/rochas-chequeo-1.webp",
+                    "/casos-de-estudio/Carrusel Chequeo/rochas-chequeo-2.webp",
+                    "/casos-de-estudio/Carrusel Chequeo/rochas-chequeo-3.webp",
+                    "/casos-de-estudio/Carrusel Chequeo/rochas-chequeo-4.webp",
+                    "/casos-de-estudio/Carrusel Chequeo/rochas-chequeo-5.webp"
                 ]
             },
             {
                 title: "Luz Azul",
+                folder: "Carrusel Luz Azul",
                 images: [
-                    "/casos-de-estudio/fila-1-columna-1.webp",
-                    "/casos-de-estudio/fila-1-columna-2.webp",
-                    "/casos-de-estudio/fila-1-columna-3.webp",
-                    "/casos-de-estudio/fila-1-columna-4.webp",
-                    "/casos-de-estudio/fila-1-columna-5.webp",
-                    "/casos-de-estudio/fila-1-columna-6.webp"
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-1.webp",
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-2.webp",
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-3.webp",
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-4.webp",
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-5.webp",
+                    "/casos-de-estudio/Carrusel Luz Azul/rochas-luzazul-6.webp"
                 ]
             },
             {
                 title: "Patas",
+                folder: "Carrusel Patas",
                 images: [
-                    "/casos-de-estudio/fila-1-columna-1.webp",
-                    "/casos-de-estudio/fila-1-columna-2.webp",
-                    "/casos-de-estudio/fila-1-columna-3.webp",
-                    "/casos-de-estudio/fila-1-columna-4.webp"
+                    "/casos-de-estudio/Carrusel Patas/rochas-patas-1.webp",
+                    "/casos-de-estudio/Carrusel Patas/rochas-patas-2.webp",
+                    "/casos-de-estudio/Carrusel Patas/rochas-patas-3.webp",
+                    "/casos-de-estudio/Carrusel Patas/rochas-patas-4.webp"
                 ]
             },
             {
                 title: "Primavera",
+                folder: "Carrusel Primavera",
                 images: [
-                    "/casos-de-estudio/fila-1-columna-1.webp",
-                    "/casos-de-estudio/fila-1-columna-2.webp",
-                    "/casos-de-estudio/fila-1-columna-3.webp",
-                    "/casos-de-estudio/fila-1-columna-4.webp",
-                    "/casos-de-estudio/fila-1-columna-5.webp"
+                    "/casos-de-estudio/Carrusel Primavera/rochas-primavera-1.webp",
+                    "/casos-de-estudio/Carrusel Primavera/rochas-primavera-2.webp",
+                    "/casos-de-estudio/Carrusel Primavera/rochas-primavera-3.webp",
+                    "/casos-de-estudio/Carrusel Primavera/rochas-primavera-4.webp",
+                    "/casos-de-estudio/Carrusel Primavera/rochas-primavera-5.webp"
                 ]
             },
             {
                 title: "Stories Domingo",
+                folder: "Stories Domingo",
                 images: [
-                    "/casos-de-estudio/5.webp",
-                    "/casos-de-estudio/6.webp",
-                    "/casos-de-estudio/7.webp",
-                    "/casos-de-estudio/8.webp",
-                    "/casos-de-estudio/10.webp"
+                    "/casos-de-estudio/Stories Domingo/rochas-domingo-1.webp",
+                    "/casos-de-estudio/Stories Domingo/rochas-domingo-2.webp",
+                    "/casos-de-estudio/Stories Domingo/rochas-domingo-3.webp",
+                    "/casos-de-estudio/Stories Domingo/rochas-domingo-4.webp",
+                    "/casos-de-estudio/Stories Domingo/rochas-domingo-5.webp"
                 ]
             }
+        ],
+        gallery: [
+            "/casos-de-estudio/Rochas Vision Galeria/fila-1-columna-1 (2).webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-1-columna-2.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-1-columna-3.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-2-columna-1.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-2-columna-2.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-2-columna-3.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-3-columna-1.webp",
+            "/casos-de-estudio/Rochas Vision Galeria/fila-3-columna-3.webp"
         ]
     },
     {

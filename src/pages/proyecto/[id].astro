@@ -381,8 +381,8 @@ const reelCarouselStyles = `
 
                         
 
-                        {/* Galería de imágenes estándar - Solo si NO tiene socialFeed ni gallery */}
-                        {!isEdesiaSocial && !project.socialFeed && (!project.gallery || project.gallery.length === 0) && (
+                        {/* Galería de imágenes estándar - Solo si NO tiene socialFeed ni gallery ni hideGallery */}
+                        {!isEdesiaSocial && !project.socialFeed && !project.hideGallery && (!project.gallery || project.gallery.length === 0) && (
                             <div class="space-y-6 md:space-y-8 pb-12 md:pb-16">
                                 <h3 class="font-display text-2xl md:text-3xl font-bold text-brandDark">Galería del proyecto</h3>
                                 <div class="grid gap-4 md:gap-6 md:grid-cols-2">
