@@ -298,7 +298,20 @@ La marca debía funcionar tanto en aplicaciones institucionales —como papeler�
         image1: "/casos-de-estudio/banner escribania patron 1920x823-13.webp",
         image2: "/casos-de-estudio/miniatura escribania patron 800x1000-14.webp",
         image3: "/casos-de-estudio/banner escribania patron 1920x823-13.webp",
-        thumbnail: "/casos-de-estudio/miniatura escribania patron 800x1000-14.webp"
+        thumbnail: "/casos-de-estudio/miniatura escribania patron 800x1000-14.webp",
+        gallery: [
+            "/casos-de-estudio/Escribania Patron ID/16.webp",
+            "/casos-de-estudio/Escribania Patron ID/17.webp",
+            "/casos-de-estudio/Escribania Patron ID/18.webp",
+            "/casos-de-estudio/Escribania Patron ID/19.webp",
+            "/casos-de-estudio/Escribania Patron ID/20.webp",
+            "/casos-de-estudio/Escribania Patron ID/21.webp",
+            "/casos-de-estudio/Escribania Patron ID/22.webp",
+            "/casos-de-estudio/Escribania Patron ID/23.webp",
+            "/casos-de-estudio/Escribania Patron ID/24.webp",
+            "/casos-de-estudio/Escribania Patron ID/25.webp",
+            "/casos-de-estudio/Escribania Patron ID/26.webp"
+        ]
     },
     {
         id: '5',
