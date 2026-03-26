@@ -488,7 +488,16 @@ La marca debía transmitir sensibilidad, elegancia y cercanía, manteniendo una 
         image1: "/casos-de-estudio/banner Marga 1920x823-10.webp",
         image2: "/casos-de-estudio/miniatura marga 800x1000-11.webp",
         image3: "/casos-de-estudio/banner Marga 1920x823-10.webp",
-        thumbnail: "/casos-de-estudio/miniatura marga 800x1000-11.webp"
+        thumbnail: "/casos-de-estudio/miniatura marga 800x1000-11.webp",
+        gallery: [
+            "/casos-de-estudio/Marga ID/65.webp",
+            "/casos-de-estudio/Marga ID/66.webp",
+            "/casos-de-estudio/Marga ID/67.webp",
+            "/casos-de-estudio/Marga ID/68.webp",
+            "/casos-de-estudio/Marga ID/69.webp",
+            "/casos-de-estudio/Marga ID/70.webp",
+            "/casos-de-estudio/Marga ID/71.webp"
+        ]
     },
     {
         id: '8',
