@@ -450,8 +450,8 @@ const reelCarouselStyles = `
                             </div>
                         )}
 
-                        {/* Carrusel Circular 3D de Reels - Solo para Edesia Social Media */}
-                        {isEdesiaSocial && project.reels && (
+                        {/* Carrusel Circular 3D de Reels - Para proyectos con reels */}
+                        {project.reels && project.reels.length > 0 && (
                             <div class="pt-4">
                                 <div class="flex items-center gap-3 mb-8">
                                     <div class="w-12 h-12 bg-brandPink rounded-2xl border-3 border-brandDark flex items-center justify-center">
