@@ -354,7 +354,18 @@ Además, se buscaba que la identidad tuviera suficiente flexibilidad para aplica
         image1: "/casos-de-estudio/banner fravas 1920x823-08.webp",
         image2: "/casos-de-estudio/miniatura fravas 800x1000-08.webp",
         image3: "/casos-de-estudio/banner fravas 1920x823-08.webp",
-        thumbnail: "/casos-de-estudio/miniatura fravas 800x1000-08.webp"
+        thumbnail: "/casos-de-estudio/miniatura fravas 800x1000-08.webp",
+        gallery: [
+            "/casos-de-estudio/FRAVAS ID/37.webp",
+            "/casos-de-estudio/FRAVAS ID/38.webp",
+            "/casos-de-estudio/FRAVAS ID/39.webp",
+            "/casos-de-estudio/FRAVAS ID/40.webp",
+            "/casos-de-estudio/FRAVAS ID/41.webp",
+            "/casos-de-estudio/FRAVAS ID/42.webp",
+            "/casos-de-estudio/FRAVAS ID/43.webp",
+            "/casos-de-estudio/FRAVAS ID/44.webp",
+            "/casos-de-estudio/FRAVAS ID/45.webp"
+        ]
     },
     {
         id: '6',
