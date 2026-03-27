@@ -708,22 +708,24 @@ const reelCarouselStyles = `
                             </div>
                         )}
 
-                        {/* Testimonio */}
-                        <div class="bg-brandYellow rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] relative transform hover:-translate-y-1 transition-transform">
-                            <div class="absolute -top-6 left-8 md:left-12 w-16 h-16 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-3xl transform -rotate-12">
-                                💬
-                            </div>
-                            <div class="absolute top-8 right-8 w-8 h-8 bg-brandOrange rounded-full border-2 border-brandDark"></div>
-                            <div class="absolute bottom-8 left-8 w-6 h-6 bg-brandPink rounded-full border-2 border-brandDark"></div>
-                            
-                            <p class="text-xl md:text-2xl font-bold text-brandDark italic mb-6 leading-relaxed pt-4">"{project.clientReview}"</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-white rounded-full border-3 border-brandDark flex items-center justify-center">
-                                    <span class="text-xl">👤</span>
+                        {/* Testimonio - Solo mostrar si existe clientReview */}
+                        {project.clientReview && project.clientReview.trim() !== '' && (
+                            <div class="bg-brandYellow rounded-3xl md:rounded-[3rem] p-8 md:p-12 border-4 border-brandDark shadow-[8px_8px_0px_#27272A] relative transform hover:-translate-y-1 transition-transform">
+                                <div class="absolute -top-6 left-8 md:left-12 w-16 h-16 bg-white rounded-full border-4 border-brandDark flex items-center justify-center text-3xl transform -rotate-12">
+                                    💬
                                 </div>
-                                <p class="font-display font-bold text-brandDark text-lg">{project.client}</p>
+                                <div class="absolute top-8 right-8 w-8 h-8 bg-brandOrange rounded-full border-2 border-brandDark"></div>
+                                <div class="absolute bottom-8 left-8 w-6 h-6 bg-brandPink rounded-full border-2 border-brandDark"></div>
+                                
+                                <p class="text-xl md:text-2xl font-bold text-brandDark italic mb-6 leading-relaxed pt-4">"{project.clientReview}"</p>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-white rounded-full border-3 border-brandDark flex items-center justify-center">
+                                        <span class="text-xl">👤</span>
+                                    </div>
+                                    <p class="font-display font-bold text-brandDark text-lg">{project.client}</p>
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* CTA */}
                         <div class="text-center pt-8">
