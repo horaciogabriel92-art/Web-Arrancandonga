@@ -1052,10 +1052,11 @@ El objetivo principal era crear una presencia online clara y profesional que per
 
 <h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">✨ Resultado</h4>
 <p class="mb-4">El resultado es una <strong class="text-brandOrange font-bold">web clara y funcional</strong> que permite comunicar los servicios de la empresa de manera profesional y generar nuevas oportunidades de contacto con clientes interesados en presupuestar sus obras.</p>`,
-        image1: "/casos-de-estudio/Arquitectura Sin Limites/Portfolio.webp",
+        image1: "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
         image2: "/casos-de-estudio/Arquitectura Sin Limites/web mockup.webp",
-        image3: "/casos-de-estudio/Arquitectura Sin Limites/Portfolio.webp",
+        image3: "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
         thumbnail: "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
+        websiteUrl: "https://www.arquitecturasinlimites.com",
         gallery: [
             "/casos-de-estudio/Arquitectura Sin Limites/80.webp",
             "/casos-de-estudio/Arquitectura Sin Limites/81.webp",

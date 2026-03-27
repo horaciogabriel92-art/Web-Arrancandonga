@@ -395,6 +395,25 @@ const reelCarouselStyles = `
                                         </div>
                                     ))}
                                 </div>
+                                
+                                {/* Botón Ver Web - Solo si tiene websiteUrl */}
+                                {project.websiteUrl && (
+                                    <div class="text-center pt-6">
+                                        <a 
+                                            href={project.websiteUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-8 py-4 rounded-full font-display font-bold btn-lineal text-base md:text-lg shadow-lg hover:shadow-xl border-2 border-brandDark transition-all hover:-translate-y-1"
+                                        >
+                                            <span>Mirá como quedó este proyecto</span>
+                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                                <polyline points="15 3 21 3 21 9"/>
+                                                <line x1="10" y1="14" x2="21" y2="3"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -447,6 +466,25 @@ const reelCarouselStyles = `
                                         </div>
                                     </div>
                                 </div>
+                                
+                                {/* Botón Ver Web - Solo si tiene websiteUrl */}
+                                {project.websiteUrl && (
+                                    <div class="text-center pt-6">
+                                        <a 
+                                            href={project.websiteUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center justify-center gap-2 bg-brandOrange text-white px-8 py-4 rounded-full font-display font-bold btn-lineal text-base md:text-lg shadow-lg hover:shadow-xl border-2 border-brandDark transition-all hover:-translate-y-1"
+                                        >
+                                            <span>Mirá como quedó este proyecto</span>
+                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                                <polyline points="15 3 21 3 21 9"/>
+                                                <line x1="10" y1="14" x2="21" y2="3"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         )}
 
