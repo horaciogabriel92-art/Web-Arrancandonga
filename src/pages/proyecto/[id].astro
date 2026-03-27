@@ -1267,11 +1267,11 @@ const reelCarouselStyles = `
             // Click on image to open modal
             mainImage.addEventListener('click', () => {
                 const allImages = [...images];
-                const index = currentImageIndex;
+                let modalIndex = currentImageIndex;
                 
                 // Create modal content
-                modalImage.src = allImages[index];
-                modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${index + 1}`;
+                modalImage.src = allImages[modalIndex];
+                modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${modalIndex + 1}`;
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
                 document.body.style.overflow = 'hidden';
@@ -1281,21 +1281,40 @@ const reelCarouselStyles = `
                 const modalNext = document.getElementById('nextImageBtn');
                 
                 const modalPrevHandler = () => {
-                    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-                    modalImage.src = allImages[currentImageIndex];
-                    modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${currentImageIndex + 1}`;
-                    updateCarouselImage();
+                    modalIndex = (modalIndex - 1 + allImages.length) % allImages.length;
+                    modalImage.src = allImages[modalIndex];
+                    modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${modalIndex + 1}`;
                 };
                 
                 const modalNextHandler = () => {
-                    currentImageIndex = (currentImageIndex + 1) % allImages.length;
-                    modalImage.src = allImages[currentImageIndex];
-                    modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${currentImageIndex + 1}`;
-                    updateCarouselImage();
+                    modalIndex = (modalIndex + 1) % allImages.length;
+                    modalImage.src = allImages[modalIndex];
+                    modalCaption.textContent = `${dataEl.getAttribute('data-title')} - Imagen ${modalIndex + 1}`;
                 };
                 
-                modalPrev.onclick = modalPrevHandler;
-                modalNext.onclick = modalNextHandler;
+                // Remove old listeners
+                const newModalPrev = modalPrev.cloneNode(true);
+                const newModalNext = modalNext.cloneNode(true);
+                modalPrev.parentNode.replaceChild(newModalPrev, modalPrev);
+                modalNext.parentNode.replaceChild(newModalNext, modalNext);
+                
+                // Add new listeners
+                newModalPrev.addEventListener('click', modalPrevHandler);
+                newModalNext.addEventListener('click', modalNextHandler);
+                
+                // Keyboard navigation for this carousel only
+                const keyHandler = (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        modalPrevHandler();
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        modalNextHandler();
+                    } else if (e.key === 'Escape') {
+                        document.removeEventListener('keydown', keyHandler);
+                    }
+                };
+                document.addEventListener('keydown', keyHandler);
             });
         });
     </script>
