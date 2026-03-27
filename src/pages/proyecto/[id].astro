@@ -620,9 +620,9 @@ const reelCarouselStyles = `
                                             {/* Header tipo Instagram */}
                                             <div class="flex items-center gap-3 p-3 border-b border-gray-100">
                                                 <div class="w-8 h-8 rounded-full bg-brandPink border border-brandDark flex items-center justify-center">
-                                                    <span class="text-xs font-bold">R</span>
+                                                    <span class="text-xs font-bold">{(project.username || project.client || 'C').charAt(0).toUpperCase()}</span>
                                                 </div>
-                                                <span class="font-semibold text-sm">rochasvision</span>
+                                                <span class="font-semibold text-sm">{project.username || project.client?.toLowerCase().replace(/\s+/g, '') || 'cliente'}</span>
                                                 <span class="text-gray-400 ml-auto">•••</span>
                                             </div>
                                             

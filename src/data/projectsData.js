@@ -507,6 +507,7 @@ La marca debía transmitir sensibilidad, elegancia y cercanía, manteniendo una 
         desc: "Desarrollo de contenido para redes sociales de una marca personal dedicada a la nutrición y el bienestar, ubicada en Córdoba, España.",
         clientReview: "Trabajar con Arrancandonga fue una experiencia muy positiva en una etapa clave para mí, en la que necesitaba definir y ordenar mi identidad digital. Su acompañamiento me ayudó a dar coherencia, estructura y dirección a mi presencia en redes sociales. Destaco especialmente su implicación, su capacidad para escuchar y su sensibilidad para entender no solo qué quería comunicar, sino también desde qué lugar profesional y personal quería hacerlo. Supo trasladar mi esencia a una imagen online más cuidada, alineada y estratégica. A pesar de ser un proyecto joven, transmite responsabilidad, compromiso y muchas ganas de crecer y aportar valor real. El trato fue siempre cercano, ágil y con una actitud resolutiva que se agradece cuando estás construyendo o redefiniendo tu marca personal. Guardo un recuerdo muy positivo del trabajo conjunto y recomiendo Arrancandonga a quienes estén dando sus primeros pasos o necesiten impulso y claridad en su comunicación digital.",
         client: "Nutridamente",
+        username: "nutridamente",
         year: "2025",
         services: ["Social Media"],
         challenge: `Nutridamente es un proyecto de nutrición enfocado en ayudar a las personas a mejorar su relación con la alimentación y desarrollar hábitos saludables sostenibles.
@@ -610,6 +611,7 @@ La comunicación debía transmitir confianza, cercanía y profesionalismo, posic
         desc: "Desarrollo de contenido para redes sociales de una óptica orientada a la venta de lentes y servicios de salud visual, ubicada en Montevideo, Uruguay.",
         clientReview: "",
         client: "Optica Rochas Vision",
+        username: "rochasvision",
         year: "2024",
         services: ["Social Media"],
         challenge: `Rochas Visión es una óptica ubicada en Uruguay que ofrece lentes, asesoramiento visual y distintos servicios vinculados al cuidado de la vista.
