@@ -615,14 +615,17 @@ const reelCarouselStyles = `
                                 
                                 {/* Grid de carruseles */}
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    {project.carousels.map((carousel: any, carouselIndex: number) => (
+                                    {project.carousels.map((carousel: any, carouselIndex: number) => {
+                                        const username = project.username || (project.client ? project.client.toLowerCase().replace(/\s+/g, '') : 'cliente');
+                                        const initial = username.charAt(0).toUpperCase();
+                                        return (
                                         <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
                                             {/* Header tipo Instagram */}
                                             <div class="flex items-center gap-3 p-3 border-b border-gray-100">
                                                 <div class="w-8 h-8 rounded-full bg-brandPink border border-brandDark flex items-center justify-center">
-                                                    <span class="text-xs font-bold">{(project.username || project.client || 'C').charAt(0).toUpperCase()}</span>
+                                                    <span class="text-xs font-bold">{initial}</span>
                                                 </div>
-                                                <span class="font-semibold text-sm">{project.username || project.client?.toLowerCase().replace(/\s+/g, '') || 'cliente'}</span>
+                                                <span class="font-semibold text-sm">{username}</span>
                                                 <span class="text-gray-400 ml-auto">•••</span>
                                             </div>
                                             
@@ -700,7 +703,7 @@ const reelCarouselStyles = `
                                             {/* Datos ocultos para JS */}
                                             <div class="carousel-data hidden" data-carousel={carouselIndex} data-images={JSON.stringify(carousel.images)} data-title={carousel.title} />
                                         </div>
-                                    ))}
+                                    );})}
                                 </div>
                             </div>
                         )}
