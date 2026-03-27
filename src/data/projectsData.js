@@ -954,8 +954,7 @@ El objetivo del proyecto fue diseñar un packaging que transmitiera justamente e
             "/casos-de-estudio/PICOT ID/IMG_4268.webp",
             "/casos-de-estudio/PICOT ID/IMG_4270.webp",
             "/casos-de-estudio/PICOT ID/PACKAGING-13.webp",
-            "/casos-de-estudio/PICOT ID/PACKAGING-14.webp",
-            "/casos-de-estudio/PICOT ID/PACKAGING-15.webp"
+            "/casos-de-estudio/PICOT ID/PACKAGING-14.webp"
         ],
         video: "/casos-de-estudio/PICOT ID/video-picot.mp4"
     },
