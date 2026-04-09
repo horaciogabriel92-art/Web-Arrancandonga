@@ -319,7 +319,7 @@ La marca debía funcionar tanto en aplicaciones institucionales —como papeler�
         category: "identidad",
         tags: ["Identidad Visual", "Branding", "Moda", "Joven"],
         desc: "Rediseño de identidad visual para una marca de accesorios con una propuesta joven, colorida y a la moda.",
-        clientReview: "",
+        clientReview: "Cuando ví el perfil de Arrancandonga algo me dijo que ella me podía ayudar, y así fue. Vic siempre escucho con mucha atención mi idea y lo plasmó a la perfección. La e recomendado y lo seguiré haciendo. Gracias Vic 💖",
         client: "FRAVAS ACCESORIOS",
         year: "2024",
         services: ["Identidad Visual"],
@@ -725,60 +725,6 @@ La marca necesitaba un canal de comunicación digital claro que acompañara su a
     },
     {
         id: '10',
-        title: "Panadería San Antonio",
-        category: "identidad",
-        tags: ["Identidad Visual", "Branding", "Panadería", "Mercedes"],
-        desc: "Desarrollo de identidad visual para una panadería tradicional de la ciudad de Mercedes.",
-        clientReview: "",
-        client: "Panadería San Antonio",
-        year: "2025",
-        services: ["Identidad Visual", "Ilustración"],
-        challenge: `Panadería San Antonio es un negocio familiar con una larga trayectoria en la ciudad de Mercedes. Durante décadas fue reconocida por la calidad de sus productos y por formar parte de la vida cotidiana del barrio.
-
-Con el paso del tiempo, el negocio comenzó a atravesar un proceso de transformación. La nueva etapa buscaba mantener la esencia de panadería tradicional, pero al mismo tiempo actualizar la propuesta para convertirse también en un espacio donde las personas pudieran sentarse, disfrutar algo rico y tomarse una pausa dentro del ritmo de la ciudad.
-
-El desafío del proyecto fue desarrollar una identidad visual capaz de honrar la historia y el carácter del lugar, mientras acompañaba esta renovación con una estética más actual, cálida y cercana.`,
-        solution: `<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">🎯 Concepto Central</h4>
-<p class="mb-4">El desarrollo de la marca partió de una idea central: <strong class="text-brandOrange font-bold">reconectar con el barrio y su historia</strong>.</p>
-
-<p class="mb-4"><strong class="text-brandOrange font-bold">San Antonio</strong> no es solo una panadería, sino un <span class="bg-brandYellow/50 px-1 py-0.5 rounded">punto de encuentro ligado a los recuerdos y a la vida cotidiana</span> de la ciudad. Muchas personas asocian sus productos con momentos especiales, celebraciones familiares o tradiciones que se repiten año tras año.</p>
-
-<div class="h-px bg-brandDark/20 my-4"></div>
-
-<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">💡 "Vibrá el Barrio"</h4>
-<p class="mb-4">A partir de esta idea surgió el concepto <strong class="text-brandOrange font-bold">"Vibrá el barrio"</strong>, una invitación a redescubrir lo cotidiano: <span class="bg-brandYellow/50 px-1 py-0.5 rounded">sentarse, mirar hacia afuera, observar la ciudad y disfrutar</span> de los sabores que siempre estuvieron ahí.</p>
-
-<div class="h-px bg-brandDark/20 my-4"></div>
-
-<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">🎨 Desarrollo Visual</h4>
-<p class="mb-4">La identidad visual se construyó buscando <strong class="text-brandOrange font-bold">equilibrar tradición y renovación</strong>, combinando referencias al patrimonio urbano de Mercedes con un lenguaje visual más contemporáneo.</p>
-
-<p class="mb-4">La identidad toma inspiración en <strong class="text-brandOrange font-bold">elementos del entorno urbano</strong> de la ciudad:</p>
-
-<div class="bg-white/50 rounded-xl p-4 border-2 border-brandDark/20 mb-4">
-    <ul class="space-y-2">
-        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Fachadas históricas</span></li>
-        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Detalles arquitectónicos</span></li>
-        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Adoquines</span></li>
-        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Otros rasgos característicos del paisaje del barrio</span></li>
-    </ul>
-</div>
-
-<p class="mb-4">Estos elementos dieron lugar a un <strong class="text-brandOrange font-bold">sistema gráfico</strong> que conecta la marca con su contexto, reforzando la idea de <span class="bg-brandYellow/50 px-1 py-0.5 rounded">pertenencia al lugar y de historia compartida</span> con la comunidad.</p>
-
-<div class="h-px bg-brandDark/20 my-4"></div>
-
-<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">✨ Resultado</h4>
-<p class="mb-4">La nueva identidad visual acompaña la renovación de Panadería San Antonio, <strong class="text-brandOrange font-bold">manteniendo el valor de su historia</strong> mientras proyecta una imagen más actual y cercana.</p>
-
-<p class="mb-4">La marca refuerza su vínculo con el barrio y con la ciudad, consolidando a la panadería como un lugar donde <span class="bg-brandYellow/50 px-1 py-0.5 rounded">tradición, comunidad y disfrute</span> se encuentran.</p>`,
-        image1: "/casos-de-estudio/banner panaderia san antonio 1920x823-07.webp",
-        image2: "/casos-de-estudio/miniatura panaderia san antonio 800x1000-07.webp",
-        image3: "/casos-de-estudio/banner panaderia san antonio 1920x823-07.webp",
-        thumbnail: "/casos-de-estudio/miniatura panaderia san antonio 800x1000-07.webp"
-    },
-    {
-        id: '11',
         title: "Panes Artesanos Javier Muñoz",
         category: "identidad",
         tags: ["Identidad Visual", "Branding", "Panadería", "Artesanal", "España"],
@@ -906,7 +852,7 @@ El objetivo del proyecto fue crear una tienda online que centralizara las ventas
         category: "diseno",
         tags: ["Diseño de Packaging", "Ilustración", "Chocolate", "Snack"],
         desc: "Diseño e ilustración para packaging de marca dedicada a la elaboración de frutas bañadas en chocolate.",
-        clientReview: "",
+        clientReview: "Trabajar con Vic fue clave para Picot, le transmití las ideas que tenía para la marca y ella desarrolló todo un packaging que superó nuestras expectativas. Supo entender perfecto la esencia de Picot y llevarla a cada envase, diseñando un packaging para cada producto que transmite justo lo que cada sabor representa. Hoy es una de las cosas que más nos caracteriza y de lo que más le gusta a los clientes. Nos encantó trabajar con ella y sin dudas fue fundamental para el inicio de nuestra marca.",
         client: "Picot",
         year: "2025",
         services: ["Diseño de packaging e ilustración"],
@@ -1064,6 +1010,118 @@ El objetivo principal era crear una presencia online clara y profesional que per
             "/casos-de-estudio/Arquitectura Sin Limites/84.webp",
             "/casos-de-estudio/Arquitectura Sin Limites/85.webp",
             "/casos-de-estudio/Arquitectura Sin Limites/86.webp"
+        ]
+    },
+    {
+        id: '16',
+        title: "Bitácora Nutricional - Nutridamente",
+        category: "social",
+        tags: ["Social Media", "Nutrición", "España", "Marca Personal"],
+        desc: "Desarrollo de bitácora nutricional en formato PDF para marca personal de nutrición.",
+        clientReview: "",
+        client: "Nutridamente",
+        year: "2025",
+        services: ["Diseño de Bitácora", "Diseño Editorial"],
+        challenge: `Nutridamente es un proyecto de nutrición enfocado en ayudar a las personas a mejorar su relación con la alimentación y desarrollar hábitos saludables sostenibles.
+
+El objetivo de este trabajo fue crear una bitácora nutricional en formato PDF que permitiera a las clientas registrar sus comidas, emociones y hábitos de forma sencilla y visual.
+
+La herramienta debía ser práctica, motivadora y alineada con la identidad visual de la marca.`,
+        solution: `<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">🎯 Diseño de Bitácora</h4>
+<p class="mb-4">Se desarrolló una <strong class="text-brandOrange font-bold">bitácora nutricional en formato PDF</strong> pensada para que las clientas pudieran completarla de forma digital o imprimirla según su preferencia.</p>
+
+<div class="h-px bg-brandDark/20 my-4"></div>
+
+<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">📋 Contenido</h4>
+<p class="mb-4">La bitácora incluye espacios para registrar:</p>
+
+<div class="bg-white/50 rounded-xl p-4 border-2 border-brandDark/20 mb-4">
+    <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Comidas y snacks diarios</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Estado de ánimo y emociones</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Hábitos y rutinas</span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span>Objetivos personales</span></li>
+    </ul>
+</div>
+
+<div class="h-px bg-brandDark/20 my-4"></div>
+
+<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">✨ Resultado</h4>
+<p class="mb-4">Una <strong class="text-brandOrange font-bold">herramienta funcional y estética</strong> que acompaña el proceso de las clientas, manteniendo la coherencia visual de la marca Nutridamente.</p>`,
+        image1: "/casos-de-estudio/Nutridamente Bitacora/image (3).webp",
+        image2: "/casos-de-estudio/Nutridamente Bitacora/image (3).webp",
+        image3: "/casos-de-estudio/Nutridamente Bitacora/image (3).webp",
+        thumbnail: "/casos-de-estudio/Nutridamente Bitacora/image (3).webp"
+    },
+    {
+        id: '17',
+        title: "Jesica Blanco - Social Media",
+        category: "social",
+        tags: ["Social Media", "Fotografía", "España", "Marca Personal"],
+        desc: "Desarrollo de contenido para redes sociales de fotógrafa profesional en España.",
+        clientReview: "",
+        client: "Jesica Blanco",
+        year: "2025",
+        services: ["Social Media", "Diseño de Contenido"],
+        challenge: `Jesica Blanco es una fotógrafa profesional que ofrece sesiones de fotos para diversas necesidades: embarazo, familias, eventos, bodas y retratos personales.
+
+El objetivo del trabajo fue desarrollar contenido para redes sociales que comunicara la versatilidad de sus servicios y conectara con su audiencia de forma cercana y profesional.
+
+La comunicación debía transmitir confianza, calidad y calidez, reflejando el estilo de Jesica al capturar momentos especiales.`,
+        solution: `<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">🎯 Estrategia de Contenido</h4>
+<p class="mb-4">El trabajo se centró en la <strong class="text-brandOrange font-bold">creación de contenido variado y atractivo</strong> para sus redes sociales, destacando los distintos tipos de sesiones que ofrece.</p>
+
+<div class="h-px bg-brandDark/20 my-4"></div>
+
+<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">📸 Líneas de Contenido</h4>
+<p class="mb-4">Se desarrollaron publicaciones orientadas a:</p>
+
+<div class="bg-white/50 rounded-xl p-4 border-2 border-brandDark/20 mb-4">
+    <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span><strong>Sesiones de embarazo y familias</strong></span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span><strong>Eventos y bodas</strong></span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span><strong>Retratos personales</strong></span></li>
+        <li class="flex items-start gap-2"><span class="text-brandOrange font-bold">•</span> <span><strong>Detrás de cámaras y proceso creativo</strong></span></li>
+    </ul>
+</div>
+
+<div class="h-px bg-brandDark/20 my-4"></div>
+
+<h4 class="inline-block bg-brandDark px-3 py-1 rounded-lg font-bold text-white shadow-md text-sm md:text-base mb-2">✨ Resultado</h4>
+<p class="mb-4">Una <strong class="text-brandOrange font-bold">presencia digital coherente y profesional</strong> que permite a Jesica mostrar su trabajo, conectar con su audiencia y generar nuevas oportunidades de negocio.</p>`,
+        image1: "/casos-de-estudio/Jesica Blanco - Social Media/JESICA BLANCO.webp",
+        image2: "/casos-de-estudio/Jesica Blanco - Social Media/JESICA BLANCO.webp",
+        image3: "/casos-de-estudio/Jesica Blanco - Social Media/JESICA BLANCO.webp",
+        thumbnail: "/casos-de-estudio/Jesica Blanco - Social Media/JESICA BLANCO.webp",
+        carousels: [
+            {
+                title: "Carrusel 1",
+                folder: "Carrusel 1",
+                images: [
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 1/IMG_1110.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 1/IMG_1111.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 1/IMG_1112.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 1/IMG_1114.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 1/IMG_1115.webp"
+                ]
+            },
+            {
+                title: "Carrusel 2",
+                folder: "Carrusel 2",
+                images: [
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1118.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1119.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1120.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1121.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1122.webp",
+                    "/casos-de-estudio/Jesica Blanco - Social Media/Carrusel 2/IMG_1123.webp"
+                ]
+            }
+        ],
+        coverImages: [
+            "/casos-de-estudio/Jesica Blanco - Social Media/Portadas reels/IMG_1109.webp",
+            "/casos-de-estudio/Jesica Blanco - Social Media/Portadas reels/IMG_1116.webp",
+            "/casos-de-estudio/Jesica Blanco - Social Media/Portadas reels/IMG_1117.webp"
         ]
     }
 ];
