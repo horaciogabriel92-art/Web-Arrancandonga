@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SpeedInsights from "@vercel/speed-insights/astro";
 const { title = "ARRANCANDONGA | Branding & Diseño", description = "Arrancandonga - Estudio de Branding & Diseño Estratégico. Te ayudo a que tu negocio se vea profesional, claro y listo para crecer." } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -29,6 +30,9 @@ const { title = "ARRANCANDONGA | Branding & Diseño", description = "Arrancandon
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Vercel Speed Insights -->
+    <SpeedInsights />
 
     <!-- Meta Pixel Code -->
     <script>
