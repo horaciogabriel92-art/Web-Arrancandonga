@@ -51,7 +51,6 @@ const detailedContent: any = {
                 result: "🎯 Resultado:\n\nUna herramienta clara que te permite crecer con coherencia en el tiempo."
             }
         ],
-        price: "Desde 550 USD",
         cta: "Si sentís que estás trabajando mucho pero sin dirección clara... Este es el punto de partida.\n\nAgendemos una reunión y veamos cómo ordenar tu marca para que empiece a crecer con intención y no por improvisación.\n\nTu negocio no necesita más contenido.\n\nNecesita claridad."
     },
     // We can populate the rest based on index.html data
@@ -90,7 +89,6 @@ const detailedContent: any = {
                 result: "🎯 Resultado: tranquilidad de que vas a saber mantener tu marca alineada en el tiempo."
             }
         ],
-        price: "Desde 350 USD",
         cta: "Si tu negocio ya creció, tu imagen también tiene que hacerlo.\n\nAgendemos una reunión y trabajemos una identidad visual que esté a la altura de la etapa en la que estás hoy.\n\nPorque cuando tu marca se ve profesional, todo empieza a sentirse más sólido."
     },
     web: {
@@ -143,7 +141,6 @@ const detailedContent: any = {
             { q: "¿Incluye hosting y seguridad?", a: "Sí, todos los planes lo incluyen." },
             { q: "¿No sé qué plan elegir?", a: "Te asesoramos para que elijas el que realmente necesitás." }
         ],
-        price: "Desde 200 USD",
         cta: "¿Lista para tener tu propia vidriera digital?\n\nAgendemos una reunión y definimos qué tipo de web necesita tu negocio hoy.\n\nTu marca merece un lugar propio.\n\nY podemos crearlo."
     },
     pack: {
@@ -177,7 +174,6 @@ Para que tu negocio no solo se vea profesional… sino que esté listo para posi
                 result: "Resultado: una web estratégica, profesional y lista para trabajar por vos."
             }
         ],
-        price: "Desde 600 USD",
         cta: "Agendemos una reunión y empecemos a construir una marca que no solo se vea bien, sino que esté preparada para crecer.\n\nTu negocio merece coherencia y este pack es el punto de partida."
     },
     social: {
@@ -203,21 +199,20 @@ Yo me encargo de la estrategia, la producción y el diseño.`,
             {
                 title: "🌿 Pack Presencia",
                 desc: "Ideal para mantener constancia sin sobrecargarte.\n\nIncluye:\n\n• 1 reel simple\n• 2 reels intermedios\n• 1 reel complejo\n• 3 carruseles / posteos",
-                result: "Desde $12.000 UYU"
+                result: ""
             },
             {
                 title: "✨ Pack Presencia Activa",
                 desc: "Para marcas que quieren mayor visibilidad y posicionamiento.\n\nIncluye:\n\n• 2 reels simples\n• 3 reels intermedios\n• 2 reel complejo\n• 3 carruseles / posteos",
-                result: "Desde $18.000 UYU"
+                result: ""
             },
             {
                 title: "Gestión de Meta Ads (opcional)",
                 desc: "Podés sumar la gestión de campañas en Meta Ads para que tu contenido llegue a más personas y genere mejores resultados.\n\nIncluye:\n\n✔ Configuración de campaña\n✔ Segmentación estratégica\n✔ Instalación de píxel (si aplica)\n✔ Optimización durante 15 días\n✔ Reporte de resultados",
-                result: "Desde $8.000 UYU\n\n(Inversión en publicidad no incluida)\n\nEsto es ideal para que el contenido que creemos juntas se potencie y te genere más ventas aún."
+                result: "(Inversión en publicidad no incluida)\n\nEsto es ideal para que el contenido que creemos juntas se potencie y te genere más ventas aún."
             }
         ],
         process: "✔ Reunión online de planificación (1 hora)\n\n✔ Definición de ideas y enfoque estratégico\n\n✔ Guiones para reels\n\n✔ Copys para posteos y carruseles\n\n✔ Jornada de grabación presencial (hasta 4 horas) o en caso de que prefieras no salir en cámara, podemos ofrecerte un creador de contenido que lo haga por vos (consultar)\n\n✔ Edición y diseño\n\n✔ Entrega lista para publicar\n\n⏱ Entrega: 7 días hábiles desde la grabación.",
-        price: "Desde $12.000 UYU",
         cta: "Si estás cansada de no saber que c$r%jos publicar…\n\nAgendemos una reunión y armemos un plan de contenido alineado a tu marca y a tus objetivos.\n\nTu negocio no necesita más posts. Necesita dirección."
     },
     ads: {
@@ -260,12 +255,10 @@ No se trata de gastar más, se trata de invertir mejor.`,
                 result: "Transparencia total en lo que funciona."
             }
         ],
-        price: "Desde $8.000 UYU",
         cta: "¿Querés empezar a atraer nuevos clientes con publicidad digital?\n\nPodemos analizar tu negocio y diseñar una campaña alineada a tus objetivos.\n\nAgendá una reunión y vemos cómo potenciar tu presencia digital con anuncios estratégicos."
     },
     diseno: {
         headline: "Soluciones visuales para impulsar tu marca",
-        price: "Inversión: desde 50 USD",
         intro: `No todo requiere un proceso de branding completo.
 
 A veces lo que tu negocio necesita es una pieza puntual, bien pensada y profesional, que eleve la percepción de tu marca y acompañe tus objetivos.
@@ -375,9 +368,11 @@ const content = detailedContent[service.id] || {
                     <p class="text-lg md:text-2xl text-brandDark/90 font-medium relative z-10 max-w-3xl mx-auto leading-tight">{content.headline}</p>
 
                     {/* Precio flotante */}
-                    <div class="mt-6 inline-block bg-white rounded-full px-6 py-2 border-3 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
-                        <span class="font-bold text-brandDark">{content.price}</span>
-                    </div>
+                    {content.price && (
+                        <div class="mt-6 inline-block bg-white rounded-full px-6 py-2 border-3 border-brandDark shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                            <span class="font-bold text-brandDark">{content.price}</span>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -1008,7 +1003,7 @@ const content = detailedContent[service.id] || {
                                 const bulletDesc = descLines.filter((l: string) => l.trim().startsWith('•')).map((l: string) => l.replace('•', '').trim());
                                 const helpText = descLines.filter((l: string) => l.includes('Te ayudamos') || l.includes('Ejemplo:')).join('\n');
 
-                                // Parse step.result directly for "Desde X USD"
+                                // Parse step.result: first line is the label (e.g. "Incluye:")
                                 const resultLines = step.result ? step.result.split('\n').map((l: string) => l.trim()).filter(Boolean) : [];
                                 const priceText = resultLines.length > 0 ? resultLines[0] : "";
                                 const includeIntro = resultLines.length > 1 ? resultLines[1] : "";
@@ -1204,10 +1199,6 @@ const content = detailedContent[service.id] || {
                                         </li>
                                     </ul>
                                 </div>
-                                
-                                <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center">
-                                    <p class="font-bold text-brandDark">Desde $12.000 UYU</p>
-                                </div>
                             </div>
                             
                             {/* Pack Presencia Activa */}
@@ -1244,10 +1235,6 @@ const content = detailedContent[service.id] || {
                                         </li>
                                     </ul>
                                 </div>
-                                
-                                <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center">
-                                    <p class="font-bold text-brandDark">Desde $18.000 UYU</p>
-                                </div>
                             </div>
                             
                             {/* Gestión de Meta Ads - Ancho completo */}
@@ -1266,8 +1253,7 @@ const content = detailedContent[service.id] || {
                                         <p class="text-brandDark/70 text-sm mb-4">Podés sumar la gestión de campañas en Meta Ads para que tu contenido llegue a más personas y genere mejores resultados.</p>
                                         
                                         <div class="bg-cream rounded-2xl p-4 border-2 border-brandDark/20 text-center md:text-left">
-                                            <p class="font-bold text-brandDark">Desde $8.000 UYU</p>
-                                            <p class="text-xs text-brandDark/90 mt-1">(Inversión en publicidad no incluida)</p>
+                                            <p class="text-sm font-bold text-brandDark">(Inversión en publicidad no incluida)</p>
                                         </div>
                                     </div>
                                     
